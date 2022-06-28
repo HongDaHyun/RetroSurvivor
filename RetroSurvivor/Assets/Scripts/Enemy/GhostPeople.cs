@@ -6,6 +6,6 @@ public class GhostPeople : Enemy
 {
     GhostPeople()
     {
-        Speed = 1.8f;
+        Damage = 10;
     }
 }

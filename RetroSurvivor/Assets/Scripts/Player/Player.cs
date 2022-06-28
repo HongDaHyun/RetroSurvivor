@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
 {
     Animator anim;
     SpriteRenderer sprite;
+    public SpriteRenderer Sprite
+    {
+        get => sprite;
+        set => sprite = value;
+    }
     Camera cam;
     Vector2 mouse;
 
@@ -25,7 +30,18 @@ public class Player : MonoBehaviour
         set => eyesight = value;
     }
 
-    public Animator PlayerAnim;
+    private int curHP;
+    public int CurHP
+    {
+        get => curHP;
+        set => curHP = value;
+    }
+    private int maxHP;
+    public int MaxHP
+    {
+        get => maxHP;
+        set => maxHP = value;
+    }
 
     private void Awake()
     {
@@ -49,7 +65,7 @@ public class Player : MonoBehaviour
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector2(inputX, inputY) * Time.deltaTime * curSpeed);
+        transform.Translate(new Vector2(inputX, inputY).normalized * Time.deltaTime * curSpeed);
 
         if (inputX != 0 || inputY != 0)
         {
@@ -87,5 +103,6 @@ public class Player : MonoBehaviour
     {
         curSpeed = speed;
         aimSpeed = speed / 1.5f;
+        curHP = maxHP;
     }
 }

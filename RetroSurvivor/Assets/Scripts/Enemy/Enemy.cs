@@ -9,11 +9,11 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     SpriteRenderer sprite;
 
-    private float speed;
-    public float Speed
+    private int damage;
+    public int Damage
     {
-        get => speed;
-        set => speed = value;
+        get => damage;
+        set => damage = value;
     }
 
     private void Awake()

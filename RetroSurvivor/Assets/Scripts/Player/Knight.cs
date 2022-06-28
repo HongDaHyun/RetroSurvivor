@@ -8,6 +8,7 @@ public class Knight : Player
     {
         Speed = 2.4f;
         Eyesight = -10;
+        MaxHP = 100;
         SetStat();
     }
 }
