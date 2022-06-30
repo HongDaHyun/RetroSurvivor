@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     }
     Camera cam;
     Vector2 mouse;
+    public Vector2 Mouse
+    {
+        get => mouse;
+        set => mouse = value;
+    }
 
     private float aimSpeed;
     private float curSpeed;
@@ -21,6 +26,19 @@ public class Player : MonoBehaviour
     {
         get => speed;
         set => speed = value;
+    }
+
+    private float curAttackSpeed = 10000;
+    public float CurAttackSpeed
+    {
+        get => curAttackSpeed;
+        set => curAttackSpeed = value;
+    }
+    private float attackSpeed;
+    public float AttackSpeed
+    {
+        get => attackSpeed;
+        set => attackSpeed = value;
     }
 
     private int eyesight;
@@ -43,7 +61,7 @@ public class Player : MonoBehaviour
         set => maxHP = value;
     }
 
-    private void Awake()
+    public virtual void Awake()
     {
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
@@ -55,8 +73,9 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    public void Update()
+    public virtual void Update()
     {
+        curAttackSpeed += Time.deltaTime;
         Aim();
     }
 

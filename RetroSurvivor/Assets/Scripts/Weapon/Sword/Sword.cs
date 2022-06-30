@@ -11,6 +11,7 @@ public class Sword : Weapon
         switch(swordList)
         {
             case SwordList.ShortSword:
+                StartCoroutine(ShortSword());
                 break;
             case SwordList.LongSword:
                 break;
@@ -20,12 +21,19 @@ public class Sword : Weapon
                 break;
         }
     }
-/*
-    IEnumerator ShortSword(int n)
+
+    IEnumerator ShortSword()
     {
-        GameObject shortSword = mapManager.MakeObj("ShortSword");
-        shortSword.transform.position = new Vector2(transform.position.x + 1.3f, transform.position.y);
-        yield return new WaitForSeconds(1.5f);
+        Vector2 playerPos2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 attackDir = (player.Mouse - playerPos2D).normalized;
+        Vector2 attackPos = playerPos2D + attackDir * 1f;
+        float z = Mathf.Atan2(attackDir.y, attackDir.x) * Mathf.Rad2Deg;
+
+        GameObject shortSword = objectManager.MakeObj("ShortSword");
+        shortSword.transform.position = attackPos;
+        shortSword.transform.rotation = Quaternion.Euler(0, 0, z);
+        yield return new WaitForSeconds(0.3f);
+        shortSword.SetActive(false);
     }
-*/
+
 }

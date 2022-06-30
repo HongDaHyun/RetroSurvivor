@@ -15,8 +15,6 @@ public class MapManager : MonoBehaviour
 
     public GameObject[,] stage1 = new GameObject[12, 9];
 
-    GameObject[] targetPool;
-
     private void Awake()
     {
         Generate();
