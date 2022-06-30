@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
-    public ObjectManager objectManager;
+    public MapManager mapManager;
     GameObject player;
 
     public NavMeshSurface2d surface2D;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetCursor(cursorImg, true);
-        InitMap(1);
+        InitMap();
 
         surface2D.BuildNavMesh();
     }
@@ -50,38 +50,33 @@ public class GameManager : MonoBehaviour
         Cursor.SetCursor(img, hotSpot, CursorMode.ForceSoftware);
     }
 
-    public void InitMap(int level)
+    public void InitMap()
     {
         int[] r = { -2, -1, 0, 1, 2 };
         int[] c = { -2, -1, 0, 1, 2 };
-        switch(level)
+        for (int i = 0; i < 5; i++)
         {
-            case 1:
-                for(int i = 0; i < 5; i++)
-                {
-                    for(int j = 0; j < 5; j++)
-                    {
-                        stage[i, j] = objectManager.MakeObj("Stage1");
-                        stage[i, j].transform.position = new Vector2(18 * r[j], 10 * c[i]);
-                    }
-                }
-                break;
+            for (int j = 0; j < 5; j++)
+            {
+                stage[i, j] = mapManager.MakeMap();
+                stage[i, j].transform.position = new Vector2(18 * r[j], 10 * c[i]);
+            }
         }
     }
 
-    
+
     public void MapScrolling()
     {
         Vector2 memory;
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
-            for(int j = 0; j < 5; j++)
+            for (int j = 0; j < 5; j++)
             {
                 if (player.transform.position.x - stage[i, j].transform.position.x > 54)
                 {
                     memory = stage[i, j].transform.position;
                     stage[i, j].SetActive(false);
-                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j] = mapManager.MakeMap();
                     stage[i, j].transform.position = new Vector2(memory.x + 90, memory.y);
                     isScrolling = true;
                 }
@@ -89,7 +84,7 @@ public class GameManager : MonoBehaviour
                 {
                     memory = stage[i, j].transform.position;
                     stage[i, j].SetActive(false);
-                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j] = mapManager.MakeMap();
                     stage[i, j].transform.position = new Vector2(memory.x - 90, memory.y);
                     isScrolling = true;
                 }
@@ -97,7 +92,7 @@ public class GameManager : MonoBehaviour
                 {
                     memory = stage[i, j].transform.position;
                     stage[i, j].SetActive(false);
-                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j] = mapManager.MakeMap();
                     stage[i, j].transform.position = new Vector2(memory.x, memory.y + 50);
                     isScrolling = true;
                 }
@@ -105,7 +100,7 @@ public class GameManager : MonoBehaviour
                 {
                     memory = stage[i, j].transform.position;
                     stage[i, j].SetActive(false);
-                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j] = mapManager.MakeMap();
                     stage[i, j].transform.position = new Vector2(memory.x, memory.y - 50);
                     isScrolling = true;
                 }
@@ -115,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateNav()
     {
-        if(isScrolling)
+        if (isScrolling)
         {
             surface2D.UpdateNavMesh(surface2D.navMeshData);
             isScrolling = false;

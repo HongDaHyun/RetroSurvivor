@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4652089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4652091}
+  - component: {fileID: 4652090}
+  m_Layer: 0
+  m_Name: ObjectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4652090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e67f7e3db94fc47aabcdb10c372b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortSwordPrefab: {fileID: 2354688013933297465, guid: cab8f46468375af4bbb7fc2d0c7bacda, type: 3}
+--- !u!4 &4652091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652089}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &14663555
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +410,7 @@ GameObject:
   - component: {fileID: 331341639}
   - component: {fileID: 331341644}
   - component: {fileID: 331341645}
+  - component: {fileID: 331341646}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Player
@@ -507,6 +553,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eff5574d5c66e14783ad15a77264ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &331341646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331341638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3761dc18f3e1a498295ab0a7b4438f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &693559322
@@ -691,7 +749,7 @@ GameObject:
   - component: {fileID: 986436427}
   - component: {fileID: 986436426}
   m_Layer: 0
-  m_Name: ObjectManager
+  m_Name: MapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c6b1d2701f79f4f8cfc476dc8cd29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectInfos:
+  mapInfos:
   - perfab: {fileID: 4320187168111059051, guid: e4994163c588e6a41b48a111f7c4834c, type: 3}
     count: 9
   - perfab: {fileID: 8410147726358726388, guid: 939ce76ad8f5fc246896dd9f07ca8603, type: 3}
@@ -958,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fa23636a6c20d47815767a79057d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectManager: {fileID: 986436426}
+  mapManager: {fileID: 986436426}
   surface2D: {fileID: 1915185244}
   cursorImg: {fileID: 2800000, guid: ab862c38972c42743848cde11baf053d, type: 3}
   sensitivity: 2
