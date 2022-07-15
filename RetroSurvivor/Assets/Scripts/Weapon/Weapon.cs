@@ -11,13 +11,25 @@ public class Weapon : MonoBehaviour
         get => damage;
         set => damage = value;
     }
+    private SpriteRenderer sprite;
+    public SpriteRenderer  Sprite
+    {
+        get => sprite;
+    }
+    private Animator anim;
+    public Animator Anim
+    {
+        get => anim;
+    }
     public ObjectManager objectManager;
 
     protected Player player;
 
-    private void Awake()
+    public void Awake()
     {
-        player = transform.parent.gameObject.GetComponent<Player>();
+        player = transform.root.GetComponent<Player>();
+        sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
     }
 }

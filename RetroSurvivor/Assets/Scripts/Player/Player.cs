@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
         get => sprite;
         set => sprite = value;
     }
-    SpriteRenderer weaponSprite;
     Camera cam;
     Vector2 mouse;
     public Vector2 Mouse
@@ -62,12 +61,11 @@ public class Player : MonoBehaviour
         set => maxHP = value;
     }
 
-    public virtual void Awake()
+    public void Awake()
     {
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         cam = Camera.main;
-        weaponSprite = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
     }
 
     public void FixedUpdate()
@@ -75,7 +73,7 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    public virtual void Update()
+    public void Update()
     {
         curAttackSpeed += Time.deltaTime;
         Aim();
@@ -112,15 +110,10 @@ public class Player : MonoBehaviour
         if (mouse.x > transform.position.x)
         {
             sprite.flipX = false;
-
-            weaponSprite.flipY = false;
-            weaponSprite.sortingOrder = 0;
         }
         else if (mouse.x < transform.position.x)
         {
             sprite.flipX = true;
-            weaponSprite.flipY = true;
-            weaponSprite.sortingOrder = -1;
         }
     }
 
