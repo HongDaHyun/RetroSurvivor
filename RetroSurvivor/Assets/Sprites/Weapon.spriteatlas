@@ -15,7 +15,7 @@ SpriteAtlas:
       compressionQuality: 50
       maxTextureSize: 2048
       textureCompression: 0
-      filterMode: 1
+      filterMode: 0
       generateMipMaps: 0
       readable: 0
       crunchedCompression: 0
@@ -33,6 +33,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
+    - {fileID: 2800000, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -42,11 +43,27 @@ SpriteAtlas:
   - {fileID: 33633905, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
   - {fileID: -653835431, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
   - {fileID: 931845853, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
+  - {fileID: -1428752900, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 1516251063, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -55719480, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 2071632171, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -1769419111, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 1811938338, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -1116827943, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 25817817, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
   m_PackedSpriteNamesToIndex:
   - Sword_3
   - Sword_1
   - Sword_0
   - Sword_4
+  - ShortSword_3
+  - ShortSword_2
+  - ShortSword_1
+  - ShortSword_0
+  - ShortSword_7
+  - ShortSword_6
+  - ShortSword_5
+  - ShortSword_4
   m_RenderDataMap: {}
   m_Tag: Weapon
   m_IsVariant: 0

@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        player = GetComponent<Player>();
+        player = transform.parent.gameObject.GetComponent<Player>();
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
     }
 }
