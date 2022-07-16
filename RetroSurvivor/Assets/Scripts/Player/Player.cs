@@ -61,6 +61,13 @@ public class Player : MonoBehaviour
         set => maxHP = value;
     }
 
+    private float damage;
+    public float Damage
+    {
+        get => damage;
+        set => damage = value;
+    }
+
     public void Awake()
     {
         anim = GetComponent<Animator>();

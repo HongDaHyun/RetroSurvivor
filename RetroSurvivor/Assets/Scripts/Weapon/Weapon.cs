@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private int damage;
-    public int Damage
+    private int minDamage;
+    public int MinDamage
     {
-        get => damage;
-        set => damage = value;
+        get => minDamage;
+        set => minDamage = value;
     }
+    private int maxDamage;
+    public int MaxDamage
+    {
+        get => maxDamage;
+        set => maxDamage = value;
+    }
+
     private SpriteRenderer sprite;
     public SpriteRenderer  Sprite
     {
@@ -30,7 +37,7 @@ public class Weapon : MonoBehaviour
 
     protected Player player;
 
-    public void Awake()
+    public virtual void Awake()
     {
         player = transform.root.GetComponent<Player>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();

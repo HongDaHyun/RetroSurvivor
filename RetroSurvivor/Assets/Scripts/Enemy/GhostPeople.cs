@@ -6,6 +6,7 @@ public class GhostPeople : Enemy
 {
     GhostPeople()
     {
-        Damage = 10;
+        Damage = 3;
+        Health = 10;
     }
 }

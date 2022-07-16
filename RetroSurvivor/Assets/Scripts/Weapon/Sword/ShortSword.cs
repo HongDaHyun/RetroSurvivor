@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class ShortSword : Weapon
 {
+    public int id;
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        switch (id)
+        {
+            case 0:
+                MinDamage = 1;
+                MaxDamage = 5;
+                break;
+        }
+    }
+
     private void Update()
     {
-        if (player.CurAttackSpeed > player.AttackSpeed && Input.GetMouseButton(0))
-        {
-            Anim.SetTrigger("Attack");
-            AfterImage.SetActive(true);
-            player.CurAttackSpeed = 0;
-        }
-        else
-        {
-            Aim();
-        }
+        Attack();
+        Aim();
     }
 
     private void Aim()
@@ -43,6 +50,16 @@ public class ShortSword : Weapon
         else
         {
             Sprite.sortingOrder = 2;
+        }
+    }
+
+    private void Attack()
+    {
+        if (player.CurAttackSpeed > player.AttackSpeed && Input.GetMouseButton(0))
+        {
+            Anim.SetTrigger("Attack");
+            AfterImage.SetActive(true);
+            player.CurAttackSpeed = 0;
         }
     }
 }

@@ -15,6 +15,12 @@ public class Enemy : MonoBehaviour
         get => damage;
         set => damage = value;
     }
+    private int health;
+    public int Health
+    {
+        get => health;
+        set => health = value;
+    }
 
     private void Awake()
     {

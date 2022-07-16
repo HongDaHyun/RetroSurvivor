@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     GameObject player;
 
     public NavMeshSurface2d surface2D;
-    public Texture2D cursorImg;
 
     public float sensitivity;
     private bool isScrolling;
@@ -23,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetCursor(cursorImg, true);
         InitMap();
 
         surface2D.BuildNavMesh();
@@ -33,21 +31,6 @@ public class GameManager : MonoBehaviour
     {
         MapScrolling();
         UpdateNav();
-    }
-
-    public void SetCursor(Texture2D img, bool isCenter)
-    {
-        Vector2 hotSpot;
-
-        if (isCenter)
-        {
-            hotSpot.x = img.width / 2;
-            hotSpot.y = img.height / 2;
-        }
-        else
-            hotSpot = Vector2.zero;
-
-        Cursor.SetCursor(img, hotSpot, CursorMode.ForceSoftware);
     }
 
     public void InitMap()
