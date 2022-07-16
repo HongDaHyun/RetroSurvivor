@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     GameObject player;
     NavMeshAgent agent;
     SpriteRenderer sprite;
+    BuffManager buffManager;
 
     private int damage;
     public int Damage
@@ -22,10 +23,18 @@ public class Enemy : MonoBehaviour
         set => health = value;
     }
 
+    private bool isStun;
+    public bool IsStun
+    {
+        get => isStun;
+        set => isStun = value;
+    }
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         sprite = GetComponent<SpriteRenderer>();
+        buffManager = GameObject.Find("BuffManager").GetComponent<BuffManager>();
     }
 
     private void Start()
@@ -35,14 +44,45 @@ public class Enemy : MonoBehaviour
         agent.updateUpAxis = false;
     }
 
-    public void FixedUpdate()
+    private void Update()
     {
         Move();
+        Die();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AfterImage"))
+        {
+            StartCoroutine(Damaged(collision));
+        }
+    }
+
+    IEnumerator Damaged(Collider2D collision)
+    {
+        isStun = true;
+        health -= collision.GetComponent<AfterImage>().totalDmg;
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        sprite.color = Color.white;
+        isStun = false;
+    }
+
+    private void Die()
+    {
+        if(health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void Move()
     {
         agent.SetDestination(player.transform.position);
+        if(isStun)
+        {
+            agent.SetDestination(transform.position);
+        }
         if (transform.position.x > player.transform.position.x)
             sprite.flipX = true;
         else

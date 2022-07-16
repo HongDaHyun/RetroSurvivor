@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class AfterImage : MonoBehaviour
 {
+    public int totalDmg;
     Player player;
     Weapon weapon;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        weapon = transform.parent.gameObject.GetComponent<Weapon>();
+        weapon = transform.parent.GetComponent<Weapon>();
+    }
+
+    private void OnEnable()
+    {
+        totalDmg = Random.Range(Mathf.RoundToInt(weapon.MinDamage + (weapon.MinDamage * player.Damage / 100)), Mathf.RoundToInt(weapon.MaxDamage + (weapon.MaxDamage * player.Damage / 100)));
     }
 
     public void SetActiveFalse()
     {
         gameObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            //collision.gameObject.GetComponent<Enemy>().Health -= Random.Range(weapon.MinDamage + (weapon.MinDamage * player.Damage / 100), weapon.MinDamage + (weapon.MinDamage * player.Damage / 100))
-        }
     }
 }

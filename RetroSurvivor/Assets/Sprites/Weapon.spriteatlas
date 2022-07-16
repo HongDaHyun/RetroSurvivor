@@ -32,17 +32,22 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
+    - {fileID: 2800000, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
     - {fileID: 2800000, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -563502587, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
-  - {fileID: 33633905, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
-  - {fileID: -653835431, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
-  - {fileID: 931845853, guid: c3f0e662f28269b4a8bcac7bbdfaa6c4, type: 3}
+  - {fileID: 1555206576, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: 758603372, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: -1325244086, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: -414552529, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: 906322551, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: -598155091, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: -1123331415, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: 188043259, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
+  - {fileID: -1062559158, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
   - {fileID: -1428752900, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
   - {fileID: 1516251063, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
   - {fileID: -55719480, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
@@ -52,10 +57,15 @@ SpriteAtlas:
   - {fileID: -1116827943, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
   - {fileID: 25817817, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Sword_3
-  - Sword_1
-  - Sword_0
-  - Sword_4
+  - AfterImage_3
+  - AfterImage_2
+  - AfterImage_1
+  - AfterImage_0
+  - AfterImage_7
+  - AfterImage_6
+  - AfterImage_5
+  - AfterImage_4
+  - AfterImage_8
   - ShortSword_3
   - ShortSword_2
   - ShortSword_1
