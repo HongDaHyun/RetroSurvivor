@@ -2921,16 +2921,6 @@ Tilemap:
   m_GameObject: {fileID: 4092768322920989435}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -8, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 6, y: -4, z: 0}
     second:
       serializedVersion: 2
@@ -2973,8 +2963,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e4b344da0e277ba44888a3c0d2067655, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -2986,12 +2976,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -540168441, guid: 18735f0a12fdd5b4281ba3cc76bb02bf, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: 135710587, guid: 18735f0a12fdd5b4281ba3cc76bb02bf, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data:
       e00: 1
       e01: 0
@@ -3010,7 +3000,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3182,22 +3172,6 @@ CompositeCollider2D:
         Y: -15625000
       - X: 19375000
         Y: -15625000
-    - - X: -71250000
-        Y: -35625000
-      - X: -70000000
-        Y: -33125000
-      - X: -70000000
-        Y: -31875000
-      - X: -71875000
-        Y: -30000000
-      - X: -75000000
-        Y: -30000000
-      - X: -75625000
-        Y: -31875000
-      - X: -75625000
-        Y: -34375000
-      - X: -73125000
-        Y: -36250000
     - - X: 69375000
         Y: -30000000
       - X: 60625000
@@ -3224,14 +3198,6 @@ CompositeCollider2D:
       - {x: 6.9374704, y: -2.9}
       - {x: 6.0625, y: -2.9000294}
       - {x: 6.062529, y: -3.4625}
-    - - {x: -7.3125114, y: -3.5249918}
-      - {x: -7.124995, y: -3.4624906}
-      - {x: -7, y: -3.2124941}
-      - {x: -7.000008, y: -3.0874925}
-      - {x: -7.1875105, y: -2.9}
-      - {x: -7.5000067, y: -2.900019}
-      - {x: -7.5625, y: -3.0875044}
-      - {x: -7.5624895, y: -3.3375082}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &6832882701614335930

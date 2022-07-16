@@ -4,26 +4,12 @@ using UnityEngine;
 
 public class ShortSword : Weapon
 {
-    IEnumerator Attack()
-    {
-        /*Vector2 playerPos2D = new Vector2(transform.position.x, transform.position.y);
-        Vector2 attackDir = (player.Mouse - playerPos2D).normalized;
-        Vector2 attackPos = playerPos2D + attackDir * 1f;
-        float z = Mathf.Atan2(attackDir.y, attackDir.x) * Mathf.Rad2Deg;
-
-        GameObject shortSword = objectManager.MakeObj("ShortSword");
-        shortSword.transform.position = attackPos;
-        shortSword.transform.rotation = Quaternion.Euler(0, 0, z);
-        yield return new WaitForSeconds(0.3f);
-        shortSword.SetActive(false);
-        */
-        yield return new WaitForSeconds(0.1f);
-    }
-
     private void Update()
     {
         if (player.CurAttackSpeed > player.AttackSpeed && Input.GetMouseButton(0))
         {
+            Anim.SetTrigger("Attack");
+            AfterImage.SetActive(true);
             player.CurAttackSpeed = 0;
         }
         else

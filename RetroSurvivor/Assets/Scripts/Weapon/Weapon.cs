@@ -21,6 +21,11 @@ public class Weapon : MonoBehaviour
     {
         get => anim;
     }
+    private GameObject afterImage;
+    public GameObject AfterImage
+    {
+        get => afterImage;
+    }
     public ObjectManager objectManager;
 
     protected Player player;
@@ -30,6 +35,7 @@ public class Weapon : MonoBehaviour
         player = transform.root.GetComponent<Player>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         anim = transform.GetChild(0).GetComponent<Animator>();
+        afterImage = transform.GetChild(1).gameObject;
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
     }
 }
