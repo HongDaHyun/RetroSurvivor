@@ -1387,7 +1387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa3b455c772cb94da4009ddab16eefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreenOptionUI: {fileID: 2069491036}
+  screenOptionUI: {fileID: 2069491036}
+  inventoryUI: {fileID: 0}
 --- !u!4 &1001591732
 Transform:
   m_ObjectHideFlags: 0

@@ -5,5 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject ScreenOptionUI;
+    public GameObject screenOptionUI;
+    public GameObject inventoryUI;
 }

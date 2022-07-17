@@ -12,14 +12,29 @@ public class BtnManager : MonoBehaviour
         switch(name)
         {
             case "ScreenOption":
-                if (uiManager.ScreenOptionUI.activeSelf)
+                if (uiManager.screenOptionUI.activeSelf)
                 {
                     SceneManager.LoadScene(1);
-                    uiManager.ScreenOptionUI.SetActive(false);
+                    GlobalVariable.isStart = true;
+                    uiManager.screenOptionUI.SetActive(false);
                 }
                 else
-                    uiManager.ScreenOptionUI.SetActive(true);
+                    uiManager.screenOptionUI.SetActive(true);
+                break;
+            case "Inventory":
+                if(Input.GetKeyDown(KeyCode.I) && GlobalVariable.isStart)
+                {
+                    if(uiManager.inventoryUI.activeSelf)
+                        uiManager.inventoryUI.SetActive(false);
+                    else
+                        uiManager.inventoryUI.SetActive(true);
+                }
                 break;
         }
+    }
+
+    private void Update()
+    {
+        EnterExit("Inventory");
     }
 }
