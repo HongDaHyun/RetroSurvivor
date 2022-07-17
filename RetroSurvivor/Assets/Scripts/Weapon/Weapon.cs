@@ -18,26 +18,26 @@ public class Weapon : MonoBehaviour
         set => maxDamage = value;
     }
 
-    private SpriteRenderer sprite;
+    [SerializeField]private SpriteRenderer sprite;
     public SpriteRenderer  Sprite
     {
         get => sprite;
     }
-    private Animator anim;
+    [SerializeField] private Animator anim;
     public Animator Anim
     {
         get => anim;
     }
-    private GameObject afterImage;
+    [SerializeField] private GameObject afterImage;
     public GameObject AfterImage
     {
         get => afterImage;
     }
-    public ObjectManager objectManager;
+    [SerializeField] public ObjectManager objectManager;
 
-    protected Player player;
+    [SerializeField] protected Player player;
 
-    public virtual void Awake()
+    public virtual void Start()
     {
         player = transform.root.GetComponent<Player>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();

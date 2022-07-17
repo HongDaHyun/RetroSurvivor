@@ -6,9 +6,9 @@ public class ShortSword : Weapon
 {
     public int id;
 
-    public override void Awake()
+    public override void Start()
     {
-        base.Awake();
+        base.Start();
 
         switch (id)
         {

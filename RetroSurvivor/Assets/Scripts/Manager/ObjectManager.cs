@@ -6,7 +6,7 @@ public class ObjectManager : MonoBehaviour
 {
     public GameObject shortSwordPrefab;
 
-    GameObject[] shortSword = new GameObject[20];
+    GameObject[] basicShortSword = new GameObject[5];
 
     GameObject[] targetPool;
 
@@ -17,10 +17,10 @@ public class ObjectManager : MonoBehaviour
 
     private void Generate()
     {
-        for(int i = 0; i < shortSword.Length; i++)
+        for(int i = 0; i < basicShortSword.Length; i++)
         {
-            shortSword[i] = Instantiate(shortSwordPrefab);
-            shortSword[i].SetActive(false);
+            basicShortSword[i] = Instantiate(shortSwordPrefab);
+            basicShortSword[i].SetActive(false);
         }
     }
 
@@ -28,8 +28,8 @@ public class ObjectManager : MonoBehaviour
     {
         switch(name)
         {
-            case "ShortSword":
-                targetPool = shortSword;
+            case "BasicShortSword":
+                targetPool = basicShortSword;
                 break;
         }
         for(int i = 0; i < targetPool.Length; i++)
