@@ -152,7 +152,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e67f7e3db94fc47aabcdb10c372b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shortSwordPrefab: {fileID: 7852784653260960519, guid: 05001caf9fcffa14aad7367003027812, type: 3}
+  weaponSprites:
+  - {fileID: 2071632171, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -55719480, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 1516251063, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -1428752900, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 25817817, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -1116827943, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: 1811938338, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - {fileID: -1769419111, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  shortSwordPrefabs:
+  - {fileID: 7852784653260960519, guid: 05001caf9fcffa14aad7367003027812, type: 3}
+  - {fileID: 7852784653260960519, guid: 3a6d3fe71bdcce549baac14e80009d64, type: 3}
+  - {fileID: 7852784653260960519, guid: 6ff449e2eb4c70e4f9a8134c09a4da10, type: 3}
+  - {fileID: 7852784653260960519, guid: a1fe869450dea9f4ca04e0308f9abc2c, type: 3}
+  - {fileID: 7852784653260960519, guid: 9c277c027528b5b4f95db71bbb3653b3, type: 3}
+  - {fileID: 7852784653260960519, guid: 3475e31c28a62304283d631ed5ae260a, type: 3}
+  - {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
+  - {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
 --- !u!4 &4652091
 Transform:
   m_ObjectHideFlags: 0
@@ -3027,7 +3044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: ShortSword
-  id: 0
+  id: 6
 --- !u!61 &1066362163
 BoxCollider2D:
   m_ObjectHideFlags: 0

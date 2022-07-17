@@ -9,11 +9,24 @@ public class DropItem : MonoBehaviour
 
     ObjectManager objectManager;
     Player player;
+    SpriteRenderer sprite;
+    GameObject weapon;
 
     private void Awake()
     {
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        switch(type)
+        {
+            case "ShortSword":
+                sprite.sprite = objectManager.weaponSprites[id];
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,11 +39,32 @@ public class DropItem : MonoBehaviour
                     switch (id)
                     {
                         case 0:
-                            GameObject weapon = objectManager.MakeObj("BasicShortSword");
-                            weapon.transform.parent = player.transform;
-                            weapon.transform.position = player.transform.position;
+                            weapon = objectManager.MakeObj("BasicShortSword");
+                            break;
+                        case 1:
+                            weapon = objectManager.MakeObj("BrokenKingShortSword");
+                            break;
+                        case 2:
+                            weapon = objectManager.MakeObj("PrinceShortSword");
+                            break;
+                        case 3:
+                            weapon = objectManager.MakeObj("PlantShortSword");
+                            break;
+                        case 4:
+                            weapon = objectManager.MakeObj("KitchenShortSword");
+                            break;
+                        case 5:
+                            weapon = objectManager.MakeObj("BlackShortSword");
+                            break;
+                        case 6:
+                            weapon = objectManager.MakeObj("RoundShortSword");
+                            break;
+                        case 7:
+                            weapon = objectManager.MakeObj("WoodenShortSword");
                             break;
                     }
+                    weapon.transform.parent = player.transform;
+                    weapon.transform.position = player.transform.position;
                     break;
             }
 

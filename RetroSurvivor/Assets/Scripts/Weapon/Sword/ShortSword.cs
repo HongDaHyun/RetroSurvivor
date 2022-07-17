@@ -6,19 +6,6 @@ public class ShortSword : Weapon
 {
     public int id;
 
-    public override void Start()
-    {
-        base.Start();
-
-        switch (id)
-        {
-            case 0:
-                MinDamage = 1;
-                MaxDamage = 5;
-                break;
-        }
-    }
-
     private void Update()
     {
         Attack();

@@ -34,6 +34,18 @@ public class Player : MonoBehaviour
         get => curAttackSpeed;
         set => curAttackSpeed = value;
     }
+    private float weaponAttackSpeed;
+    public float WeaponAttackSpeed
+    {
+        get => weaponAttackSpeed;
+        set => weaponAttackSpeed = value;
+    }
+    private float playerAttackSpeed;
+    public float PlayerAttackSpeed
+    {
+        get => playerAttackSpeed;
+        set => playerAttackSpeed = value;
+    }
     private float attackSpeed;
     public float AttackSpeed
     {
@@ -83,6 +95,7 @@ public class Player : MonoBehaviour
     public void Update()
     {
         curAttackSpeed += Time.deltaTime;
+        attackSpeed = playerAttackSpeed + weaponAttackSpeed; //swap시에만 발동하도록 수정
         Aim();
     }
 

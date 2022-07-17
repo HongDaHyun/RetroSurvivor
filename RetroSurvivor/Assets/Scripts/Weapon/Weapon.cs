@@ -5,18 +5,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private int minDamage;
-    public int MinDamage
-    {
-        get => minDamage;
-        set => minDamage = value;
-    }
-    private int maxDamage;
-    public int MaxDamage
-    {
-        get => maxDamage;
-        set => maxDamage = value;
-    }
+    public int minDamage;
+    public int maxDamage;
+    public float attackSpeed;
 
     [SerializeField]private SpriteRenderer sprite;
     public SpriteRenderer  Sprite
@@ -37,12 +28,17 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] protected Player player;
 
-    public virtual void Start()
+    public void Start()
     {
         player = transform.root.GetComponent<Player>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         afterImage = transform.GetChild(1).gameObject;
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
+    }
+
+    private void Update()
+    {
+        player.WeaponAttackSpeed = attackSpeed; //swap시에만 발동하도록 수정
     }
 }
