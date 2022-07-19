@@ -7,6 +7,7 @@ public class ObjectManager : MonoBehaviour
     public Sprite[] weaponSprites;
 
     public GameObject[] shortSwordPrefabs;
+    public GameObject[] enemyPrefabs;
 
     GameObject[] basicShortSword = new GameObject[5];
     GameObject[] brokenKingShortSword = new GameObject[5];
@@ -17,6 +18,8 @@ public class ObjectManager : MonoBehaviour
     GameObject[] roundShortSword = new GameObject[5];
     GameObject[] woodenShortSword = new GameObject[5];
 
+    GameObject[] ghostPeopleEnemy = new GameObject[200];
+
     GameObject[] targetPool;
 
     private void Awake()
@@ -26,6 +29,7 @@ public class ObjectManager : MonoBehaviour
 
     private void Generate()
     {
+        //Weapon
         for(int i = 0; i < basicShortSword.Length; i++)
         {
             basicShortSword[i] = Instantiate(shortSwordPrefabs[0]);
@@ -66,6 +70,13 @@ public class ObjectManager : MonoBehaviour
             woodenShortSword[i] = Instantiate(shortSwordPrefabs[7]);
             woodenShortSword[i].SetActive(false);
         }
+
+        //Enemy
+        for (int i = 0; i < ghostPeopleEnemy.Length; i++)
+        {
+            ghostPeopleEnemy[i] = Instantiate(enemyPrefabs[0]);
+            ghostPeopleEnemy[i].SetActive(false);
+        }
     }
 
     public GameObject MakeObj(string name)
@@ -95,6 +106,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "WoodenShortSword":
                 targetPool = woodenShortSword;
+                break;
+            case "GhostPeopleEnemy":
+                targetPool = ghostPeopleEnemy;
                 break;
         }
         for(int i = 0; i < targetPool.Length; i++)

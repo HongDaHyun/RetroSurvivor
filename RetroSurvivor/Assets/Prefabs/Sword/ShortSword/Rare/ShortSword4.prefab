@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 758603372, guid: bd2a7962cd71da74495c0c72e3bba5f1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.30971873, g: 0.7075472, b: 0.32128024, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -298,15 +298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3761dc18f3e1a498295ab0a7b4438f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 2
-  maxDamage: 3
+  minDamage: 1
+  maxDamage: 8
   attackSpeed: 1
-  sprite: {fileID: 0}
-  anim: {fileID: 0}
-  afterImage: {fileID: 0}
+  tear: 0
   objectManager: {fileID: 0}
-  player: {fileID: 0}
-  id: 1
+  id: 3
 --- !u!1 &7852784653722206211
 GameObject:
   m_ObjectHideFlags: 0

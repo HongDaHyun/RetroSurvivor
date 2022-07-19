@@ -298,15 +298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3761dc18f3e1a498295ab0a7b4438f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 2
-  maxDamage: 3
-  attackSpeed: 1
-  sprite: {fileID: 0}
-  anim: {fileID: 0}
-  afterImage: {fileID: 0}
+  minDamage: 1
+  maxDamage: 2
+  attackSpeed: 0.7
+  tear: 0
   objectManager: {fileID: 0}
-  player: {fileID: 0}
-  id: 1
+  id: 7
 --- !u!1 &7852784653722206211
 GameObject:
   m_ObjectHideFlags: 0

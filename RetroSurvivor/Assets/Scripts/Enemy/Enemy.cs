@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     GameObject player;
     NavMeshAgent agent;
     SpriteRenderer sprite;
-    BuffManager buffManager;
 
     private int damage;
     public int Damage
@@ -16,11 +15,18 @@ public class Enemy : MonoBehaviour
         get => damage;
         set => damage = value;
     }
-    private int health;
-    public int Health
+
+    private int curHealth;
+    public int CurHealth
     {
-        get => health;
-        set => health = value;
+        get => curHealth;
+        set => curHealth = value;
+    }
+    private int defHealth;
+    public int DefHealth
+    {
+        get => defHealth;
+        set => defHealth = value;
     }
 
     private bool isStun;
@@ -34,7 +40,6 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         sprite = GetComponent<SpriteRenderer>();
-        buffManager = GameObject.Find("BuffManager").GetComponent<BuffManager>();
     }
 
     private void Start()
@@ -58,10 +63,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        curHealth = defHealth;
+        sprite.color = Color.white;
+        IsStun = false;
+    }
+
     IEnumerator Damaged(Collider2D collision)
     {
         isStun = true;
-        health -= collision.GetComponent<AfterImage>().totalDmg;
+        curHealth -= collision.GetComponent<AfterImage>().totalDmg;
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         sprite.color = Color.white;
@@ -70,7 +82,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if(health <= 0)
+        if(curHealth <= 0)
         {
             gameObject.SetActive(false);
         }

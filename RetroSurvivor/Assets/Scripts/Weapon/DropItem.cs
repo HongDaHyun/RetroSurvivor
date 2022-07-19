@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DropItem : MonoBehaviour
 {
-    public string type;
+    enum Type { ShortSword, LongSword, Spear, Mace};
+    Type type;
     public int id;
 
     ObjectManager objectManager;
@@ -21,9 +22,10 @@ public class DropItem : MonoBehaviour
 
     private void OnEnable()
     {
-        switch(type)
+        type = Type.ShortSword; // 랜덤으로 수정
+        switch (type)
         {
-            case "ShortSword":
+            case Type.ShortSword:
                 sprite.sprite = objectManager.weaponSprites[id];
                 break;
         }
@@ -35,7 +37,7 @@ public class DropItem : MonoBehaviour
         {
             switch (type)
             {
-                case "ShortSword":
+                case Type.ShortSword:
                     switch (id)
                     {
                         case 0:

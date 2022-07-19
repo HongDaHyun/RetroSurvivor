@@ -3,30 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Tear { Raw, Common, Rare, Epic, Legend };
+
 public class Weapon : MonoBehaviour
 {
     public int minDamage;
     public int maxDamage;
     public float attackSpeed;
 
-    [SerializeField]private SpriteRenderer sprite;
+    private SpriteRenderer sprite;
     public SpriteRenderer  Sprite
     {
         get => sprite;
     }
-    [SerializeField] private Animator anim;
+    private Animator anim;
     public Animator Anim
     {
         get => anim;
     }
-    [SerializeField] private GameObject afterImage;
+    private GameObject afterImage;
     public GameObject AfterImage
     {
         get => afterImage;
     }
-    [SerializeField] public ObjectManager objectManager;
+    public Tear tear;
 
-    [SerializeField] protected Player player;
+    public ObjectManager objectManager;
+    protected Player player;
 
     public void Start()
     {
