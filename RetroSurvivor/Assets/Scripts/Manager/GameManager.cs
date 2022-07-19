@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     public NavMeshSurface2d surface2D;
 
-    public float sensitivity;
     private bool isScrolling;
 
     GameObject[,] stage = new GameObject[5, 5];

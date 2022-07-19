@@ -6,7 +6,7 @@ public class Knight : Player
 {
     Knight()
     {
-        Speed = 2.4f;
+        Speed = 3f;
         PlayerAttackSpeed = 1.5f;
         Eyesight = -10;
         MaxHP = 100;

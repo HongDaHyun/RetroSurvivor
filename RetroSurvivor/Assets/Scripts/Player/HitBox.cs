@@ -16,7 +16,6 @@ public class HitBox : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && !isHit)
         {
-            Debug.Log("Hit");
             StartCoroutine(Damaged(collision.GetComponent<Enemy>()));
         }
     }

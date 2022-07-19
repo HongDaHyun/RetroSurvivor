@@ -42,11 +42,12 @@ public class Enemy : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
     }
 
     private void Update()
@@ -61,6 +62,10 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(Damaged(collision));
         }
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnDisable()
@@ -68,6 +73,7 @@ public class Enemy : MonoBehaviour
         curHealth = defHealth;
         sprite.color = Color.white;
         IsStun = false;
+        agent.enabled = false;
     }
 
     IEnumerator Damaged(Collider2D collision)
@@ -90,11 +96,14 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
+        agent.enabled = true; //최적화 필요?
         agent.SetDestination(player.transform.position);
-        if(isStun)
+
+        if (isStun)
         {
             agent.SetDestination(transform.position);
         }
+
         if (transform.position.x > player.transform.position.x)
             sprite.flipX = true;
         else
