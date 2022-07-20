@@ -1416,7 +1416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lv 1
+  m_Text: 100%
 --- !u!222 &300173656
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1665,6 +1665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eff5574d5c66e14783ad15a77264ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+  playerAttackSpeed: 1.5
+  maxHP: 100
+  damage: 5
 --- !u!1 &334156578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2695,10 @@ MonoBehaviour:
   inventoryUI: {fileID: 1173845073}
   hpSliderFillImg: {fileID: 188101828}
   hpSlider: {fileID: 905539051}
+  expSlider: {fileID: 1316402832}
   hpText: {fileID: 1534155381}
+  expText: {fileID: 300173655}
+  levelText: {fileID: 289473653}
 --- !u!4 &701629985
 Transform:
   m_ObjectHideFlags: 0
@@ -4173,7 +4180,7 @@ GameObject:
   - component: {fileID: 1316402831}
   - component: {fileID: 1316402832}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Exp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4248,7 +4255,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.8
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

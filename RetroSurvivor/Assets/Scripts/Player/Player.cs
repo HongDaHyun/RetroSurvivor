@@ -21,12 +21,7 @@ public class Player : MonoBehaviour
 
     private float aimSpeed;
     private float curSpeed;
-    private float speed;
-    public float Speed
-    {
-        get => speed;
-        set => speed = value;
-    }
+    public float speed;
 
     private float curAttackSpeed = 10000;
     public float CurAttackSpeed
@@ -40,24 +35,12 @@ public class Player : MonoBehaviour
         get => weaponAttackSpeed;
         set => weaponAttackSpeed = value;
     }
-    private float playerAttackSpeed;
-    public float PlayerAttackSpeed
-    {
-        get => playerAttackSpeed;
-        set => playerAttackSpeed = value;
-    }
+    public float playerAttackSpeed;
     private float attackSpeed;
     public float AttackSpeed
     {
         get => attackSpeed;
         set => attackSpeed = value;
-    }
-
-    private int eyesight;
-    public int Eyesight
-    {
-        get => eyesight;
-        set => eyesight = value;
     }
 
     private int curHP;
@@ -66,19 +49,28 @@ public class Player : MonoBehaviour
         get => curHP;
         set => curHP = value;
     }
-    private int maxHP;
-    public int MaxHP
+    public int maxHP;
+
+    private int curExp;
+    public int CurExp
     {
-        get => maxHP;
-        set => maxHP = value;
+        get => curExp;
+        set => curExp = value;
+    }
+    private int maxExp;
+    public int MaxExp
+    {   
+        get => maxExp;
+        set => maxExp = value;
+    }
+    private int level = 1;
+    public int Level
+    {
+        get => level;
+        set => level = value;
     }
 
-    private float damage;
-    public float Damage
-    {
-        get => damage;
-        set => damage = value;
-    }
+    public float damage;
 
     public void Awake()
     {
@@ -97,6 +89,7 @@ public class Player : MonoBehaviour
         curAttackSpeed += Time.deltaTime;
         attackSpeed = playerAttackSpeed + weaponAttackSpeed; //swap시에만 발동하도록 수정
         Aim();
+        LevelUp();
     }
 
     public void Move()
@@ -142,8 +135,19 @@ public class Player : MonoBehaviour
         mouse = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
+    public void LevelUp()
+    {
+        if(curExp >= maxExp)
+        {
+            level++;
+            curExp -= maxExp;
+            maxExp = (level * level + level) * 5;
+        }
+    }
+
     public void SetStat()
     {
+        maxExp = (level * level + level) * 5;
         curSpeed = speed;
         aimSpeed = speed / 1.5f;
         curHP = maxHP;

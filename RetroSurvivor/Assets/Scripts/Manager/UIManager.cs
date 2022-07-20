@@ -10,7 +10,10 @@ public class UIManager : MonoBehaviour
 
     public Image hpSliderFillImg;
     public Slider hpSlider;
+    public Slider expSlider;
     public Text hpText;
+    public Text expText;
+    public Text levelText;
 
     Player player;
 
@@ -22,13 +25,14 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         ControlHp();
+        ControlExp();
     }
 
     private void ControlHp()
     {
-        float imsi = (float)player.CurHP / (float)player.MaxHP;
+        float imsi = (float)player.CurHP / (float)player.maxHP;
         hpSlider.value = Mathf.Lerp(hpSlider.value, imsi, Time.deltaTime * 10);
-        hpText.text = $"{player.CurHP}/{player.MaxHP}";
+        hpText.text = $"{player.CurHP}/{player.maxHP}";
 
         Color color;
 
@@ -39,5 +43,13 @@ public class UIManager : MonoBehaviour
         else
             ColorUtility.TryParseHtmlString("#E22B27", out color);
         hpSliderFillImg.color = color;
+    }
+
+    private void ControlExp()
+    {
+        float imsi = (float)player.CurExp / (float)player.MaxExp;
+        expSlider.value = Mathf.Lerp(expSlider.value, imsi, Time.deltaTime * 10);
+        expText.text = $"{Mathf.Round(imsi * 100)} %";
+        levelText.text = $"{player.Level}";
     }
 }

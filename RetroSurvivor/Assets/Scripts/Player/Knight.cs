@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Knight : Player
 {
-    Knight()
+    private void Start()
     {
-        Speed = 3f;
-        PlayerAttackSpeed = 1.5f;
-        Eyesight = -10;
-        MaxHP = 100;
-        Damage = 5f;
         SetStat();
     }
 }

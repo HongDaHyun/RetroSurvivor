@@ -5,16 +5,13 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    GameObject player;
+    Player player;
     NavMeshAgent agent;
     SpriteRenderer sprite;
 
-    private int damage;
-    public int Damage
-    {
-        get => damage;
-        set => damage = value;
-    }
+    public int exp;
+
+    public int damage;
 
     private int curHealth;
     public int CurHealth
@@ -22,12 +19,7 @@ public class Enemy : MonoBehaviour
         get => curHealth;
         set => curHealth = value;
     }
-    private int defHealth;
-    public int DefHealth
-    {
-        get => defHealth;
-        set => defHealth = value;
-    }
+    public int defHealth;
 
     private bool isStun;
     public bool IsStun
@@ -38,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -91,6 +83,7 @@ public class Enemy : MonoBehaviour
         if(curHealth <= 0)
         {
             gameObject.SetActive(false);
+            player.CurExp += exp;
         }
     }
 
