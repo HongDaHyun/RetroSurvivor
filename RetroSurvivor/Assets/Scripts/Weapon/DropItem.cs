@@ -6,7 +6,7 @@ public class DropItem : MonoBehaviour
 {
     enum Type { ShortSword, LongSword, Spear, Mace};
     Type type;
-    public int id;
+    private int randID;
 
     ObjectManager objectManager;
     Player player;
@@ -26,7 +26,8 @@ public class DropItem : MonoBehaviour
         switch (type)
         {
             case Type.ShortSword:
-                sprite.sprite = objectManager.weaponSprites[id];
+                randID = Random.Range(0, objectManager.shortSwordPrefabs.Length);
+                sprite.sprite = objectManager.weaponSprites[randID];
                 break;
         }
     }
@@ -38,7 +39,7 @@ public class DropItem : MonoBehaviour
             switch (type)
             {
                 case Type.ShortSword:
-                    switch (id)
+                    switch (randID)
                     {
                         case 0:
                             weapon = objectManager.MakeObj("BasicShortSword");
