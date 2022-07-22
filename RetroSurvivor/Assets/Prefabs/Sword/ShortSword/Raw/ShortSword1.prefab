@@ -301,11 +301,8 @@ MonoBehaviour:
   minDamage: 1
   maxDamage: 5
   attackSpeed: 2
-  sprite: {fileID: 0}
-  anim: {fileID: 0}
-  afterImage: {fileID: 0}
+  tear: 0
   objectManager: {fileID: 0}
-  player: {fileID: 0}
   id: 0
 --- !u!1 &7852784653722206211
 GameObject:

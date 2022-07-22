@@ -84,7 +84,19 @@ public class Enemy : MonoBehaviour
         {
             gameObject.SetActive(false);
             player.CurExp += exp;
+
+            Drop();
         }
+    }
+
+    private void Drop()
+    {
+        int rand = Random.Range(1, 101);
+        if (rand <= 80)
+            return;
+
+        rand = Random.Range(1, 101);
+        //rand값에 따라 상자 희귀도 결정
     }
 
     public void Move()
