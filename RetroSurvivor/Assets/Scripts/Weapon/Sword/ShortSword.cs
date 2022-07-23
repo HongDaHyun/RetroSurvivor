@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class ShortSword : Weapon
 {
-    public int id;
+    public override void Start()
+    {
+        type = "ShortSword";
+        base.Start();
+    }
 
     private void Update()
     {
@@ -42,7 +46,7 @@ public class ShortSword : Weapon
 
     private void Attack()
     {
-        if (player.CurAttackSpeed > player.AttackSpeed && Input.GetMouseButton(0))
+        if (player.CurAttackSpeed > player.AttackSpeed + attackSpeed && Input.GetMouseButton(0))
         {
             Anim.SetTrigger("Attack");
             AfterImage.SetActive(true);

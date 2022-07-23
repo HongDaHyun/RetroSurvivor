@@ -298,12 +298,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3761dc18f3e1a498295ab0a7b4438f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 4
-  maxDamage: 10
-  attackSpeed: 2
-  tear: 0
-  objectManager: {fileID: 0}
-  id: 5
+  weaponName: 
+  type: 
+  tier: 
+  minDamage: 0
+  maxDamage: 0
+  attackSpeed: 0
+  id: 6
 --- !u!1 &7852784653722206211
 GameObject:
   m_ObjectHideFlags: 0

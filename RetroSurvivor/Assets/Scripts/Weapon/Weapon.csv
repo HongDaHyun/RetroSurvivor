@@ -1,0 +1,9 @@
+Name,Type,Tier,MinDmg,MaxDmg,AtkSpeed,ID
+Basic,ShortSword,Raw,1,5,2,0
+Broken,ShortSword,Raw,2,3,1,1
+Kitchen,ShortSword,Raw,3,6,2.3,2
+Wooden,ShortSword,Raw,1,2,0.7,3
+Prince,ShortSword,Rare,3,8,1.2,4
+Plant,ShortSword,Rare,1,8,1,5
+Black,ShortSword,Rare,4,10,2,6
+Round,ShortSword,Rare,3,5,0.5,7
