@@ -8,6 +8,7 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject[] shortSwordPrefabs;
     public GameObject[] enemyPrefabs;
+    public GameObject dropItemPrefab;
 
     GameObject[] basicShortSword = new GameObject[5];
     GameObject[] brokenKingShortSword = new GameObject[5];
@@ -19,6 +20,8 @@ public class ObjectManager : MonoBehaviour
     GameObject[] woodenShortSword = new GameObject[5];
 
     GameObject[] ghostPeopleEnemy = new GameObject[200];
+
+    GameObject[] dropItem = new GameObject[50];
 
     GameObject[] targetPool;
 
@@ -77,6 +80,13 @@ public class ObjectManager : MonoBehaviour
             ghostPeopleEnemy[i] = Instantiate(enemyPrefabs[0]);
             ghostPeopleEnemy[i].SetActive(false);
         }
+
+        //DropItem
+        for (int i = 0; i < dropItem.Length; i++)
+        {
+            dropItem[i] = Instantiate(dropItemPrefab);
+            dropItem[i].SetActive(false);
+        }
     }
 
     public GameObject MakeObj(string name)
@@ -107,8 +117,13 @@ public class ObjectManager : MonoBehaviour
             case "WoodenShortSword":
                 targetPool = woodenShortSword;
                 break;
+
             case "GhostPeopleEnemy":
                 targetPool = ghostPeopleEnemy;
+                break;
+
+            case "DropItem":
+                targetPool = dropItem;
                 break;
         }
         for(int i = 0; i < targetPool.Length; i++)

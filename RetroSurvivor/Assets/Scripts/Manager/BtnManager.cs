@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
@@ -9,32 +8,38 @@ public class BtnManager : MonoBehaviour
 
     public void EnterExit(string name)
     {
-        switch(name)
+        if (GlobalVariable.isStart)
         {
-            case "ScreenOption":
-                if (uiManager.screenOptionUI.activeSelf)
-                {
-                    SceneManager.LoadScene(1);
-                    GlobalVariable.isStart = true;
-                    uiManager.screenOptionUI.SetActive(false);
-                }
-                else
-                    uiManager.screenOptionUI.SetActive(true);
-                break;
-            case "Inventory":
-                if(Input.GetKeyDown(KeyCode.I) && GlobalVariable.isStart)
-                {
-                    if(uiManager.inventoryUI.activeSelf)
-                        uiManager.inventoryUI.SetActive(false);
+            switch (name)
+            {
+                case "KeyBoard":
+                    if (Input.GetKeyDown(KeyCode.I))
+                    {
+                        if (uiManager.inventoryUI.activeSelf)
+                            uiManager.inventoryUI.SetActive(false);
+                        else
+                            uiManager.inventoryUI.SetActive(true);
+                    }
+                    if (Input.GetKeyDown(KeyCode.C))
+                    {
+                        if (uiManager.statUI.activeSelf)
+                            uiManager.statUI.SetActive(false);
+                        else
+                            uiManager.statUI.SetActive(true);
+                    }
+                    break;
+                case "HyperStat":
+                    if (uiManager.hyperStatUI.activeSelf)
+                        uiManager.hyperStatUI.SetActive(false);
                     else
-                        uiManager.inventoryUI.SetActive(true);
-                }
-                break;
+                        uiManager.hyperStatUI.SetActive(true);
+                    break;
+            }
         }
     }
 
     private void Update()
     {
-        EnterExit("Inventory");
+        EnterExit("KeyBoard");
     }
 }

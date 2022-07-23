@@ -18,6 +18,12 @@ public class Player : MonoBehaviour
         get => mouse;
         set => mouse = value;
     }
+    [SerializeField]private GameObject weapon;
+    public GameObject Weapon
+    {
+        get => weapon;
+        set => weapon = value;
+    }
 
     private float aimSpeed;
     private float curSpeed;
@@ -143,6 +149,10 @@ public class Player : MonoBehaviour
             curExp -= maxExp;
             maxExp = (level * level + level) * 5;
         }
+    }
+
+    public void Swap()
+    {
     }
 
     public void SetStat()

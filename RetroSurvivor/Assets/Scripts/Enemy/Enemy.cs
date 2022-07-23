@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     Player player;
+    ObjectManager objectManager;
     NavMeshAgent agent;
     SpriteRenderer sprite;
 
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -91,12 +93,14 @@ public class Enemy : MonoBehaviour
 
     private void Drop()
     {
-        int rand = Random.Range(1, 101);
-        if (rand <= 80)
-            return;
+        //int rand = Random.Range(1, 101);
+        //if (rand <= 80)
+        //    return;
 
-        rand = Random.Range(1, 101);
-        //rand값에 따라 상자 희귀도 결정
+        //rand = Random.Range(1, 101);
+        ////rand값에 따라 상자 희귀도 결정
+        GameObject dropItem = objectManager.MakeObj("DropItem");
+        dropItem.transform.position = transform.position;
     }
 
     public void Move()
