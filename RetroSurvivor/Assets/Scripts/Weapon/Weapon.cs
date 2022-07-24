@@ -50,9 +50,8 @@ public class Weapon : MonoBehaviour
             case "ShortSword":
                 for (int i = 0; i < objectManager.shortSwordPrefabs.Length; i++)
                 {
-                    if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].ID == id)
+                    if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].name == weaponName)
                     {
-                        weaponName = csvReader.weaponList.weapon[i].name;
                         tier = csvReader.weaponList.weapon[i].tier;
                         minDamage = csvReader.weaponList.weapon[i].minDmg;
                         maxDamage = csvReader.weaponList.weapon[i].maxDmg;

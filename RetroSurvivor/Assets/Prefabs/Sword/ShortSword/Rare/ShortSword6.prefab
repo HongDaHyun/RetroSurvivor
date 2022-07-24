@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3761dc18f3e1a498295ab0a7b4438f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: Black
   type: 
   tier: 
   minDamage: 0

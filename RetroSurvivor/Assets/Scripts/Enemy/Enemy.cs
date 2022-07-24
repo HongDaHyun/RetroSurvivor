@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     Player player;
     ObjectManager objectManager;
-    NavMeshAgent agent;
+    protected NavMeshAgent agent;
     SpriteRenderer sprite;
 
     public int exp;
@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Move();
         Die();
     }
 

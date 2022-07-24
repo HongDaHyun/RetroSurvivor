@@ -19,7 +19,7 @@ public class ObjectManager : MonoBehaviour
     GameObject[] roundShortSword = new GameObject[5];
     GameObject[] woodenShortSword = new GameObject[5];
 
-    GameObject[] ghostPeopleEnemy = new GameObject[200];
+    GameObject[] blueSlime = new GameObject[200];
 
     GameObject[] dropItem = new GameObject[50];
 
@@ -75,10 +75,10 @@ public class ObjectManager : MonoBehaviour
         }
 
         //Enemy
-        for (int i = 0; i < ghostPeopleEnemy.Length; i++)
+        for (int i = 0; i < blueSlime.Length; i++)
         {
-            ghostPeopleEnemy[i] = Instantiate(enemyPrefabs[0]);
-            ghostPeopleEnemy[i].SetActive(false);
+            blueSlime[i] = Instantiate(enemyPrefabs[0]);
+            blueSlime[i].SetActive(false);
         }
 
         //DropItem
@@ -118,8 +118,8 @@ public class ObjectManager : MonoBehaviour
                 targetPool = woodenShortSword;
                 break;
 
-            case "GhostPeopleEnemy":
-                targetPool = ghostPeopleEnemy;
+            case "BlueSlime":
+                targetPool = blueSlime;
                 break;
 
             case "DropItem":

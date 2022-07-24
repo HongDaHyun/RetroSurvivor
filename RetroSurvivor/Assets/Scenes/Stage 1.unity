@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
   - {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
   enemyPrefabs:
-  - {fileID: 460343487518239325, guid: 3a24eed76231af6408c4630a0fabb582, type: 3}
+  - {fileID: 5271810769981570246, guid: 7c0c83b0597d03d4dbb060b2d11a010f, type: 3}
   dropItemPrefab: {fileID: 2491576018284985422, guid: c913ce871a867c54cbee64c7a219817e, type: 3}
 --- !u!4 &4652091
 Transform:

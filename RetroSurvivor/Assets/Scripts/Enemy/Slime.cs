@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostPeople : Enemy
+public class Slime : Enemy
 {
-    GhostPeople()
+    Slime()
     {
         CurHealth = defHealth;
+    }
+
+    private void Stop()
+    {
+        agent.SetDestination(transform.position);
     }
 }
