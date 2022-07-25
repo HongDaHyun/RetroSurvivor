@@ -45,20 +45,15 @@ public class Weapon : MonoBehaviour
     //player attackspeed ¼³Á¤
     private void SetStat()
     {
-        switch(type)
+        for (int i = 0; i < objectManager.shortSwordPrefabs.Length; i++)
         {
-            case "ShortSword":
-                for (int i = 0; i < objectManager.shortSwordPrefabs.Length; i++)
-                {
-                    if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].name == weaponName)
-                    {
-                        tier = csvReader.weaponList.weapon[i].tier;
-                        minDamage = csvReader.weaponList.weapon[i].minDmg;
-                        maxDamage = csvReader.weaponList.weapon[i].maxDmg;
-                        attackSpeed = csvReader.weaponList.weapon[i].AtkSpeed;
-                    }
-                }
-                break;
+            if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].name == weaponName)
+            {
+                tier = csvReader.weaponList.weapon[i].tier;
+                minDamage = csvReader.weaponList.weapon[i].minDmg;
+                maxDamage = csvReader.weaponList.weapon[i].maxDmg;
+                attackSpeed = csvReader.weaponList.weapon[i].AtkSpeed;
+            }
         }
     }
 }

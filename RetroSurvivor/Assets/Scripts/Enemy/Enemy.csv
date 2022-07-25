@@ -1,0 +1,9 @@
+Name,Type,Dmg,HP,Exp,Stage,Speed
+GreenSlime,Slime,3,10,5,1,2
+BlueSlime,Slime,5,15,7,1,2.2
+RedSlime,Slime,7,20,10,1,2.5
+PurpleSlime,Slime,10,30,15,1,3
+RedMushroom,Mushroom,5,10,7,1,2.5
+YellowMushroom,Mushroom,8,20,10,1,2.2
+SkyblueMushroom,Mushroom,10,30,15,1,2.1
+BlackMushroom,Mushroom,20,50,30,1,2

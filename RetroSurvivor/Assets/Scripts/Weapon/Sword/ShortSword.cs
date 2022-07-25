@@ -16,6 +16,11 @@ public class ShortSword : Weapon
         Aim();
     }
 
+    private void OnDisable()
+    {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
     private void Aim()
     {
         Vector2 len = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

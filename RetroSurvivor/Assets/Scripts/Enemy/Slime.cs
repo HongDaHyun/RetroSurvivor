@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
-    Slime()
+    public override void Start()
     {
-        CurHealth = defHealth;
+        type = "Slime";
+        base.Start();
     }
 
     private void Stop()
     {
-        agent.SetDestination(transform.position);
+        IsStun = true;
+    }
+    private void NonStop()
+    {
+        IsStun = false;
     }
 }

@@ -171,7 +171,14 @@ MonoBehaviour:
   - {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
   - {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
   enemyPrefabs:
+  - {fileID: 5271810769981570246, guid: 0a0e6b0f3e40a87408430617177674cf, type: 3}
   - {fileID: 5271810769981570246, guid: 7c0c83b0597d03d4dbb060b2d11a010f, type: 3}
+  - {fileID: 5271810769981570246, guid: d2bf7f420dcfb0c458cb255304a7d8c9, type: 3}
+  - {fileID: 5271810769981570246, guid: 27179aea95195cb45adee10a7b1408d7, type: 3}
+  - {fileID: 5271810769981570246, guid: 789926f643a5001418e8942650c440ca, type: 3}
+  - {fileID: 5271810769981570246, guid: a55fe460694b1ee498acbada819e5b20, type: 3}
+  - {fileID: 5271810769981570246, guid: 607e4f78de9d0c5488204efa931111f1, type: 3}
+  - {fileID: 5271810769981570246, guid: 1b1a1bd48db09ed479f7d5c08b84d55b, type: 3}
   dropItemPrefab: {fileID: 2491576018284985422, guid: c913ce871a867c54cbee64c7a219817e, type: 3}
 --- !u!4 &4652091
 Transform:
@@ -3352,9 +3359,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2bb33eb63587846988f078306bd051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 4900000, guid: 1562dedb02d452742821d8695f64736f, type: 3}
+  textAssets:
+  - {fileID: 4900000, guid: 1562dedb02d452742821d8695f64736f, type: 3}
+  - {fileID: 4900000, guid: 3870bbe1a1832414d86862b39cdf7530, type: 3}
   weaponList:
     weapon: []
+  enemyList:
+    enemy: []
 --- !u!4 &347642018
 Transform:
   m_ObjectHideFlags: 0
@@ -9797,7 +9808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uC778\uAE30\uB3C4"
+  m_Text: " \uD638\uAC10\uB3C4"
 --- !u!222 &1361384090
 CanvasRenderer:
   m_ObjectHideFlags: 0

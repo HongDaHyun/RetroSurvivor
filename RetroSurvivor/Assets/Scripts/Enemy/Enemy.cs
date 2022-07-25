@@ -9,18 +9,20 @@ public class Enemy : MonoBehaviour
     ObjectManager objectManager;
     protected NavMeshAgent agent;
     SpriteRenderer sprite;
+    CSVReader csvReader;
 
+    public string enemyName;
+    public string type;
+    public int stage;
     public int exp;
-
     public int damage;
-
+    public int defHealth;
     private int curHealth;
     public int CurHealth
     {
         get => curHealth;
         set => curHealth = value;
     }
-    public int defHealth;
 
     private bool isStun;
     public bool IsStun
@@ -34,6 +36,12 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         sprite = GetComponent<SpriteRenderer>();
+        csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
+    }
+
+    public virtual void Start()
+    {
+        SetStat();
     }
 
     private void OnEnable()
@@ -41,11 +49,11 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
     }
 
     private void Update()
     {
+        Move();
         Die();
     }
 
@@ -109,12 +117,28 @@ public class Enemy : MonoBehaviour
 
         if (isStun)
         {
-            agent.SetDestination(transform.position);
+            agent.enabled = false;
         }
 
         if (transform.position.x > player.transform.position.x)
             sprite.flipX = true;
         else
             sprite.flipX = false;
+    }
+
+    public void SetStat()
+    {
+        for (int i = 0; i < objectManager.enemyPrefabs.Length; i++)
+        {
+            if (csvReader.enemyList.enemy[i].type == type && csvReader.enemyList.enemy[i].name == enemyName)
+            {
+                damage = csvReader.enemyList.enemy[i].dmg;
+                defHealth = csvReader.enemyList.enemy[i].hp;
+                exp = csvReader.enemyList.enemy[i].exp;
+                stage = csvReader.enemyList.enemy[i].stage;
+                agent.speed = csvReader.enemyList.enemy[i].speed;
+            }
+        }
+        curHealth = defHealth;
     }
 }
