@@ -78,6 +78,20 @@ public class Player : MonoBehaviour
 
     public float damage;
 
+    private int statPoint;
+    public int StatPoint
+    {
+        get => statPoint;
+        set => statPoint = value;
+    }
+
+    private string job;
+    public string Job
+    {
+        get => job;
+        set => job = value;
+    }
+
     public void Awake()
     {
         anim = GetComponent<Animator>();
@@ -146,6 +160,7 @@ public class Player : MonoBehaviour
         if(curExp >= maxExp)
         {
             level++;
+            statPoint++;
             curExp -= maxExp;
             maxExp = (level * level + level) * 5;
         }

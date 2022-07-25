@@ -7,6 +7,7 @@ public class Knight : Player
     private void Start()
     {
         SetStat();
+        Job = "ภüป็";
     }
 }
 
