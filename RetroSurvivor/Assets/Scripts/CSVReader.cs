@@ -40,15 +40,33 @@ public class CSVReader : MonoBehaviour
         public Enemy[] enemy;
     }
 
-    public WeaponList weaponList = new WeaponList();
-    public EnemyList enemyList = new EnemyList();
-
-    private void Awake()
+    [Serializable]
+    public class Player
     {
-        WeaponReadCSV();
-        EnmeyReadCSV();
+        public string name;
+        public int hp;
+        public float damage;
+        public float defense;
+        public int staticDmg;
+        public int staticDef;
+        public float atkSpeed;
+        public float speed;
+        public int critical;
+        public int critDmg;
+        public int luck;
+        public int aim;
+    }
+    [Serializable]
+    public class PlayerList
+    {
+        public Player[] player;
     }
 
+    public WeaponList weaponList = new WeaponList();
+    public EnemyList enemyList = new EnemyList();
+    public PlayerList playerList = new PlayerList();
+
+    [ContextMenu("무기 가져오기")]
     void WeaponReadCSV()
     {
         string[] data = textAssets[0].text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
@@ -67,6 +85,7 @@ public class CSVReader : MonoBehaviour
         }
     }
 
+    [ContextMenu("적 가져오기")]
     void EnmeyReadCSV()
     {
         string[] data = textAssets[1].text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
@@ -83,6 +102,31 @@ public class CSVReader : MonoBehaviour
             enemyList.enemy[i].exp = int.Parse(data[7 * (i + 1) + 4]);
             enemyList.enemy[i].stage = int.Parse(data[7 * (i + 1) + 5]);
             enemyList.enemy[i].speed = float.Parse(data[7 * (i + 1) + 6]);
+        }
+    }
+
+    [ContextMenu("플레이어 가져오기")]
+    void PlayerReadCSV()
+    {
+        string[] data = textAssets[2].text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
+        int tableSize = data.Length / 12 - 1;
+        playerList.player = new Player[tableSize];
+
+        for (int i = 0; i < tableSize; i++)
+        {
+            playerList.player[i] = new Player();
+            playerList.player[i].name = data[12 * (i + 1)];
+            playerList.player[i].hp = int.Parse(data[12 * (i + 1) + 1]);
+            playerList.player[i].damage = float.Parse(data[12 * (i + 1) + 2]);
+            playerList.player[i].defense = float.Parse(data[12 * (i + 1) + 3]);
+            playerList.player[i].staticDmg = int.Parse(data[12 * (i + 1) + 4]);
+            playerList.player[i].staticDef = int.Parse(data[12 * (i + 1) + 5]);
+            playerList.player[i].atkSpeed = float.Parse(data[12 * (i + 1) + 6]);
+            playerList.player[i].speed = float.Parse(data[12 * (i + 1) + 7]);
+            playerList.player[i].critical = int.Parse(data[12 * (i + 1) + 8]);
+            playerList.player[i].critDmg = int.Parse(data[12 * (i + 1) + 9]);
+            playerList.player[i].luck = int.Parse(data[12 * (i + 1) + 10]);
+            playerList.player[i].aim = int.Parse(data[12 * (i + 1) + 11]);
         }
     }
 }

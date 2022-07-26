@@ -5,6 +5,7 @@ using UnityEngine;
 public class BtnManager : MonoBehaviour
 {
     public UIManager uiManager;
+    public mouseCursor mouseCursor;
 
     public void EnterExit(string name)
     {
@@ -16,16 +17,28 @@ public class BtnManager : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.I))
                     {
                         if (uiManager.inventoryUI.activeSelf)
+                        {
                             uiManager.inventoryUI.SetActive(false);
+                            mouseCursor.ChangeMod("Attack");
+                        }
                         else
+                        {
                             uiManager.inventoryUI.SetActive(true);
+                            mouseCursor.ChangeMod("Select");
+                        }
                     }
                     if (Input.GetKeyDown(KeyCode.C))
                     {
                         if (uiManager.statUI.activeSelf)
+                        {
                             uiManager.statUI.SetActive(false);
+                            mouseCursor.ChangeMod("Attack");
+                        }
                         else
+                        {
                             uiManager.statUI.SetActive(true);
+                            mouseCursor.ChangeMod("Select");
+                        }
                     }
                     break;
                 case "HyperStat":

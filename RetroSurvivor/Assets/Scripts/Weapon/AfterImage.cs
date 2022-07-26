@@ -16,7 +16,7 @@ public class AfterImage : MonoBehaviour
 
     private void OnEnable()
     {
-        totalDmg = Random.Range(Mathf.RoundToInt(weapon.minDamage + (weapon.minDamage * player.damage / 100)), Mathf.RoundToInt(weapon.maxDamage + (weapon.maxDamage * player.damage / 100)));
+        totalDmg = Random.Range(Mathf.RoundToInt(weapon.minDamage * (1 + player.damage / 100)), Mathf.RoundToInt(weapon.maxDamage * (1 + player.damage / 100)));
     }
 
     public void SetActiveFalse()

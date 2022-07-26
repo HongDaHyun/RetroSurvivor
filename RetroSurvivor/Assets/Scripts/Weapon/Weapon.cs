@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
     //player attackspeed ¼³Á¤
     private void SetStat()
     {
-        for (int i = 0; i < objectManager.shortSwordPrefabs.Length; i++)
+        for (int i = 0; i < csvReader.weaponList.weapon.Length; i++)
         {
             if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].name == weaponName)
             {

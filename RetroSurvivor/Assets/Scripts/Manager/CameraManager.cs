@@ -6,13 +6,14 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField] GameObject player;
-    [SerializeField] float threshold;
+    [SerializeField] float threshold = 2f;
     public GameManager gameManager;
 
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        cam = Camera.main;
     }
 
     private void Update()

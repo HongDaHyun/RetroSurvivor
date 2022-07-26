@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region Stat
+    public string job;
+    public int maxHP;
+    public float damage; //무기공격력 * (1 + 플레이어공격력 / 100)
+    public float defense; //대미지 = 공격력 * (1 - 방어율)   방어율 = 방어력 / (1 + 방어력)
+    public int staticDmg;
+    public int staticDef;
+    public float attackSpeed; //무기공속 - (무기공속 * (플레이어공속 / 100)
+    public float defSpeed;
+    public int critical;
+    public int criticalDmg;
+    public int luck;
+    public int aim;
+    #endregion
+
     Animator anim;
     SpriteRenderer sprite;
+    Camera cam;
+    Vector2 mouse;
+    GameObject weapon;
+    ObjectManager objectManager;
+    CSVReader csvReader;
+
     public SpriteRenderer Sprite
     {
         get => sprite;
         set => sprite = value;
     }
-    Camera cam;
-    Vector2 mouse;
     public Vector2 Mouse
     {
         get => mouse;
         set => mouse = value;
     }
-    [SerializeField]private GameObject weapon;
     public GameObject Weapon
     {
         get => weapon;
@@ -27,69 +45,42 @@ public class Player : MonoBehaviour
 
     private float aimSpeed;
     private float curSpeed;
-    public float speed;
-
     private float curAttackSpeed = 10000;
+    private int curHP;
+    private int curExp;
+    private int maxExp;
+    private int level = 1;
+    private int statPoint;
+
     public float CurAttackSpeed
     {
         get => curAttackSpeed;
         set => curAttackSpeed = value;
     }
-    private float weaponAttackSpeed;
-    public float WeaponAttackSpeed
-    {
-        get => weaponAttackSpeed;
-        set => weaponAttackSpeed = value;
-    }
-    public float playerAttackSpeed;
-    private float attackSpeed;
-    public float AttackSpeed
-    {
-        get => attackSpeed;
-        set => attackSpeed = value;
-    }
-
-    private int curHP;
     public int CurHP
     {
         get => curHP;
         set => curHP = value;
     }
-    public int maxHP;
-
-    private int curExp;
     public int CurExp
     {
         get => curExp;
         set => curExp = value;
     }
-    private int maxExp;
     public int MaxExp
-    {   
+    {
         get => maxExp;
         set => maxExp = value;
     }
-    private int level = 1;
     public int Level
     {
         get => level;
         set => level = value;
     }
-
-    public float damage;
-
-    private int statPoint;
     public int StatPoint
     {
         get => statPoint;
         set => statPoint = value;
-    }
-
-    private string job;
-    public string Job
-    {
-        get => job;
-        set => job = value;
     }
 
     public void Awake()
@@ -97,6 +88,8 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         cam = Camera.main;
+        objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
+        csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
     }
 
     public void FixedUpdate()
@@ -107,7 +100,6 @@ public class Player : MonoBehaviour
     public void Update()
     {
         curAttackSpeed += Time.deltaTime;
-        attackSpeed = playerAttackSpeed + weaponAttackSpeed; //swap시에만 발동하도록 수정
         Aim();
         LevelUp();
     }
@@ -131,7 +123,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetBool("Run", true);
                 anim.SetBool("Walk", false);
-                curSpeed = speed;
+                curSpeed = defSpeed;
             }
         }
         else
@@ -166,15 +158,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Swap()
-    {
-    }
-
     public void SetStat()
     {
+        for (int i = 0; i < csvReader.playerList.player.Length; i++)
+        {
+            if (csvReader.playerList.player[i].name == job)
+            {
+                maxHP = csvReader.playerList.player[i].hp;
+                damage = csvReader.playerList.player[i].damage;
+                defense = csvReader.playerList.player[i].defense;
+                staticDmg = csvReader.playerList.player[i].staticDmg;
+                staticDef = csvReader.playerList.player[i].staticDef;
+                attackSpeed = csvReader.playerList.player[i].atkSpeed;
+                defSpeed = csvReader.playerList.player[i].speed;
+                critical = csvReader.playerList.player[i].critical;
+                criticalDmg = csvReader.playerList.player[i].critDmg;
+                luck = csvReader.playerList.player[i].luck;
+                aim = csvReader.playerList.player[i].aim;
+            }
+        }
+
         maxExp = (level * level + level) * 5;
-        curSpeed = speed;
-        aimSpeed = speed / 1.5f;
+        curSpeed = defSpeed;
+        aimSpeed = defSpeed / 1.5f;
         curHP = maxHP;
     }
 }

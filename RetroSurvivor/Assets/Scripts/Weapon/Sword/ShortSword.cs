@@ -12,13 +12,16 @@ public class ShortSword : Weapon
 
     private void Update()
     {
-        Attack();
-        Aim();
+        if(!GlobalVariable.isStop)
+        {
+            Attack();
+            Aim();
+        }
     }
 
     private void OnDisable()
     {
-        transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     private void Aim()
@@ -51,7 +54,10 @@ public class ShortSword : Weapon
 
     private void Attack()
     {
-        if (player.CurAttackSpeed > player.AttackSpeed + attackSpeed && Input.GetMouseButton(0))
+        float totalAtkSpeed = attackSpeed - (attackSpeed * (player.attackSpeed / 100));
+        totalAtkSpeed = (totalAtkSpeed <= 0.5f) ? 0.5f : totalAtkSpeed;
+
+        if (player.CurAttackSpeed > totalAtkSpeed && Input.GetMouseButton(0))
         {
             Anim.SetTrigger("Attack");
             AfterImage.SetActive(true);

@@ -5,4 +5,5 @@ using UnityEngine;
 public static class GlobalVariable
 {
     public static bool isStart;
+    public static bool isStop;
 }

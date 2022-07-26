@@ -128,7 +128,7 @@ public class Enemy : MonoBehaviour
 
     public void SetStat()
     {
-        for (int i = 0; i < objectManager.enemyPrefabs.Length; i++)
+        for (int i = 0; i < csvReader.enemyList.enemy.Length; i++)
         {
             if (csvReader.enemyList.enemy[i].type == type && csvReader.enemyList.enemy[i].name == enemyName)
             {

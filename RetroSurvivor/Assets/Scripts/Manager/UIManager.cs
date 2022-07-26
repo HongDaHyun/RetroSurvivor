@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject screenOptionUI;
     public GameObject inventoryUI;
     public GameObject statUI;
     public GameObject hyperStatUI;
