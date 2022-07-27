@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
     Camera cam;
     Vector2 mouse;
     GameObject weapon;
-    ObjectManager objectManager;
     CSVReader csvReader;
+    UIManager uiManager;
 
     public SpriteRenderer Sprite
     {
@@ -51,7 +51,18 @@ public class Player : MonoBehaviour
     private int maxExp;
     private int level = 1;
     private int statPoint;
+    private List<int> saveList = new List<int>();
 
+    public float AimSpeed
+    {
+        get => aimSpeed;
+        set => aimSpeed = value;
+    }
+    public float CurSpeed
+    {
+        get => curSpeed;
+        set => curSpeed = value;
+    }
     public float CurAttackSpeed
     {
         get => curAttackSpeed;
@@ -82,14 +93,19 @@ public class Player : MonoBehaviour
         get => statPoint;
         set => statPoint = value;
     }
+    public List<int> SaveList
+    {
+        get => saveList;
+        set => saveList = value;
+    }
 
     public void Awake()
     {
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         cam = Camera.main;
-        objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     public void FixedUpdate()
@@ -153,9 +169,35 @@ public class Player : MonoBehaviour
         {
             level++;
             statPoint++;
+            RanStat();
+            uiManager.ResetStatBtn();
+            uiManager.SetStatBtn();
             curExp -= maxExp;
             maxExp = (level * level + level) * 5;
         }
+    }
+
+    public void RanStat()
+    {
+        if (statPoint <= 0)
+        {
+            return;
+        }
+
+        int ranNum = Random.Range(0, 11);
+        List<int> ranNumList = new List<int>();
+
+        for (int i = 0; i < 3;)
+        {
+            if (ranNumList.Contains(ranNum))
+                ranNum = Random.Range(0, 11);
+            else
+            {
+                ranNumList.Add(ranNum);
+                i++;
+            }
+        }
+        saveList.AddRange(ranNumList);
     }
 
     public void SetStat()
