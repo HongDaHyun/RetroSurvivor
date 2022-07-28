@@ -23,7 +23,7 @@ public class HitBox : MonoBehaviour
     IEnumerator Damaged(Enemy enemy)
     {
         isHit = true;
-        player.CurHP -= enemy.damage;
+        player.CurHP -= Mathf.RoundToInt(enemy.damage * (1f / (1 + ((float)player.defense / 100))));
         player.Sprite.color = Color.red;
         yield return new WaitForSeconds(1f);
         isHit = false;

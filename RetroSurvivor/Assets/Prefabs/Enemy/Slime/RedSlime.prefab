@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ba0d52f04f9134fa80c6aa5571113f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: BlueSlime
+  enemyName: RedSlime
   type: 
   stage: 0
   exp: 0

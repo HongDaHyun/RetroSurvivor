@@ -45,8 +45,8 @@ public class CSVReader : MonoBehaviour
     {
         public string name;
         public int hp;
-        public float damage;
-        public float defense;
+        public int damage;
+        public int defense;
         public int staticDmg;
         public int staticDef;
         public float atkSpeed;
@@ -117,8 +117,8 @@ public class CSVReader : MonoBehaviour
             playerList.player[i] = new Player();
             playerList.player[i].name = data[12 * (i + 1)];
             playerList.player[i].hp = int.Parse(data[12 * (i + 1) + 1]);
-            playerList.player[i].damage = float.Parse(data[12 * (i + 1) + 2]);
-            playerList.player[i].defense = float.Parse(data[12 * (i + 1) + 3]);
+            playerList.player[i].damage = int.Parse(data[12 * (i + 1) + 2]);
+            playerList.player[i].defense = int.Parse(data[12 * (i + 1) + 3]);
             playerList.player[i].staticDmg = int.Parse(data[12 * (i + 1) + 4]);
             playerList.player[i].staticDef = int.Parse(data[12 * (i + 1) + 5]);
             playerList.player[i].atkSpeed = float.Parse(data[12 * (i + 1) + 6]);

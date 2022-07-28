@@ -12,7 +12,7 @@ public class Slime : Enemy
 
     private void Stop()
     {
-        IsStun = true;
+        IsStun = true; //데미지 입을시 isstun이 짧게 풀리는 버그 고치기
     }
     private void NonStop()
     {

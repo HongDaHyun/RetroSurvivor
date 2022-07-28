@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         InitMap();
         surface2D.BuildNavMesh();
 
-        StartCoroutine(Spawn("RedMushroom", 4f));
+        StartCoroutine(Spawn("RedSlime", 4f));
     }
 
     private void Update()

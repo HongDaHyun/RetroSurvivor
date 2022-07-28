@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    Player player;
+    protected Player player;
     ObjectManager objectManager;
     protected NavMeshAgent agent;
     SpriteRenderer sprite;

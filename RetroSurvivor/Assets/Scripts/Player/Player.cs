@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     #region Stat
     public string job;
     public int maxHP;
-    public float damage; //무기공격력 * (1 + 플레이어공격력 / 100)
-    public float defense; //대미지 = 공격력 * (1 - 방어율)   방어율 = 방어력 / (1 + 방어력)
+    public int damage; //무기공격력 * (1 + 플레이어공격력 / 100)
+    public int defense; //대미지 = 공격력 * (1 - 방어율)   방어율 = 방어력 / (1 + 방어력)
     public int staticDmg;
     public int staticDef;
     public float attackSpeed; //무기공속 - (무기공속 * (플레이어공속 / 100)
