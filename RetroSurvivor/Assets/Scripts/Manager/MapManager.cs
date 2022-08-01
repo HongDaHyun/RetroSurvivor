@@ -1,47 +1,99 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public class MapInfo
-{
-    public GameObject perfab;
-    public int count;
-}
+using UnityEngine.AI;
 
 public class MapManager : MonoBehaviour
 {
-    public MapInfo[] mapInfos = null;
+    public ObjectManager objectManager;
+    public NavMeshSurface2d surface2D;
 
-    public GameObject[,] stage1 = new GameObject[12, 9];
+    Player player;
+
+    GameObject[,] stage = new GameObject[5, 5];
+
+    bool isScrolling;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
+    private void Start()
+    {
         Generate();
+        surface2D.BuildNavMesh();
+    }
+
+    private void Update()
+    {
+        MapScrolling();
+        UpdateNav();
     }
 
     private void Generate()
     {
-        for (int i = 0; i < mapInfos.Length; i++)
+        int[] r = { -2, -1, 0, 1, 2 };
+        int[] c = { -2, -1, 0, 1, 2 };
+        for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < mapInfos[i].count; j++)
+            for (int j = 0; j < 5; j++)
             {
-                stage1[i, j] = Instantiate(mapInfos[i].perfab);
-                stage1[i, j].SetActive(false);
+                stage[i, j] = objectManager.MakeObj("Stage1");
+                stage[i, j].transform.position = new Vector2(18 * r[j], 10 * c[i]);
             }
         }
     }
 
-    public GameObject MakeMap()
+    public void MapScrolling()
     {
-        int rand = Random.Range(0, mapInfos.Length);
-        for (int i = 0; i < mapInfos[i].count; i++)
-            if (!stage1[rand, i].activeSelf)
+        Vector2 memory;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
             {
-                stage1[rand, i].SetActive(true);
-                return stage1[rand, i];
+                if (player.transform.position.x - stage[i, j].transform.position.x > 54)
+                {
+                    memory = stage[i, j].transform.position;
+                    stage[i, j].SetActive(false);
+                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j].transform.position = new Vector2(memory.x + 90, memory.y);
+                    isScrolling = true;
+                }
+                if (player.transform.position.x - stage[i, j].transform.position.x < -54)
+                {
+                    memory = stage[i, j].transform.position;
+                    stage[i, j].SetActive(false);
+                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j].transform.position = new Vector2(memory.x - 90, memory.y);
+                    isScrolling = true;
+                }
+                if (player.transform.position.y - stage[i, j].transform.position.y > 30)
+                {
+                    memory = stage[i, j].transform.position;
+                    stage[i, j].SetActive(false);
+                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j].transform.position = new Vector2(memory.x, memory.y + 50);
+                    isScrolling = true;
+                }
+                if (player.transform.position.y - stage[i, j].transform.position.y < -30)
+                {
+                    memory = stage[i, j].transform.position;
+                    stage[i, j].SetActive(false);
+                    stage[i, j] = objectManager.MakeObj("Stage1");
+                    stage[i, j].transform.position = new Vector2(memory.x, memory.y - 50);
+                    isScrolling = true;
+                }
             }
-        return null;
+        }
     }
 
+    public void UpdateNav()
+    {
+        if (isScrolling)
+        {
+            surface2D.UpdateNavMesh(surface2D.navMeshData);
+            isScrolling = false;
+        }
+    }
 }

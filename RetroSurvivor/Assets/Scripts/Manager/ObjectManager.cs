@@ -7,6 +7,7 @@ public class ObjectManager : MonoBehaviour
     public Sprite[] weaponSprites;
 
     public GameObject[] shortSwordPrefabs;
+    public GameObject[] MapFieldPrefabs;
     public GameObject[] enemyPrefabs;
     public GameObject dropItemPrefab;
 
@@ -18,6 +19,8 @@ public class ObjectManager : MonoBehaviour
     GameObject[] blackShortSword = new GameObject[5];
     GameObject[] roundShortSword = new GameObject[5];
     GameObject[] woodenShortSword = new GameObject[5];
+
+    GameObject[] stage1 = new GameObject[25];
 
     GameObject[] greenSlime = new GameObject[100];
     GameObject[] blueSlime = new GameObject[100];
@@ -79,6 +82,13 @@ public class ObjectManager : MonoBehaviour
         {
             woodenShortSword[i] = Instantiate(shortSwordPrefabs[7]);
             woodenShortSword[i].SetActive(false);
+        }
+
+        //MapField
+        for (int i = 0; i < stage1.Length; i++)
+        {
+            stage1[i] = Instantiate(MapFieldPrefabs[0]);
+            stage1[i].SetActive(false);
         }
 
         //Enemy
@@ -158,6 +168,10 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "WoodenShortSword":
                 targetPool = woodenShortSword;
+                break;
+
+            case "Stage1":
+                targetPool = stage1;
                 break;
 
             case "GreenSlime":

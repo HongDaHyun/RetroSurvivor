@@ -4,16 +4,38 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
+    bool isMove;
     public override void Start()
     {
         type = "Slime";
         base.Start();
     }
 
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AfterImage"))
+        {
+            StartCoroutine(Damaged(collision));
+        }
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator Damaged(Collider2D collision)
+    {
+        CurHealth -= collision.GetComponent<AfterImage>().totalDmg;
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        sprite.color = Color.white;
+    }
+
     private void Stop()
     {
-        IsStun = true; //데미지 입을시 isstun이 짧게 풀리는 버그 고치기
+        IsStun = true;
     }
+
     private void NonStop()
     {
         IsStun = false;

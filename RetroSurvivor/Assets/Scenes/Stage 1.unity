@@ -170,6 +170,8 @@ MonoBehaviour:
   - {fileID: 7852784653260960519, guid: 3475e31c28a62304283d631ed5ae260a, type: 3}
   - {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
   - {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
+  MapFieldPrefabs:
+  - {fileID: 8647464261578313459, guid: 8d750ecbdc8a92943a7595b95dcfe100, type: 3}
   enemyPrefabs:
   - {fileID: 5271810769981570246, guid: 0a0e6b0f3e40a87408430617177674cf, type: 3}
   - {fileID: 5271810769981570246, guid: 7c0c83b0597d03d4dbb060b2d11a010f, type: 3}
@@ -8998,31 +9000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c6b1d2701f79f4f8cfc476dc8cd29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapInfos:
-  - perfab: {fileID: 4320187168111059051, guid: e4994163c588e6a41b48a111f7c4834c, type: 3}
-    count: 9
-  - perfab: {fileID: 8410147726358726388, guid: 939ce76ad8f5fc246896dd9f07ca8603, type: 3}
-    count: 9
-  - perfab: {fileID: 5302954844106434597, guid: e1f165b0388753841a03f51a5bf4a0e8, type: 3}
-    count: 9
-  - perfab: {fileID: 6971849553673053391, guid: be5ae11ca9017dd4c909c069ffd3f6e6, type: 3}
-    count: 9
-  - perfab: {fileID: 8078497562234896030, guid: b917af5680484e8479163b407ec1f9c3, type: 3}
-    count: 9
-  - perfab: {fileID: 7952730433249889321, guid: d61df0151e67ee04fadbecf19b0f8e45, type: 3}
-    count: 9
-  - perfab: {fileID: 2151074688195868582, guid: 484b5662941bab649a1d6b16d540cc05, type: 3}
-    count: 9
-  - perfab: {fileID: 8109151525060382625, guid: ff966912ff8d2f34cb24714a45aa4e0c, type: 3}
-    count: 9
-  - perfab: {fileID: 6832882701614335930, guid: a0edcce4b80aeed449c573e80c11fc42, type: 3}
-    count: 9
-  - perfab: {fileID: 3199542783008151071, guid: fdcc918eb2483824c83cc00dbbc32e29, type: 3}
-    count: 9
-  - perfab: {fileID: 3301995428179331920, guid: c4a46f1862525824886844d0c367c823, type: 3}
-    count: 9
-  - perfab: {fileID: 3065087912832573118, guid: 7f922f410af135141ae6230f2a5ae927, type: 3}
-    count: 9
+  objectManager: {fileID: 4652090}
+  surface2D: {fileID: 1915185244}
 --- !u!4 &986436427
 Transform:
   m_ObjectHideFlags: 0
@@ -10253,7 +10232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapManager: {fileID: 986436426}
   objectManager: {fileID: 4652090}
-  surface2D: {fileID: 1915185244}
 --- !u!4 &1167889724
 Transform:
   m_ObjectHideFlags: 0
@@ -15515,7 +15493,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915185242}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

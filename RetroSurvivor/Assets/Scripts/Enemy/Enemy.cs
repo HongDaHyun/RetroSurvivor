@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     protected Player player;
     ObjectManager objectManager;
     protected NavMeshAgent agent;
-    SpriteRenderer sprite;
+    protected SpriteRenderer sprite;
     CSVReader csvReader;
 
     public string enemyName;
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         Die();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("AfterImage"))
         {
