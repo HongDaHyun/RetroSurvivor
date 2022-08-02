@@ -52,6 +52,11 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+    }
+
     private void Aim()
     {
         Vector2 len = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -69,15 +74,6 @@ public class Weapon : MonoBehaviour
             scale.y = -1;
         }
         transform.localScale = scale;
-
-        if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
-        {
-            Sprite.sortingOrder = -1;
-        }
-        else
-        {
-            Sprite.sortingOrder = 2;
-        }
     }
 
     private void Attack()

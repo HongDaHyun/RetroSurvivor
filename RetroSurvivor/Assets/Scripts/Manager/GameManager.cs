@@ -16,16 +16,22 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Spawn("BlackMushroom", 4f));
+        StartCoroutine(Spawn("GreenSlime", 4f, 5));
     }
 
-    IEnumerator Spawn(string name, float time)
+    IEnumerator Spawn(string name, float time, int maxSpawn)
     {
         while(true)
         {
-            GameObject entity = objectManager.MakeObj(name);
-            entity.transform.position = GetRandomPos(10);
-            yield return new WaitForSeconds(time);
+            int monsterCount = (int)GameObject.FindGameObjectsWithTag("Enemy").Length;
+            if (monsterCount < maxSpawn)
+            {
+                GameObject entity = objectManager.MakeObj(name);
+                entity.transform.position = GetRandomPos(10);
+                yield return new WaitForSeconds(time);
+            }
+            else
+                yield return null;
         }
     }
 

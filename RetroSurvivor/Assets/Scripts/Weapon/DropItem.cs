@@ -71,7 +71,7 @@ public class DropItem : MonoBehaviour
                             break;
                     }
                     player.Weapon.transform.parent = player.transform;
-                    player.Weapon.transform.position = player.transform.position;
+                    player.Weapon.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 0.5f);
                     break;
             }
 
