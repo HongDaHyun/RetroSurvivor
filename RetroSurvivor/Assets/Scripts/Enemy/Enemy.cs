@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     protected Player player;
-    ObjectManager objectManager;
+    protected ObjectManager objectManager;
     protected NavMeshAgent agent;
     protected SpriteRenderer sprite;
     CSVReader csvReader;
@@ -79,8 +79,12 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Damaged(Collider2D collision)
     {
+        int dmg = collision.GetComponent<AfterImage>().totalDmg;
         isStun = true;
-        curHealth -= collision.GetComponent<AfterImage>().totalDmg;
+        curHealth -= dmg;
+        GameObject dmgText = objectManager.MakeObj("DamageText");
+        dmgText.GetComponent<DamageText>().DmgTxt(dmg);
+        dmgText.transform.position = new Vector2(transform.position.x, transform.position.y + 1f);
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         sprite.color = Color.white;

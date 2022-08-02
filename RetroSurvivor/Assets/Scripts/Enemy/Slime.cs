@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
-    bool isMove;
     public override void Start()
     {
         type = "Slime";
@@ -25,7 +24,11 @@ public class Slime : Enemy
 
     IEnumerator Damaged(Collider2D collision)
     {
-        CurHealth -= collision.GetComponent<AfterImage>().totalDmg;
+        int dmg = collision.GetComponent<AfterImage>().totalDmg;
+        CurHealth -= dmg;
+        GameObject dmgText = objectManager.MakeObj("DamageText");
+        dmgText.GetComponent<DamageText>().DmgTxt(dmg);
+        dmgText.transform.position = new Vector2(transform.position.x, transform.position.y + 0.2f);
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         sprite.color = Color.white;

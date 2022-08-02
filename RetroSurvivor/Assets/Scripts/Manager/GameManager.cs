@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Spawn("GreenSlime", 4f, 5));
+        StartCoroutine(Spawn("RedMushroom", 4f, 5));
     }
 
     IEnumerator Spawn(string name, float time, int maxSpawn)

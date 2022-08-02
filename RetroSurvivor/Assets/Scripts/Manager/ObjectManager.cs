@@ -10,6 +10,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject[] MapFieldPrefabs;
     public GameObject[] enemyPrefabs;
     public GameObject dropItemPrefab;
+    public GameObject damageTextPrefab;
 
     GameObject[] basicShortSword = new GameObject[5];
     GameObject[] brokenKingShortSword = new GameObject[5];
@@ -32,6 +33,8 @@ public class ObjectManager : MonoBehaviour
     GameObject[] blackMushroom = new GameObject[100];
 
     GameObject[] dropItem = new GameObject[50];
+
+    GameObject[] damageText = new GameObject[30];
 
     GameObject[] targetPool;
 
@@ -139,6 +142,13 @@ public class ObjectManager : MonoBehaviour
             dropItem[i] = Instantiate(dropItemPrefab);
             dropItem[i].SetActive(false);
         }
+
+        //DamageText
+        for (int i = 0; i < damageText.Length; i++)
+        {
+            damageText[i] = Instantiate(damageTextPrefab);
+            damageText[i].SetActive(false);
+        }
     }
 
     public GameObject MakeObj(string name)
@@ -201,6 +211,10 @@ public class ObjectManager : MonoBehaviour
 
             case "DropItem":
                 targetPool = dropItem;
+                break;
+
+            case "DamageText":
+                targetPool = damageText;
                 break;
         }
         for(int i = 0; i < targetPool.Length; i++)

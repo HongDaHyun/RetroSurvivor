@@ -9,12 +9,12 @@ public class Player : MonoBehaviour
     public int maxHP;
     public int damage; //무기공격력 * (1 + 플레이어공격력 / 100)
     public int defense; //대미지 = 공격력 * (1 - 방어율)   방어율 = 방어력 / (1 + 방어력)
-    public int staticDmg;
-    public int staticDef;
+    public int staticDmg; //구현 x
+    public int staticDef; //구현 x
     public float attackSpeed; //무기공속 - (무기공속 * (플레이어공속 / 100)
     public float defSpeed;
-    public int critical;
-    public int criticalDmg;
+    public int critical; //구현 x
+    public int criticalDmg; //구현 x
     public int luck;
     public int aim;
     #endregion

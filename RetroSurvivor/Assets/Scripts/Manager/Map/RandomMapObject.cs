@@ -27,6 +27,7 @@ public class RandomMapObject : MonoBehaviour
 
     private void Generate()
     {
+        spawnablesCount += Random.Range(0, 6);
         g = new GameObject[spawnablesCount];
 
         for (int i = 0; i < spawnablesCount; i++)
