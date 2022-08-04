@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
     public MapManager mapManager;
     public ObjectManager objectManager;
 
-    GameObject player;
+    public Player player;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Start()

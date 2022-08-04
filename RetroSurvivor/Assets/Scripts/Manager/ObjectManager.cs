@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public Sprite[] weaponSprites;
-
     public GameObject[] shortSwordPrefabs;
     public GameObject[] MapFieldPrefabs;
     public GameObject[] enemyPrefabs;
-    public GameObject dropItemPrefab;
+
+    public GameObject fieldItemPrefab;
+
     public GameObject damageTextPrefab;
 
     GameObject[] basicShortSword = new GameObject[5];
     GameObject[] brokenKingShortSword = new GameObject[5];
+    GameObject[] kitchenShortSword = new GameObject[5];
+    GameObject[] woodenShortSword = new GameObject[5];
     GameObject[] princeShortSword = new GameObject[5];
     GameObject[] plantShortSword = new GameObject[5];
-    GameObject[] kitchenShortSword = new GameObject[5];
     GameObject[] blackShortSword = new GameObject[5];
     GameObject[] roundShortSword = new GameObject[5];
-    GameObject[] woodenShortSword = new GameObject[5];
 
     GameObject[] stage1 = new GameObject[25];
 
@@ -32,7 +32,7 @@ public class ObjectManager : MonoBehaviour
     GameObject[] skyblueMushroom = new GameObject[100];
     GameObject[] blackMushroom = new GameObject[100];
 
-    GameObject[] dropItem = new GameObject[50];
+    GameObject[] fieldItem = new GameObject[100];
 
     GameObject[] damageText = new GameObject[30];
 
@@ -56,6 +56,16 @@ public class ObjectManager : MonoBehaviour
             brokenKingShortSword[i] = Instantiate(shortSwordPrefabs[1]);
             brokenKingShortSword[i].SetActive(false);
         }
+        for (int i = 0; i < kitchenShortSword.Length; i++)
+        {
+            kitchenShortSword[i] = Instantiate(shortSwordPrefabs[4]);
+            kitchenShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < woodenShortSword.Length; i++)
+        {
+            woodenShortSword[i] = Instantiate(shortSwordPrefabs[7]);
+            woodenShortSword[i].SetActive(false);
+        }
         for (int i = 0; i < princeShortSword.Length; i++)
         {
             princeShortSword[i] = Instantiate(shortSwordPrefabs[2]);
@@ -66,11 +76,6 @@ public class ObjectManager : MonoBehaviour
             plantShortSword[i] = Instantiate(shortSwordPrefabs[3]);
             plantShortSword[i].SetActive(false);
         }
-        for (int i = 0; i < kitchenShortSword.Length; i++)
-        {
-            kitchenShortSword[i] = Instantiate(shortSwordPrefabs[4]);
-            kitchenShortSword[i].SetActive(false);
-        }
         for (int i = 0; i < blackShortSword.Length; i++)
         {
             blackShortSword[i] = Instantiate(shortSwordPrefabs[5]);
@@ -80,11 +85,6 @@ public class ObjectManager : MonoBehaviour
         {
             roundShortSword[i] = Instantiate(shortSwordPrefabs[6]);
             roundShortSword[i].SetActive(false);
-        }
-        for (int i = 0; i < woodenShortSword.Length; i++)
-        {
-            woodenShortSword[i] = Instantiate(shortSwordPrefabs[7]);
-            woodenShortSword[i].SetActive(false);
         }
 
         //MapField
@@ -136,11 +136,11 @@ public class ObjectManager : MonoBehaviour
             blackMushroom[i].SetActive(false);
         }
 
-        //DropItem
-        for (int i = 0; i < dropItem.Length; i++)
+        //FieldItem
+        for (int i = 0; i < fieldItem.Length; i++)
         {
-            dropItem[i] = Instantiate(dropItemPrefab);
-            dropItem[i].SetActive(false);
+            fieldItem[i] = Instantiate(fieldItemPrefab);
+            fieldItem[i].SetActive(false);
         }
 
         //DamageText
@@ -151,6 +151,7 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    int k;
     public GameObject MakeObj(string name)
     {
         switch(name)
@@ -161,23 +162,23 @@ public class ObjectManager : MonoBehaviour
             case "BrokenKingShortSword":
                 targetPool = brokenKingShortSword;
                 break;
+            case "KitchenShortSword":
+                targetPool = kitchenShortSword;
+                break;
+            case "WoodenShortSword":
+                targetPool = woodenShortSword;
+                break;
             case "PrinceShortSword":
                 targetPool = princeShortSword;
                 break;
             case "PlantShortSword":
                 targetPool = plantShortSword;
                 break;
-            case "KitchenShortSword":
-                targetPool = kitchenShortSword;
-                break;
             case "BlackShortSword":
                 targetPool = blackShortSword;
                 break;
             case "RoundShortSword":
                 targetPool = roundShortSword;
-                break;
-            case "WoodenShortSword":
-                targetPool = woodenShortSword;
                 break;
 
             case "Stage1":
@@ -209,8 +210,8 @@ public class ObjectManager : MonoBehaviour
                 targetPool = blackMushroom;
                 break;
 
-            case "DropItem":
-                targetPool = dropItem;
+            case "FieldItem":
+                targetPool = fieldItem;
                 break;
 
             case "DamageText":
@@ -219,6 +220,14 @@ public class ObjectManager : MonoBehaviour
         }
         for(int i = 0; i < targetPool.Length; i++)
         {
+            if(targetPool == fieldItem)
+            {
+                if (k > 300)
+                    k = 0;
+                targetPool[k].SetActive(true);
+                k++;
+                return targetPool[k - 1];
+            }
             if(!targetPool[i].activeSelf)
             {
                 targetPool[i].SetActive(true);

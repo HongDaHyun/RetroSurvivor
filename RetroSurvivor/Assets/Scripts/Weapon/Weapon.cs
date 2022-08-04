@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour
     public int minDamage;
     public int maxDamage;
     public float attackSpeed;
-    public int id;
 
     private SpriteRenderer sprite;
     public SpriteRenderer  Sprite
@@ -50,11 +49,6 @@ public class Weapon : MonoBehaviour
             Attack();
             Aim();
         }
-    }
-
-    private void OnDisable()
-    {
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     private void Aim()

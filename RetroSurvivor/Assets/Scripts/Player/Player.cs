@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         get => weapon;
         set => weapon = value;
     }
+    public List<Item> equipments = new List<Item>();
 
     private float aimSpeed;
     private float curSpeed;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
     private int level = 1;
     private int statPoint;
     private List<int> saveList = new List<int>();
+    private bool isHit;
 
     public float AimSpeed
     {
@@ -111,6 +113,41 @@ public class Player : MonoBehaviour
     public void FixedUpdate()
     {
         Move();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("FieldItem") && Input.GetKeyDown(KeyCode.F))
+        {
+            FieldItem fieldItem = collision.GetComponent<FieldItem>();
+
+            switch (fieldItem.item.type)
+            {
+                case ItemType.Equipment:
+                    equipments.Add(fieldItem.GetItem());
+                    uiManager.RedrawEquipmentSlotUI();
+                    break;
+            }
+            fieldItem.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy") && !isHit)
+        {
+            StartCoroutine(Damaged(collision.collider.GetComponent<Enemy>()));
+        }
+    }
+
+    IEnumerator Damaged(Enemy enemy)
+    {
+        isHit = true;
+        CurHP -= Mathf.RoundToInt(enemy.damage * (1f / (1 + ((float)defense / 100))));
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(1f);
+        isHit = false;
+        sprite.color = Color.white;
     }
 
     public void Update()
@@ -175,6 +212,12 @@ public class Player : MonoBehaviour
             curExp -= maxExp;
             maxExp = (level * level + level) * 5;
         }
+    }
+
+    public void RemoveItem(int i)
+    {
+        equipments.RemoveAt(i);
+        uiManager.RedrawEquipmentSlotUI();
     }
 
     public void RanStat()

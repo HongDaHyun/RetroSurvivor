@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     public Text[] modifiableStatText;
     public Text[] defStatText;
 
+    public Slots[] equipmentSlots;
+
     Player player;
 
     private void Awake()
@@ -111,5 +113,18 @@ public class UIManager : MonoBehaviour
         }
         statBtn[11].GetComponent<Button>().enabled = true;
         statBtn[11].GetComponent<Image>().color = green;
+    }
+
+    public void RedrawEquipmentSlotUI()
+    {
+        for(int i = 0; i < equipmentSlots.Length; i++)
+        {
+            equipmentSlots[i].RemoveSlot();
+        }
+        for(int i = 0; i < player.equipments.Count; i++)
+        {
+            equipmentSlots[i].item = player.equipments[i];
+            equipmentSlots[i].UpdateSlotUI();
+        }
     }
 }

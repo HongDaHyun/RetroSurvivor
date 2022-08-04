@@ -304,7 +304,7 @@ MonoBehaviour:
   minDamage: 0
   maxDamage: 0
   attackSpeed: 0
-  id: 3
+  id: 7
 --- !u!1 &7852784653722206211
 GameObject:
   m_ObjectHideFlags: 0

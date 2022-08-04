@@ -95,10 +95,9 @@ public class Enemy : MonoBehaviour
     {
         if(curHealth <= 0)
         {
-            gameObject.SetActive(false);
-            player.CurExp += exp;
-
             Drop();
+            player.CurExp += exp;
+            gameObject.SetActive(false);
         }
     }
 
@@ -110,8 +109,8 @@ public class Enemy : MonoBehaviour
 
         //rand = Random.Range(1, 101);
         ////rand값에 따라 상자 희귀도 결정
-        GameObject dropItem = objectManager.MakeObj("DropItem");
-        dropItem.transform.position = transform.position;
+        GameObject fieldItem = objectManager.MakeObj("FieldItem");
+        fieldItem.transform.position = transform.position;
     }
 
     public void Move()
