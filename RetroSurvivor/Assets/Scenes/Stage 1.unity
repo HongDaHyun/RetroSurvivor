@@ -253,6 +253,7 @@ MonoBehaviour:
   - {fileID: 5271810769981570246, guid: 1b1a1bd48db09ed479f7d5c08b84d55b, type: 3}
   fieldItemPrefab: {fileID: 4779390376487554461, guid: aa310aa90803e6b40827c0979b199580, type: 3}
   damageTextPrefab: {fileID: 5886449536718908313, guid: 4ac70a1532076eb43804aec53eb144cf, type: 3}
+  guideKey_FPrefab: {fileID: 569192588127708216, guid: abcdadcd4f2c4e1478bae6802ef4b4bc, type: 3}
 --- !u!4 &4652091
 Transform:
   m_ObjectHideFlags: 0

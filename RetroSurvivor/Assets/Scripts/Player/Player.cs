@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     GameObject weapon;
     CSVReader csvReader;
     UIManager uiManager;
+    ObjectManager objectManager;
 
     public SpriteRenderer Sprite
     {
@@ -108,6 +109,7 @@ public class Player : MonoBehaviour
         cam = Camera.main;
         csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
     }
 
     public void FixedUpdate()
@@ -115,20 +117,32 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("FieldItem"))
+            collision.GetComponent<FieldItem>().guideKey_F.SetActive(false);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("FieldItem") && Input.GetKeyDown(KeyCode.F))
+        if(collision.CompareTag("FieldItem"))
         {
             FieldItem fieldItem = collision.GetComponent<FieldItem>();
-
-            switch (fieldItem.item.type)
+            fieldItem.ShowGuideKey();
+            if (Input.GetKeyDown(KeyCode.F) && fieldItem.guideKey_F.activeSelf)
             {
-                case ItemType.Equipment:
-                    equipments.Add(fieldItem.GetItem());
-                    uiManager.RedrawEquipmentSlotUI();
-                    break;
+                switch (fieldItem.item.type)
+                {
+                    case ItemType.Equipment:
+                        if(equipments.Count < 16)
+                        {
+                            equipments.Add(fieldItem.GetItem());
+                            uiManager.RedrawEquipmentSlotUI();
+                        }
+                        break;
+                }
+                fieldItem.gameObject.SetActive(false);
             }
-            fieldItem.gameObject.SetActive(false);
         }
     }
 
