@@ -6,13 +6,19 @@ public class FieldItem : MonoBehaviour
 {
     public Item item;
     public GameObject guideKey_F;
+    bool isPickUp;
+
     SpriteRenderer spriteRenderer;
     ItemDatabase itemDatabase;
+    Player player;
+    UIManager uiManager;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         itemDatabase = GameObject.Find("ItemDatabase").GetComponent<ItemDatabase>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     private void Start()
@@ -32,6 +38,42 @@ public class FieldItem : MonoBehaviour
         guideKey_F.SetActive(false);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            isPickUp = true;
+            guideKey_F.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isPickUp = false;
+            guideKey_F.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if(isPickUp && Input.GetKeyDown(KeyCode.F))
+        {
+            switch(item.type)
+            {
+                case ItemType.Equipment:
+                    if (player.equipments.Count < 16)
+                    {
+                        player.equipments.Add(GetItem());
+                        uiManager.RedrawEquipmentSlotUI();
+                    }
+                    break;
+            }
+            gameObject.SetActive(false);
+        }
+    }
+
     public void SetItem(Item _item)
     {
         item.name = _item.name;
@@ -44,10 +86,5 @@ public class FieldItem : MonoBehaviour
     public Item GetItem()
     {
         return this.item;
-    }
-
-    public void ShowGuideKey()
-    {
-        guideKey_F.SetActive(true);
     }
 }

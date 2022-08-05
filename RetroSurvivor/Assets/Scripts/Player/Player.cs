@@ -117,35 +117,6 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("FieldItem"))
-            collision.GetComponent<FieldItem>().guideKey_F.SetActive(false);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.CompareTag("FieldItem"))
-        {
-            FieldItem fieldItem = collision.GetComponent<FieldItem>();
-            fieldItem.ShowGuideKey();
-            if (Input.GetKeyDown(KeyCode.F) && fieldItem.guideKey_F.activeSelf)
-            {
-                switch (fieldItem.item.type)
-                {
-                    case ItemType.Equipment:
-                        if(equipments.Count < 16)
-                        {
-                            equipments.Add(fieldItem.GetItem());
-                            uiManager.RedrawEquipmentSlotUI();
-                        }
-                        break;
-                }
-                fieldItem.gameObject.SetActive(false);
-            }
-        }
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Enemy") && !isHit)
