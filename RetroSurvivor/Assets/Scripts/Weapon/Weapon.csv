@@ -3,7 +3,13 @@ Basic,ShortSword,Raw,1,5,2
 Broken,ShortSword,Raw,2,3,1
 Kitchen,ShortSword,Raw,3,6,2.3
 Wooden,ShortSword,Raw,1,2,0.7
-Prince,ShortSword,Rare,3,8,1.2
-Plant,ShortSword,Rare,1,8,1
-Black,ShortSword,Rare,4,10,2
-Round,ShortSword,Rare,3,5,0.5
+Prince,ShortSword,Common,3,8,1.2
+Plant,ShortSword,Common,1,8,1
+Black,ShortSword,Common,4,10,2
+Round,ShortSword,Common,3,5,0.5
+Cactus,ShortSword,Rare,10,20,1
+Zelda,ShortSword,Rare,8,15,0.8
+RiceCake,ShortSword,Epic,15,22,1.2
+Doran,ShortSword,Epic,8,18,0.8
+Monster,ShortSword,Legend,20,30,1.4
+Blood,ShortSword,Legend,18,22,1.1

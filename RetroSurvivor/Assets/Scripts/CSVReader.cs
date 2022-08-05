@@ -8,7 +8,7 @@ public class CSVReader : MonoBehaviour
     public TextAsset[] textAssets;
 
     [Serializable]
-    public class Weapon
+    public class ShortSword
     {
         public string name;
         public string type;
@@ -20,7 +20,7 @@ public class CSVReader : MonoBehaviour
     [Serializable]
     public class WeaponList
     {
-        public Weapon[] weapon;
+        public ShortSword[] shortSword;
     }
 
     [Serializable]
@@ -71,17 +71,17 @@ public class CSVReader : MonoBehaviour
     {
         string[] data = textAssets[0].text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
         int tableSize = data.Length / 6 - 1;
-        weaponList.weapon = new Weapon[tableSize];
+        weaponList.shortSword = new ShortSword[tableSize];
 
         for(int i = 0; i < tableSize; i++)
         {
-            weaponList.weapon[i] = new Weapon();
-            weaponList.weapon[i].name = data[6 * (i + 1)];
-            weaponList.weapon[i].type = data[6 * (i + 1) + 1];
-            weaponList.weapon[i].tier = data[6 * (i + 1) + 2];
-            weaponList.weapon[i].minDmg = int.Parse(data[6 * (i + 1) + 3]);
-            weaponList.weapon[i].maxDmg = int.Parse(data[6 * (i + 1) + 4]);
-            weaponList.weapon[i].AtkSpeed = float.Parse(data[6 * (i + 1) + 5]);
+            weaponList.shortSword[i] = new ShortSword();
+            weaponList.shortSword[i].name = data[6 * (i + 1)];
+            weaponList.shortSword[i].type = data[6 * (i + 1) + 1];
+            weaponList.shortSword[i].tier = data[6 * (i + 1) + 2];
+            weaponList.shortSword[i].minDmg = int.Parse(data[6 * (i + 1) + 3]);
+            weaponList.shortSword[i].maxDmg = int.Parse(data[6 * (i + 1) + 4]);
+            weaponList.shortSword[i].AtkSpeed = float.Parse(data[6 * (i + 1) + 5]);
         }
     }
 

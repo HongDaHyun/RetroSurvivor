@@ -67,6 +67,24 @@ public class Slots : MonoBehaviour, IPointerUpHandler
                     case "Wooden":
                         player.Weapon = objectManager.MakeObj("WoodenShortSword");
                         break;
+                    case "Cactus":
+                        player.Weapon = objectManager.MakeObj("CactusShortSword");
+                        break;
+                    case "Zelda":
+                        player.Weapon = objectManager.MakeObj("ZeldaShortSword");
+                        break;
+                    case "RiceCake":
+                        player.Weapon = objectManager.MakeObj("RiceCakeShortSword");
+                        break;
+                    case "Doran":
+                        player.Weapon = objectManager.MakeObj("DoranShortSword");
+                        break;
+                    case "Monster":
+                        player.Weapon = objectManager.MakeObj("MonsterShortSword");
+                        break;
+                    case "Blood":
+                        player.Weapon = objectManager.MakeObj("BloodShortSword");
+                        break;
                 }
 
                 player.Weapon.transform.parent = player.transform;

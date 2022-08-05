@@ -240,6 +240,12 @@ MonoBehaviour:
   - {fileID: 7852784653260960519, guid: 3475e31c28a62304283d631ed5ae260a, type: 3}
   - {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
   - {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
+  - {fileID: 7852784653260960519, guid: e6253d84e58b4e648bf5c65219e443d4, type: 3}
+  - {fileID: 7852784653260960519, guid: 07833c8afff43cc46ac1ea0fdea9f2bd, type: 3}
+  - {fileID: 7852784653260960519, guid: 5ff1e6e727a496548ad5cd0050f76022, type: 3}
+  - {fileID: 7852784653260960519, guid: 604aaf19ca00feb40b8c673c4030f12e, type: 3}
+  - {fileID: 7852784653260960519, guid: ba2858e6646d2fd44a49de06d5e8c91f, type: 3}
+  - {fileID: 7852784653260960519, guid: e50dc92d24480a148a53d829bf261b56, type: 3}
   MapFieldPrefabs:
   - {fileID: 8647464261578313459, guid: 8d750ecbdc8a92943a7595b95dcfe100, type: 3}
   enemyPrefabs:
@@ -253,7 +259,6 @@ MonoBehaviour:
   - {fileID: 5271810769981570246, guid: 1b1a1bd48db09ed479f7d5c08b84d55b, type: 3}
   fieldItemPrefab: {fileID: 4779390376487554461, guid: aa310aa90803e6b40827c0979b199580, type: 3}
   damageTextPrefab: {fileID: 5886449536718908313, guid: 4ac70a1532076eb43804aec53eb144cf, type: 3}
-  guideKey_FPrefab: {fileID: 569192588127708216, guid: abcdadcd4f2c4e1478bae6802ef4b4bc, type: 3}
 --- !u!4 &4652091
 Transform:
   m_ObjectHideFlags: 0
@@ -3233,7 +3238,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3440,7 +3445,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 3870bbe1a1832414d86862b39cdf7530, type: 3}
   - {fileID: 4900000, guid: 66d04818a8137504286eb6b69bd7cfc8, type: 3}
   weaponList:
-    weapon:
+    shortSword:
     - name: Basic
       type: ShortSword
       tier: Raw
@@ -3467,28 +3472,64 @@ MonoBehaviour:
       AtkSpeed: 0.7
     - name: Prince
       type: ShortSword
-      tier: Rare
+      tier: Common
       minDmg: 3
       maxDmg: 8
       AtkSpeed: 1.2
     - name: Plant
       type: ShortSword
-      tier: Rare
+      tier: Common
       minDmg: 1
       maxDmg: 8
       AtkSpeed: 1
     - name: Black
       type: ShortSword
-      tier: Rare
+      tier: Common
       minDmg: 4
       maxDmg: 10
       AtkSpeed: 2
     - name: Round
       type: ShortSword
-      tier: Rare
+      tier: Common
       minDmg: 3
       maxDmg: 5
       AtkSpeed: 0.5
+    - name: Cactus
+      type: ShortSword
+      tier: Rare
+      minDmg: 10
+      maxDmg: 20
+      AtkSpeed: 1
+    - name: Zelda
+      type: ShortSword
+      tier: Rare
+      minDmg: 8
+      maxDmg: 15
+      AtkSpeed: 0.8
+    - name: RiceCake
+      type: ShortSword
+      tier: Epic
+      minDmg: 15
+      maxDmg: 22
+      AtkSpeed: 1.2
+    - name: Doran
+      type: ShortSword
+      tier: Epic
+      minDmg: 8
+      maxDmg: 18
+      AtkSpeed: 0.8
+    - name: Monster
+      type: ShortSword
+      tier: Legend
+      minDmg: 20
+      maxDmg: 30
+      AtkSpeed: 1.4
+    - name: Blood
+      type: ShortSword
+      tier: Legend
+      minDmg: 18
+      maxDmg: 22
+      AtkSpeed: 1.1
   enemyList:
     enemy:
     - name: GreenSlime
@@ -4254,6 +4295,24 @@ MonoBehaviour:
   - type: 0
     name: Round
     sprite: {fileID: 1811938338, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+  - type: 0
+    name: Cactus
+    sprite: {fileID: 373090523, guid: ab0451d36e2489740b295fcc002851d5, type: 3}
+  - type: 0
+    name: Zelda
+    sprite: {fileID: -1859949647, guid: ab0451d36e2489740b295fcc002851d5, type: 3}
+  - type: 0
+    name: RiceCake
+    sprite: {fileID: 617107741, guid: ab0451d36e2489740b295fcc002851d5, type: 3}
+  - type: 0
+    name: Doran
+    sprite: {fileID: 223926568, guid: ab0451d36e2489740b295fcc002851d5, type: 3}
+  - type: 0
+    name: Monster
+    sprite: {fileID: -928805703, guid: ab0451d36e2489740b295fcc002851d5, type: 3}
+  - type: 0
+    name: Blood
+    sprite: {fileID: -401452063, guid: ab0451d36e2489740b295fcc002851d5, type: 3}
 --- !u!4 &405008980
 Transform:
   m_ObjectHideFlags: 0
@@ -8916,7 +8975,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

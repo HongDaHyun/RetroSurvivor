@@ -11,6 +11,9 @@ public class Weapon : MonoBehaviour
     public int maxDamage;
     public float attackSpeed;
 
+    Vector3 defRotation;
+
+    private Transform spriteTransform;
     private SpriteRenderer sprite;
     public SpriteRenderer  Sprite
     {
@@ -35,6 +38,8 @@ public class Weapon : MonoBehaviour
     {
         player = transform.root.GetComponent<Player>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        spriteTransform = sprite.GetComponent<Transform>();
+        defRotation = sprite.transform.eulerAngles;
         anim = transform.GetChild(0).GetComponent<Animator>();
         afterImage = transform.GetChild(1).gameObject;
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
@@ -49,6 +54,11 @@ public class Weapon : MonoBehaviour
             Attack();
             Aim();
         }
+    }
+
+    private void OnDisable()
+    {
+        spriteTransform.eulerAngles = defRotation;
     }
 
     private void Aim()
@@ -86,14 +96,14 @@ public class Weapon : MonoBehaviour
     //player attackspeed ¼³Á¤
     private void SetStat()
     {
-        for (int i = 0; i < csvReader.weaponList.weapon.Length; i++)
+        for (int i = 0; i < csvReader.weaponList.shortSword.Length; i++)
         {
-            if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].name == weaponName)
+            if (csvReader.weaponList.shortSword[i].type == type && csvReader.weaponList.shortSword[i].name == weaponName)
             {
-                tier = csvReader.weaponList.weapon[i].tier;
-                minDamage = csvReader.weaponList.weapon[i].minDmg;
-                maxDamage = csvReader.weaponList.weapon[i].maxDmg;
-                attackSpeed = csvReader.weaponList.weapon[i].AtkSpeed;
+                tier = csvReader.weaponList.shortSword[i].tier;
+                minDamage = csvReader.weaponList.shortSword[i].minDmg;
+                maxDamage = csvReader.weaponList.shortSword[i].maxDmg;
+                attackSpeed = csvReader.weaponList.shortSword[i].AtkSpeed;
             }
         }
     }

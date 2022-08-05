@@ -12,6 +12,7 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject damageTextPrefab;
 
+    #region ShortSword
     GameObject[] basicShortSword = new GameObject[5];
     GameObject[] brokenKingShortSword = new GameObject[5];
     GameObject[] kitchenShortSword = new GameObject[5];
@@ -20,6 +21,13 @@ public class ObjectManager : MonoBehaviour
     GameObject[] plantShortSword = new GameObject[5];
     GameObject[] blackShortSword = new GameObject[5];
     GameObject[] roundShortSword = new GameObject[5];
+    GameObject[] cactusShortSword = new GameObject[5];
+    GameObject[] zeldaShortSword = new GameObject[5];
+    GameObject[] riceCakeShortSword = new GameObject[5];
+    GameObject[] doranShortSword = new GameObject[5];
+    GameObject[] monsterShortSword = new GameObject[5];
+    GameObject[] bloodShortSword = new GameObject[5];
+    #endregion
 
     GameObject[] stage1 = new GameObject[25];
 
@@ -85,6 +93,36 @@ public class ObjectManager : MonoBehaviour
         {
             roundShortSword[i] = Instantiate(shortSwordPrefabs[6]);
             roundShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < cactusShortSword.Length; i++)
+        {
+            cactusShortSword[i] = Instantiate(shortSwordPrefabs[8]);
+            cactusShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < zeldaShortSword.Length; i++)
+        {
+            zeldaShortSword[i] = Instantiate(shortSwordPrefabs[9]);
+            zeldaShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < riceCakeShortSword.Length; i++)
+        {
+            riceCakeShortSword[i] = Instantiate(shortSwordPrefabs[10]);
+            riceCakeShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < doranShortSword.Length; i++)
+        {
+            doranShortSword[i] = Instantiate(shortSwordPrefabs[11]);
+            doranShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < monsterShortSword.Length; i++)
+        {
+            monsterShortSword[i] = Instantiate(shortSwordPrefabs[12]);
+            monsterShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < bloodShortSword.Length; i++)
+        {
+            bloodShortSword[i] = Instantiate(shortSwordPrefabs[13]);
+            bloodShortSword[i].SetActive(false);
         }
 
         //MapField
@@ -179,6 +217,24 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "RoundShortSword":
                 targetPool = roundShortSword;
+                break;
+            case "CactusShortSword":
+                targetPool = cactusShortSword;
+                break;
+            case "ZeldaShortSword":
+                targetPool = zeldaShortSword;
+                break;
+            case "RiceCakeShortSword":
+                targetPool = riceCakeShortSword;
+                break;
+            case "DoranShortSword":
+                targetPool = doranShortSword;
+                break;
+            case "MonsterShortSword":
+                targetPool = monsterShortSword;
+                break;
+            case "BloodShortSword":
+                targetPool = bloodShortSword;
                 break;
 
             case "Stage1":
