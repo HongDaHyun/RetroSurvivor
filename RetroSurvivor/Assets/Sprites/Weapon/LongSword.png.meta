@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52916c2417fc4bf478d8b466c5887464
+guid: 755583d4048e6254fb5ef5e39d15d50f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShortSword_0
+      name: LongSword_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 7
-        height: 19
+        width: 15
+        height: 27
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc0d3d7525689f4cb13f596e4ab9a20
-      internalID: -1167793214
+      spriteID: f4460d77e1e62bf4e9e471c21ef52bba
+      internalID: 786301146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_1
+      name: LongSword_1
       rect:
         serializedVersion: 2
-        x: 22
+        x: 16
         y: 0
-        width: 5
-        height: 18
+        width: 15
+        height: 31
       alignment: 9
       pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b1b7bb462aaa146b53e66f0a7bcad4
-      internalID: -453329561
+      spriteID: 9f6b9973a297f194fb0469ef87e55a5d
+      internalID: 1864715444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_2
+      name: LongSword_2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 9
-        height: 21
+        width: 16
+        height: 47
+      alignment: 9
+      pivot: {x: 0.47, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1428e65119d1dae4183d2f2cb579ca4b
+      internalID: -1136114542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongSword_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 11
+        height: 35
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d42342b28359d74d878a926830c6f23
-      internalID: 755661845
+      spriteID: 1d3b0d8d79f631d44adab1459ac45ca3
+      internalID: 343646407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_3
+      name: LongSword_4
       rect:
         serializedVersion: 2
-        x: 52
+        x: 66
         y: 0
-        width: 9
-        height: 19
+        width: 11
+        height: 31
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,62 +226,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37808555d4d7b8545977bec5b98d54db
-      internalID: -792109056
+      spriteID: 39a276eff0d169a4b9e3543a9a094bae
+      internalID: 342573582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_4
+      name: LongSword_5
       rect:
         serializedVersion: 2
-        x: 69
+        x: 81
         y: 0
-        width: 6
-        height: 19
+        width: 13
+        height: 31
       alignment: 9
-      pivot: {x: 0.65, y: 0.1}
+      pivot: {x: 0.5, y: 0.07}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1664431bc9107e645b81c6de04178b24
-      internalID: 1891365672
+      spriteID: 3197c33e1d1f9d24c8cbcfdbde347145
+      internalID: -1154027113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_5
+      name: LongSword_6
       rect:
         serializedVersion: 2
-        x: 84
+        x: 98
         y: 0
-        width: 7
-        height: 21
-      alignment: 9
-      pivot: {x: 0.35, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd842c80ea88e5949919ee9f9507049b
-      internalID: 1319841305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShortSword_6
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 0
-        width: 7
-        height: 22
+        width: 11
+        height: 39
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +268,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1425aaa6312ce32408aae5946b3cd22b
-      internalID: 882375352
+      spriteID: 83f36d59201b5304b9380be8205d1fed
+      internalID: 1342356599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_7
+      name: LongSword_7
       rect:
         serializedVersion: 2
         x: 116
         y: 0
         width: 7
-        height: 20
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2091d0eb4e41e6d4f8c82ce1350cfdb5
+      internalID: -906377338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongSword_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 15
+        height: 30
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,41 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5138588a1011fb241a78cb2048c00f7a
-      internalID: 2084498233
+      spriteID: 7e74a56ef8057bc44af4acbc6c4f964b
+      internalID: -1348636346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_8
+      name: LongSword_9
       rect:
         serializedVersion: 2
-        x: 131
+        x: 146
         y: 0
-        width: 12
-        height: 22
-      alignment: 9
-      pivot: {x: 0.45, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f5e835869cb2924d805596eb96abc44
-      internalID: 133091365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShortSword_9
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 15
-        height: 23
+        width: 13
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,20 +331,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bbea107907e1e841b390210538d8535
-      internalID: 86458157
+      spriteID: 5fe9be5bd0ed4b9498258c766f19abfa
+      internalID: -876188681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_10
+      name: LongSword_10
       rect:
         serializedVersion: 2
-        x: 160
+        x: 162
         y: 0
-        width: 16
-        height: 18
+        width: 12
+        height: 28
+      alignment: 9
+      pivot: {x: 0.46, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8858aa3236b014c9d9a17bc4635e11
+      internalID: -2134071565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongSword_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 0
+        width: 8
+        height: 25
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,155 +373,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 453720024b62383459eb3200707faead
-      internalID: -1439829018
+      spriteID: cbdced6623f55ba4a98a423024fffff4
+      internalID: -184995506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_11
+      name: LongSword_12
       rect:
         serializedVersion: 2
-        x: 178
+        x: 194
         y: 0
         width: 13
-        height: 22
+        height: 30
       alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      pivot: {x: 0.5, y: 0.17}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 247a1c6c97d306846840f9e491c350ad
-      internalID: -203954860
+      spriteID: d518359fe4d7eca4eaf1221fc7d2ca07
+      internalID: 468072733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_12
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 0
-        width: 11
-        height: 19
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99535d4a771e41d49ba62c18af9ca2ca
-      internalID: -339330835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShortSword_13
+      name: LongSword_13
       rect:
         serializedVersion: 2
         x: 208
         y: 0
-        width: 8
-        height: 29
+        width: 15
+        height: 53
       alignment: 9
-      pivot: {x: 0.25, y: 0.15}
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 803310fce27cd1f499fab1f74d49090e
-      internalID: -1398599041
+      spriteID: cb8b025514eeeaa418c8fc128282ea22
+      internalID: -32091296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_14
+      name: LongSword_14
       rect:
         serializedVersion: 2
         x: 225
         y: 0
-        width: 14
-        height: 28
+        width: 15
+        height: 45
       alignment: 9
-      pivot: {x: 0.55, y: 0.2}
+      pivot: {x: 0.5, y: 0.07}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e16c68de62aee484c8fc1f22d7f0c942
-      internalID: 1607581889
+      spriteID: dded2d57cf78ff745a93d3867e6229e7
+      internalID: 1712354227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_15
+      name: LongSword_15
       rect:
         serializedVersion: 2
-        x: 240
+        x: 241
         y: 0
-        width: 13
-        height: 31
+        width: 14
+        height: 52
       alignment: 9
-      pivot: {x: 0.55, y: 0.1}
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba3f2020c48621d469c39116ad3be368
-      internalID: -1888190329
+      spriteID: 559a902698a9f004b87f582036ba7d12
+      internalID: -550968652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_16
+      name: LongSword_16
       rect:
         serializedVersion: 2
         x: 258
         y: 0
-        width: 9
-        height: 21
+        width: 11
+        height: 37
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c5cd3ae2c4ce1449aeeb7c23454a2d
-      internalID: -2100222894
+      spriteID: bca8108e0d8d946448280c95bf9b0caa
+      internalID: -141573680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShortSword_17
+      name: LongSword_17
       rect:
         serializedVersion: 2
-        x: 276
+        x: 272
         y: 0
-        width: 7
-        height: 26
+        width: 15
+        height: 52
       alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+      pivot: {x: 0.5, y: 0.12}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fff38feb9b1fe34293443b74cb5028a
-      internalID: 2128910557
+      spriteID: cfe32e8074806e64f9888bf0f363d9bd
+      internalID: 419555823
       vertices: []
       indices: 
       edges: []
@@ -516,24 +516,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShortSword_6: 882375352
-      ShortSword_4: 1891365672
-      ShortSword_3: -792109056
-      ShortSword_0: -1167793214
-      ShortSword_16: -2100222894
-      ShortSword_13: -1398599041
-      ShortSword_11: -203954860
-      ShortSword_8: 133091365
-      ShortSword_9: 86458157
-      ShortSword_17: 2128910557
-      ShortSword_14: 1607581889
-      ShortSword_15: -1888190329
-      ShortSword_1: -453329561
-      ShortSword_12: -339330835
-      ShortSword_7: 2084498233
-      ShortSword_5: 1319841305
-      ShortSword_10: -1439829018
-      ShortSword_2: 755661845
+      LongSword_14: 1712354227
+      LongSword_6: 1342356599
+      LongSword_3: 343646407
+      LongSword_17: 419555823
+      LongSword_5: -1154027113
+      LongSword_0: 786301146
+      LongSword_7: -906377338
+      LongSword_2: -1136114542
+      LongSword_10: -2134071565
+      LongSword_16: -141573680
+      LongSword_11: -184995506
+      LongSword_1: 1864715444
+      LongSword_13: -32091296
+      LongSword_9: -876188681
+      LongSword_4: 342573582
+      LongSword_8: -1348636346
+      LongSword_15: -550968652
+      LongSword_12: 468072733
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

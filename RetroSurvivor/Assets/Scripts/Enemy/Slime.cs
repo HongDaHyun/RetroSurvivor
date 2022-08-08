@@ -33,4 +33,14 @@ public class Slime : Enemy
         yield return new WaitForSeconds(0.2f);
         sprite.color = Color.white;
     }
+
+    public void NonStop()
+    {
+        IsStun = false;
+    }
+
+    public void Stop()
+    {
+        IsStun = true;
+    }
 }

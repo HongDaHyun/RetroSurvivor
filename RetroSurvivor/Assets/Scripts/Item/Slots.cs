@@ -88,7 +88,7 @@ public class Slots : MonoBehaviour, IPointerUpHandler
                 }
 
                 player.Weapon.transform.parent = player.transform;
-                player.Weapon.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 0.5f);
+                player.Weapon.transform.position = new Vector2(player.transform.position.x + 0.2f, player.transform.position.y + 0.5f);
             }
         }
     }

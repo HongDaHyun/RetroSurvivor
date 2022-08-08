@@ -13,12 +13,9 @@ public class Weapon : MonoBehaviour
 
     Vector3 defRotation;
 
+    private GameObject sprite;
     private Transform spriteTransform;
-    private SpriteRenderer sprite;
-    public SpriteRenderer  Sprite
-    {
-        get => sprite;
-    }
+    private SpriteRenderer spriteRenderer;
     private Animator anim;
     public Animator Anim
     {
@@ -37,10 +34,10 @@ public class Weapon : MonoBehaviour
     public virtual void Start()
     {
         player = transform.root.GetComponent<Player>();
-        sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        sprite = transform.GetChild(0).gameObject;
         spriteTransform = sprite.GetComponent<Transform>();
         defRotation = sprite.transform.eulerAngles;
-        anim = transform.GetChild(0).GetComponent<Animator>();
+        anim = sprite.GetComponent<Animator>();
         afterImage = transform.GetChild(1).gameObject;
         objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
