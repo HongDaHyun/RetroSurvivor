@@ -123,7 +123,7 @@ public class UIManager : MonoBehaviour
         }
         for(int i = 0; i < player.equipments.Count; i++)
         {
-            equipmentSlots[i].item = player.equipments[i];
+            equipmentSlots[i].equipment = player.equipments[i];
             equipmentSlots[i].UpdateSlotUI();
         }
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string weaponName;
-    public string type;
-    public string tier;
+    public EquipmentType type;
+    public TierType tier;
     public int minDamage;
     public int maxDamage;
     public float attackSpeed;
@@ -93,14 +93,14 @@ public class Weapon : MonoBehaviour
     //player attackspeed ¼³Á¤
     private void SetStat()
     {
-        for (int i = 0; i < csvReader.weaponList.shortSword.Length; i++)
+        for (int i = 0; i < csvReader.weaponList.weapon.Length; i++)
         {
-            if (csvReader.weaponList.shortSword[i].type == type && csvReader.weaponList.shortSword[i].name == weaponName)
+            if (csvReader.weaponList.weapon[i].type == type && csvReader.weaponList.weapon[i].name == weaponName)
             {
-                tier = csvReader.weaponList.shortSword[i].tier;
-                minDamage = csvReader.weaponList.shortSword[i].minDmg;
-                maxDamage = csvReader.weaponList.shortSword[i].maxDmg;
-                attackSpeed = csvReader.weaponList.shortSword[i].AtkSpeed;
+                tier = csvReader.weaponList.weapon[i].tier;
+                minDamage = csvReader.weaponList.weapon[i].minDmg;
+                maxDamage = csvReader.weaponList.weapon[i].maxDmg;
+                attackSpeed = csvReader.weaponList.weapon[i].AtkSpeed;
             }
         }
     }

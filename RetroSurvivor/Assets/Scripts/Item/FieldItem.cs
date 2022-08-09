@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FieldItem : MonoBehaviour
 {
-    public Item item;
+    public Equipment equipment;
     public GameObject guideKey_F;
     bool isPickUp;
 
@@ -23,13 +23,10 @@ public class FieldItem : MonoBehaviour
 
     private void Start()
     {
-        SetItem(itemDatabase.itemDB[Random.Range(0, itemDatabase.itemDB.Count)]);
-        if (item.type == ItemType.Equipment)
-        {
-            transform.localEulerAngles = new Vector3(0, 0, 90);
-            guideKey_F.transform.localPosition = new Vector2(1.5f, 0);
-            guideKey_F.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
+        SetEquipment(itemDatabase.equipmentDB[Random.Range(0, itemDatabase.equipmentDB.Count)]);
+        transform.localEulerAngles = new Vector3(0, 0, 90);
+        guideKey_F.transform.localPosition = new Vector2(1.5f, 0);
+        guideKey_F.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     private void OnDisable()
@@ -60,31 +57,28 @@ public class FieldItem : MonoBehaviour
     {
         if(isPickUp && Input.GetKeyDown(KeyCode.F))
         {
-            switch(item.type)
+            if (player.equipments.Count < 16)
             {
-                case ItemType.Equipment:
-                    if (player.equipments.Count < 16)
-                    {
-                        player.equipments.Add(GetItem());
-                        uiManager.RedrawEquipmentSlotUI();
-                    }
-                    break;
+                player.equipments.Add(GetEquipment());
+                uiManager.RedrawEquipmentSlotUI();
             }
+
             gameObject.SetActive(false);
         }
     }
 
-    public void SetItem(Item _item)
+    public void SetEquipment(Equipment _equipment)
     {
-        item.name = _item.name;
-        item.sprite = _item.sprite;
-        item.type = _item.type;
+        equipment.name = _equipment.name;
+        equipment.sprite = _equipment.sprite;
+        equipment.equipType = _equipment.equipType;
+        equipment.tierType = _equipment.tierType;
 
-        spriteRenderer.sprite = _item.sprite;
+        spriteRenderer.sprite = _equipment.sprite;
     }
 
-    public Item GetItem()
+    public Equipment GetEquipment()
     {
-        return this.item;
+        return this.equipment;
     }
 }

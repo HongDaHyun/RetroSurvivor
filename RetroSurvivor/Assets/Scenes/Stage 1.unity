@@ -231,21 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e67f7e3db94fc47aabcdb10c372b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shortSwordPrefabs:
-  - {fileID: 7852784653260960519, guid: 05001caf9fcffa14aad7367003027812, type: 3}
-  - {fileID: 7852784653260960519, guid: 3a6d3fe71bdcce549baac14e80009d64, type: 3}
-  - {fileID: 7852784653260960519, guid: 6ff449e2eb4c70e4f9a8134c09a4da10, type: 3}
-  - {fileID: 7852784653260960519, guid: a1fe869450dea9f4ca04e0308f9abc2c, type: 3}
-  - {fileID: 7852784653260960519, guid: 9c277c027528b5b4f95db71bbb3653b3, type: 3}
-  - {fileID: 7852784653260960519, guid: 3475e31c28a62304283d631ed5ae260a, type: 3}
-  - {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
-  - {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
-  - {fileID: 7852784653260960519, guid: e6253d84e58b4e648bf5c65219e443d4, type: 3}
-  - {fileID: 7852784653260960519, guid: 07833c8afff43cc46ac1ea0fdea9f2bd, type: 3}
-  - {fileID: 7852784653260960519, guid: 5ff1e6e727a496548ad5cd0050f76022, type: 3}
-  - {fileID: 7852784653260960519, guid: 604aaf19ca00feb40b8c673c4030f12e, type: 3}
-  - {fileID: 7852784653260960519, guid: ba2858e6646d2fd44a49de06d5e8c91f, type: 3}
-  - {fileID: 7852784653260960519, guid: e50dc92d24480a148a53d829bf261b56, type: 3}
+  itemdatabase: {fileID: 405008979}
   MapFieldPrefabs:
   - {fileID: 8647464261578313459, guid: 8d750ecbdc8a92943a7595b95dcfe100, type: 3}
   enemyPrefabs:
@@ -3445,91 +3431,223 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 3870bbe1a1832414d86862b39cdf7530, type: 3}
   - {fileID: 4900000, guid: 66d04818a8137504286eb6b69bd7cfc8, type: 3}
   weaponList:
-    shortSword:
+    weapon:
     - name: Basic
-      type: ShortSword
-      tier: Raw
+      type: 0
+      tier: 0
       minDmg: 1
       maxDmg: 5
       AtkSpeed: 2
     - name: Broken
-      type: ShortSword
-      tier: Raw
+      type: 0
+      tier: 0
       minDmg: 2
       maxDmg: 3
       AtkSpeed: 1
     - name: Kitchen
-      type: ShortSword
-      tier: Raw
+      type: 0
+      tier: 0
       minDmg: 3
       maxDmg: 6
       AtkSpeed: 2.3
     - name: Wooden
-      type: ShortSword
-      tier: Raw
+      type: 0
+      tier: 0
       minDmg: 1
       maxDmg: 2
       AtkSpeed: 0.7
-    - name: Prince
-      type: ShortSword
-      tier: Common
-      minDmg: 3
-      maxDmg: 8
-      AtkSpeed: 1.2
-    - name: Plant
-      type: ShortSword
-      tier: Common
-      minDmg: 1
-      maxDmg: 8
-      AtkSpeed: 1
     - name: Black
-      type: ShortSword
-      tier: Common
+      type: 0
+      tier: 1
       minDmg: 4
       maxDmg: 10
       AtkSpeed: 2
+    - name: Plant
+      type: 0
+      tier: 1
+      minDmg: 1
+      maxDmg: 8
+      AtkSpeed: 1
+    - name: Prince
+      type: 0
+      tier: 1
+      minDmg: 3
+      maxDmg: 8
+      AtkSpeed: 1.2
     - name: Round
-      type: ShortSword
-      tier: Common
+      type: 0
+      tier: 1
       minDmg: 3
       maxDmg: 5
       AtkSpeed: 0.5
     - name: Cactus
-      type: ShortSword
-      tier: Rare
+      type: 0
+      tier: 2
       minDmg: 10
       maxDmg: 20
       AtkSpeed: 1
+    - name: Saber
+      type: 0
+      tier: 2
+      minDmg: 7
+      maxDmg: 8
+      AtkSpeed: 0.7
+    - name: Spine
+      type: 0
+      tier: 2
+      minDmg: 5
+      maxDmg: 6
+      AtkSpeed: 0.5
     - name: Zelda
-      type: ShortSword
-      tier: Rare
+      type: 0
+      tier: 2
       minDmg: 8
       maxDmg: 15
       AtkSpeed: 0.8
-    - name: RiceCake
-      type: ShortSword
-      tier: Epic
-      minDmg: 15
-      maxDmg: 22
-      AtkSpeed: 1.2
     - name: Doran
-      type: ShortSword
-      tier: Epic
+      type: 0
+      tier: 3
       minDmg: 8
       maxDmg: 18
       AtkSpeed: 0.8
-    - name: Monster
-      type: ShortSword
-      tier: Legend
-      minDmg: 20
-      maxDmg: 30
-      AtkSpeed: 1.4
+    - name: Levatain
+      type: 0
+      tier: 3
+      minDmg: 10
+      maxDmg: 15
+      AtkSpeed: 1
+    - name: Quadruple
+      type: 0
+      tier: 3
+      minDmg: 12
+      maxDmg: 17
+      AtkSpeed: 1.1
+    - name: RiceCake
+      type: 0
+      tier: 3
+      minDmg: 15
+      maxDmg: 22
+      AtkSpeed: 1.2
     - name: Blood
-      type: ShortSword
-      tier: Legend
+      type: 0
+      tier: 4
       minDmg: 18
       maxDmg: 22
       AtkSpeed: 1.1
+    - name: Monster
+      type: 0
+      tier: 4
+      minDmg: 20
+      maxDmg: 30
+      AtkSpeed: 1.4
+    - name: BigBroken
+      type: 1
+      tier: 0
+      minDmg: 8
+      maxDmg: 12
+      AtkSpeed: 2.5
+    - name: Jack
+      type: 1
+      tier: 0
+      minDmg: 4
+      maxDmg: 10
+      AtkSpeed: 2.2
+    - name: Military
+      type: 1
+      tier: 0
+      minDmg: 5
+      maxDmg: 15
+      AtkSpeed: 2.4
+    - name: Ruler
+      type: 1
+      tier: 0
+      minDmg: 2
+      maxDmg: 5
+      AtkSpeed: 1.5
+    - name: Candle
+      type: 1
+      tier: 1
+      minDmg: 6
+      maxDmg: 15
+      AtkSpeed: 2
+    - name: Cutter
+      type: 1
+      tier: 1
+      minDmg: 3
+      maxDmg: 10
+      AtkSpeed: 1.6
+    - name: DarkSoul
+      type: 1
+      tier: 1
+      minDmg: 5
+      maxDmg: 14
+      AtkSpeed: 1.9
+    - name: Red
+      type: 1
+      tier: 1
+      minDmg: 8
+      maxDmg: 17
+      AtkSpeed: 2.3
+    - name: Thorn
+      type: 1
+      tier: 1
+      minDmg: 10
+      maxDmg: 20
+      AtkSpeed: 2.5
+    - name: BigBlack
+      type: 1
+      tier: 2
+      minDmg: 12
+      maxDmg: 25
+      AtkSpeed: 2.5
+    - name: BigKitchen
+      type: 1
+      tier: 2
+      minDmg: 5
+      maxDmg: 15
+      AtkSpeed: 1.8
+    - name: Dragon
+      type: 1
+      tier: 2
+      minDmg: 3
+      maxDmg: 10
+      AtkSpeed: 1.2
+    - name: Fairy
+      type: 1
+      tier: 2
+      minDmg: 15
+      maxDmg: 20
+      AtkSpeed: 2.2
+    - name: Cool
+      type: 1
+      tier: 3
+      minDmg: 18
+      maxDmg: 30
+      AtkSpeed: 2
+    - name: Gun
+      type: 1
+      tier: 3
+      minDmg: 15
+      maxDmg: 27
+      AtkSpeed: 1.6
+    - name: Lazer
+      type: 1
+      tier: 3
+      minDmg: 10
+      maxDmg: 25
+      AtkSpeed: 1.8
+    - name: Devil
+      type: 1
+      tier: 4
+      minDmg: 25
+      maxDmg: 40
+      AtkSpeed: 2.5
+    - name: Ice
+      type: 1
+      tier: 4
+      minDmg: 28
+      maxDmg: 32
+      AtkSpeed: 2
   enemyList:
     enemy:
     - name: GreenSlime
@@ -4269,50 +4387,188 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6222019c2ad85f143a4de95471bd3da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectManager: {fileID: 4652090}
-  itemDB:
-  - type: 0
+  csvReader: {fileID: 347642017}
+  equipmentDB:
+  - equipType: 0
+    tierType: 0
     name: Basic
     sprite: {fileID: -1167793214, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 05001caf9fcffa14aad7367003027812, type: 3}
+  - equipType: 0
+    tierType: 0
     name: Broken
     sprite: {fileID: -453329561, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 3a6d3fe71bdcce549baac14e80009d64, type: 3}
+  - equipType: 0
+    tierType: 0
     name: Kitchen
     sprite: {fileID: 1891365672, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 9c277c027528b5b4f95db71bbb3653b3, type: 3}
+  - equipType: 0
+    tierType: 0
     name: Wooden
     sprite: {fileID: 2084498233, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
-    name: Prince
-    sprite: {fileID: 755661845, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
-    name: Plant
-    sprite: {fileID: -792109056, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: b1490abec53ce514daca61e635588700, type: 3}
+  - equipType: 0
+    tierType: 1
     name: Black
     sprite: {fileID: 1319841305, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 3475e31c28a62304283d631ed5ae260a, type: 3}
+  - equipType: 0
+    tierType: 1
+    name: Plant
+    sprite: {fileID: -792109056, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: a1fe869450dea9f4ca04e0308f9abc2c, type: 3}
+  - equipType: 0
+    tierType: 1
+    name: Prince
+    sprite: {fileID: 755661845, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 6ff449e2eb4c70e4f9a8134c09a4da10, type: 3}
+  - equipType: 0
+    tierType: 1
     name: Round
     sprite: {fileID: 882375352, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 77a18ef1eb0a4914aa8627a524da7eed, type: 3}
+  - equipType: 0
+    tierType: 2
     name: Cactus
     sprite: {fileID: -1439829018, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: e6253d84e58b4e648bf5c65219e443d4, type: 3}
+  - equipType: 0
+    tierType: 2
+    name: Saber
+    sprite: {fileID: -1398599041, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 6a0f02f1e726f854687c4020bb303eed, type: 3}
+  - equipType: 0
+    tierType: 2
+    name: Spine
+    sprite: {fileID: 133091365, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 5d1f3288c1750994c881438a71e2e9d2, type: 3}
+  - equipType: 0
+    tierType: 2
     name: Zelda
     sprite: {fileID: 86458157, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
-    name: RiceCake
-    sprite: {fileID: -339330835, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 07833c8afff43cc46ac1ea0fdea9f2bd, type: 3}
+  - equipType: 0
+    tierType: 3
     name: Doran
     sprite: {fileID: -2100222894, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
-    name: Monster
-    sprite: {fileID: -1888190329, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
-  - type: 0
+    prefab: {fileID: 7852784653260960519, guid: 604aaf19ca00feb40b8c673c4030f12e, type: 3}
+  - equipType: 0
+    tierType: 3
+    name: Levatain
+    sprite: {fileID: 1607581889, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: bc0cc71e26f45934fb9a2ba87f869fa1, type: 3}
+  - equipType: 0
+    tierType: 3
+    name: Quadruple
+    sprite: {fileID: 2128910557, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: acb14cb74e2aa2147b34083307bf3402, type: 3}
+  - equipType: 0
+    tierType: 3
+    name: RiceCake
+    sprite: {fileID: -339330835, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 5ff1e6e727a496548ad5cd0050f76022, type: 3}
+  - equipType: 0
+    tierType: 4
     name: Blood
     sprite: {fileID: -203954860, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: e50dc92d24480a148a53d829bf261b56, type: 3}
+  - equipType: 0
+    tierType: 4
+    name: Monster
+    sprite: {fileID: -1888190329, guid: 52916c2417fc4bf478d8b466c5887464, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: ba2858e6646d2fd44a49de06d5e8c91f, type: 3}
+  - equipType: 1
+    tierType: 0
+    name: BigBroken
+    sprite: {fileID: 342573582, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 4afef5c0d1334db44a58deba9693925c, type: 3}
+  - equipType: 1
+    tierType: 0
+    name: Jack
+    sprite: {fileID: 468072733, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: f127df802e1920245a843d3679c389b0, type: 3}
+  - equipType: 1
+    tierType: 0
+    name: Military
+    sprite: {fileID: -906377338, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 874af369e3b0c6142936e8f78ae808c9, type: 3}
+  - equipType: 1
+    tierType: 0
+    name: Ruler
+    sprite: {fileID: -184995506, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: b48a3d43fcd9791418976167315ab607, type: 3}
+  - equipType: 1
+    tierType: 1
+    name: Candle
+    sprite: {fileID: 1864715444, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: a6555e1f58575414c85d512caf64ba2b, type: 3}
+  - equipType: 1
+    tierType: 1
+    name: Cutter
+    sprite: {fileID: -1348636346, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 403dcfae2048be0448f6bb4df3b6bf69, type: 3}
+  - equipType: 1
+    tierType: 1
+    name: DarkSoul
+    sprite: {fileID: -876188681, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: b55cb5ab602b81940b44cb2b33b3b998, type: 3}
+  - equipType: 1
+    tierType: 1
+    name: Red
+    sprite: {fileID: -141573680, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: b2c897d228e157c4f98a3fde05a7ae43, type: 3}
+  - equipType: 1
+    tierType: 1
+    name: Thorn
+    sprite: {fileID: 343646407, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: cd3740229b954b3409d4698415bae261, type: 3}
+  - equipType: 1
+    tierType: 2
+    name: BigBlack
+    sprite: {fileID: 1712354227, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 5eada88246c93234e8abebb92f82cc03, type: 3}
+  - equipType: 1
+    tierType: 2
+    name: BigKitchen
+    sprite: {fileID: -2134071565, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 2bc79d7f775cfde4f98359c4bfdb04b5, type: 3}
+  - equipType: 1
+    tierType: 2
+    name: Dragon
+    sprite: {fileID: 786301146, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 03c3a302ddd99424682cfe16e88e1cfe, type: 3}
+  - equipType: 1
+    tierType: 2
+    name: Fairy
+    sprite: {fileID: -1136114542, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 6962b4d51437e0044b3742c650903657, type: 3}
+  - equipType: 1
+    tierType: 3
+    name: Cool
+    sprite: {fileID: -1154027113, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 1adadfa3b00ea8d448459877221b4dce, type: 3}
+  - equipType: 1
+    tierType: 3
+    name: Gun
+    sprite: {fileID: -550968652, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 48ae308c1d76b1e45a9ffdd44244b466, type: 3}
+  - equipType: 1
+    tierType: 3
+    name: Lazer
+    sprite: {fileID: 1342356599, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: dd21379d40b81d64e850a179fd907a0f, type: 3}
+  - equipType: 1
+    tierType: 4
+    name: Devil
+    sprite: {fileID: -32091296, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 572dc5701769dbc47b3b816907377cad, type: 3}
+  - equipType: 1
+    tierType: 4
+    name: Ice
+    sprite: {fileID: 419555823, guid: 755583d4048e6254fb5ef5e39d15d50f, type: 3}
+    prefab: {fileID: 7852784653260960519, guid: 20b0e6a62c16038418465de8eee0a67c, type: 3}
 --- !u!4 &405008980
 Transform:
   m_ObjectHideFlags: 0
@@ -16872,10 +17128,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 0
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 1044731774}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607998616751106
@@ -16891,10 +17149,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 15
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226216083093}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607998622154493
@@ -16910,10 +17170,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 3
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226204740714}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607998675356410
@@ -16929,10 +17191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 14
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226291497069}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607998720488825
@@ -16948,10 +17212,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 12
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226240292846}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607998946517180
@@ -16967,10 +17233,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 9
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226013205035}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607999130772946
@@ -16986,10 +17254,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 7
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226768017221}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607999227317665
@@ -17005,10 +17275,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 13
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226814066486}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420607999524972523
@@ -17024,10 +17296,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 1
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697226507773308}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000130998016
@@ -17043,10 +17317,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 2
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697227109703063}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000145185175
@@ -17062,10 +17338,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 5
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697227228617472}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000320257340
@@ -17081,10 +17359,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 11
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697227869421483}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000373775687
@@ -17100,10 +17380,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 6
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697227939553232}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000454584620
@@ -17119,10 +17401,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 4
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697228003716027}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000553027242
@@ -17138,10 +17422,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 10
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697227636622397}
   objectManager: {fileID: 4652090}
 --- !u!114 &3420608000628105586
@@ -17157,10 +17443,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotNum: 8
-  item:
-    type: 0
+  equipment:
+    equipType: 0
+    tierType: 0
     name: 
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   itemIcon: {fileID: 3696697227694924773}
   objectManager: {fileID: 4652090}
 --- !u!114 &3614224896878560611

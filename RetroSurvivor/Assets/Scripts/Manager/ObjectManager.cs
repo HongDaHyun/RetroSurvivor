@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public GameObject[] shortSwordPrefabs;
+    public ItemDatabase itemdatabase;
     public GameObject[] MapFieldPrefabs;
     public GameObject[] enemyPrefabs;
 
@@ -17,16 +17,40 @@ public class ObjectManager : MonoBehaviour
     GameObject[] brokenKingShortSword = new GameObject[5];
     GameObject[] kitchenShortSword = new GameObject[5];
     GameObject[] woodenShortSword = new GameObject[5];
-    GameObject[] princeShortSword = new GameObject[5];
-    GameObject[] plantShortSword = new GameObject[5];
     GameObject[] blackShortSword = new GameObject[5];
+    GameObject[] plantShortSword = new GameObject[5];
+    GameObject[] princeShortSword = new GameObject[5];
     GameObject[] roundShortSword = new GameObject[5];
     GameObject[] cactusShortSword = new GameObject[5];
+    GameObject[] saberShortSword = new GameObject[5];
+    GameObject[] spineShortSword = new GameObject[5];
     GameObject[] zeldaShortSword = new GameObject[5];
-    GameObject[] riceCakeShortSword = new GameObject[5];
     GameObject[] doranShortSword = new GameObject[5];
-    GameObject[] monsterShortSword = new GameObject[5];
+    GameObject[] levatainShortSword = new GameObject[5];
+    GameObject[] quadrupleShortSword = new GameObject[5];
+    GameObject[] riceCakeShortSword = new GameObject[5];
     GameObject[] bloodShortSword = new GameObject[5];
+    GameObject[] monsterShortSword = new GameObject[5];
+    #endregion
+    #region LongSword
+    GameObject[] bigBrokenLongSword = new GameObject[5];
+    GameObject[] jackLongSword = new GameObject[5];
+    GameObject[] militaryLongSword = new GameObject[5];
+    GameObject[] rulerLongSword = new GameObject[5];
+    GameObject[] candleLongSword = new GameObject[5];
+    GameObject[] cutterLongSword = new GameObject[5];
+    GameObject[] darkSoulLongSword = new GameObject[5];
+    GameObject[] redLongSword = new GameObject[5];
+    GameObject[] thornLongSword = new GameObject[5];
+    GameObject[] bigBlackLongSword = new GameObject[5];
+    GameObject[] bigKitchenLongSword = new GameObject[5];
+    GameObject[] dragonLongSword = new GameObject[5];
+    GameObject[] fairyLongSword = new GameObject[5];
+    GameObject[] coolLongSword = new GameObject[5];
+    GameObject[] gunLongSword = new GameObject[5];
+    GameObject[] lazerLongSword = new GameObject[5];
+    GameObject[] devilLongSword = new GameObject[5];
+    GameObject[] iceLongSword = new GameObject[5];
     #endregion
 
     GameObject[] stage1 = new GameObject[25];
@@ -53,76 +77,188 @@ public class ObjectManager : MonoBehaviour
 
     private void Generate()
     {
-        //Weapon
+        //ShortSword
         for(int i = 0; i < basicShortSword.Length; i++)
         {
-            basicShortSword[i] = Instantiate(shortSwordPrefabs[0]);
+            basicShortSword[i] = Instantiate(itemdatabase.equipmentDB[0].prefab);
             basicShortSword[i].SetActive(false);
         }
         for (int i = 0; i < brokenKingShortSword.Length; i++)
         {
-            brokenKingShortSword[i] = Instantiate(shortSwordPrefabs[1]);
+            brokenKingShortSword[i] = Instantiate(itemdatabase.equipmentDB[1].prefab);
             brokenKingShortSword[i].SetActive(false);
         }
         for (int i = 0; i < kitchenShortSword.Length; i++)
         {
-            kitchenShortSword[i] = Instantiate(shortSwordPrefabs[4]);
+            kitchenShortSword[i] = Instantiate(itemdatabase.equipmentDB[2].prefab);
             kitchenShortSword[i].SetActive(false);
         }
         for (int i = 0; i < woodenShortSword.Length; i++)
         {
-            woodenShortSword[i] = Instantiate(shortSwordPrefabs[7]);
+            woodenShortSword[i] = Instantiate(itemdatabase.equipmentDB[3].prefab);
             woodenShortSword[i].SetActive(false);
-        }
-        for (int i = 0; i < princeShortSword.Length; i++)
-        {
-            princeShortSword[i] = Instantiate(shortSwordPrefabs[2]);
-            princeShortSword[i].SetActive(false);
-        }
-        for (int i = 0; i < plantShortSword.Length; i++)
-        {
-            plantShortSword[i] = Instantiate(shortSwordPrefabs[3]);
-            plantShortSword[i].SetActive(false);
         }
         for (int i = 0; i < blackShortSword.Length; i++)
         {
-            blackShortSword[i] = Instantiate(shortSwordPrefabs[5]);
+            blackShortSword[i] = Instantiate(itemdatabase.equipmentDB[4].prefab);
             blackShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < plantShortSword.Length; i++)
+        {
+            plantShortSword[i] = Instantiate(itemdatabase.equipmentDB[5].prefab);
+            plantShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < princeShortSword.Length; i++)
+        {
+            princeShortSword[i] = Instantiate(itemdatabase.equipmentDB[6].prefab);
+            princeShortSword[i].SetActive(false);
         }
         for (int i = 0; i < roundShortSword.Length; i++)
         {
-            roundShortSword[i] = Instantiate(shortSwordPrefabs[6]);
+            roundShortSword[i] = Instantiate(itemdatabase.equipmentDB[7].prefab);
             roundShortSword[i].SetActive(false);
         }
         for (int i = 0; i < cactusShortSword.Length; i++)
         {
-            cactusShortSword[i] = Instantiate(shortSwordPrefabs[8]);
+            cactusShortSword[i] = Instantiate(itemdatabase.equipmentDB[8].prefab);
             cactusShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < saberShortSword.Length; i++)
+        {
+            saberShortSword[i] = Instantiate(itemdatabase.equipmentDB[9].prefab);
+            saberShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < spineShortSword.Length; i++)
+        {
+            spineShortSword[i] = Instantiate(itemdatabase.equipmentDB[10].prefab);
+            spineShortSword[i].SetActive(false);
         }
         for (int i = 0; i < zeldaShortSword.Length; i++)
         {
-            zeldaShortSword[i] = Instantiate(shortSwordPrefabs[9]);
+            zeldaShortSword[i] = Instantiate(itemdatabase.equipmentDB[11].prefab);
             zeldaShortSword[i].SetActive(false);
-        }
-        for (int i = 0; i < riceCakeShortSword.Length; i++)
-        {
-            riceCakeShortSword[i] = Instantiate(shortSwordPrefabs[10]);
-            riceCakeShortSword[i].SetActive(false);
         }
         for (int i = 0; i < doranShortSword.Length; i++)
         {
-            doranShortSword[i] = Instantiate(shortSwordPrefabs[11]);
+            doranShortSword[i] = Instantiate(itemdatabase.equipmentDB[12].prefab);
             doranShortSword[i].SetActive(false);
         }
-        for (int i = 0; i < monsterShortSword.Length; i++)
+        for (int i = 0; i < levatainShortSword.Length; i++)
         {
-            monsterShortSword[i] = Instantiate(shortSwordPrefabs[12]);
-            monsterShortSword[i].SetActive(false);
+            levatainShortSword[i] = Instantiate(itemdatabase.equipmentDB[13].prefab);
+            levatainShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < quadrupleShortSword.Length; i++)
+        {
+            quadrupleShortSword[i] = Instantiate(itemdatabase.equipmentDB[14].prefab);
+            quadrupleShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < riceCakeShortSword.Length; i++)
+        {
+            riceCakeShortSword[i] = Instantiate(itemdatabase.equipmentDB[15].prefab);
+            riceCakeShortSword[i].SetActive(false);
         }
         for (int i = 0; i < bloodShortSword.Length; i++)
         {
-            bloodShortSword[i] = Instantiate(shortSwordPrefabs[13]);
+            bloodShortSword[i] = Instantiate(itemdatabase.equipmentDB[16].prefab);
             bloodShortSword[i].SetActive(false);
+        }
+        for (int i = 0; i < monsterShortSword.Length; i++)
+        {
+            monsterShortSword[i] = Instantiate(itemdatabase.equipmentDB[17].prefab);
+            monsterShortSword[i].SetActive(false);
+        }
+
+        //LongSword
+        for (int i = 0; i < bigBrokenLongSword.Length; i++)
+        {
+            bigBrokenLongSword[i] = Instantiate(itemdatabase.equipmentDB[18].prefab);
+            bigBrokenLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < jackLongSword.Length; i++)
+        {
+            jackLongSword[i] = Instantiate(itemdatabase.equipmentDB[19].prefab);
+            jackLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < militaryLongSword.Length; i++)
+        {
+            militaryLongSword[i] = Instantiate(itemdatabase.equipmentDB[20].prefab);
+            militaryLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < rulerLongSword.Length; i++)
+        {
+            rulerLongSword[i] = Instantiate(itemdatabase.equipmentDB[21].prefab);
+            rulerLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < candleLongSword.Length; i++)
+        {
+            candleLongSword[i] = Instantiate(itemdatabase.equipmentDB[22].prefab);
+            candleLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < cutterLongSword.Length; i++)
+        {
+            cutterLongSword[i] = Instantiate(itemdatabase.equipmentDB[23].prefab);
+            cutterLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < darkSoulLongSword.Length; i++)
+        {
+            darkSoulLongSword[i] = Instantiate(itemdatabase.equipmentDB[24].prefab);
+            darkSoulLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < redLongSword.Length; i++)
+        {
+            redLongSword[i] = Instantiate(itemdatabase.equipmentDB[25].prefab);
+            redLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < thornLongSword.Length; i++)
+        {
+            thornLongSword[i] = Instantiate(itemdatabase.equipmentDB[26].prefab);
+            thornLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < bigBlackLongSword.Length; i++)
+        {
+            bigBlackLongSword[i] = Instantiate(itemdatabase.equipmentDB[27].prefab);
+            bigBlackLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < bigKitchenLongSword.Length; i++)
+        {
+            bigKitchenLongSword[i] = Instantiate(itemdatabase.equipmentDB[28].prefab);
+            bigKitchenLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < dragonLongSword.Length; i++)
+        {
+            dragonLongSword[i] = Instantiate(itemdatabase.equipmentDB[29].prefab);
+            dragonLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < fairyLongSword.Length; i++)
+        {
+            fairyLongSword[i] = Instantiate(itemdatabase.equipmentDB[30].prefab);
+            fairyLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < coolLongSword.Length; i++)
+        {
+            coolLongSword[i] = Instantiate(itemdatabase.equipmentDB[31].prefab);
+            coolLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < gunLongSword.Length; i++)
+        {
+            gunLongSword[i] = Instantiate(itemdatabase.equipmentDB[32].prefab);
+            gunLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < lazerLongSword.Length; i++)
+        {
+            lazerLongSword[i] = Instantiate(itemdatabase.equipmentDB[33].prefab);
+            lazerLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < devilLongSword.Length; i++)
+        {
+            devilLongSword[i] = Instantiate(itemdatabase.equipmentDB[34].prefab);
+            devilLongSword[i].SetActive(false);
+        }
+        for (int i = 0; i < iceLongSword.Length; i++)
+        {
+            iceLongSword[i] = Instantiate(itemdatabase.equipmentDB[35].prefab);
+            iceLongSword[i].SetActive(false);
         }
 
         //MapField
@@ -224,6 +360,18 @@ public class ObjectManager : MonoBehaviour
             case "ZeldaShortSword":
                 targetPool = zeldaShortSword;
                 break;
+            case "SpineShortSword":
+                targetPool = spineShortSword;
+                break;
+            case "SaberShortSword":
+                targetPool = saberShortSword;
+                break;
+            case "LevatainShortSword":
+                targetPool = levatainShortSword;
+                break;
+            case "QuadrupleShortSword":
+                targetPool = quadrupleShortSword;
+                break;
             case "RiceCakeShortSword":
                 targetPool = riceCakeShortSword;
                 break;
@@ -236,6 +384,62 @@ public class ObjectManager : MonoBehaviour
             case "BloodShortSword":
                 targetPool = bloodShortSword;
                 break;
+
+            case "BigBrokenLongSword":
+                targetPool = bigBrokenLongSword;
+                break;
+            case "JackLongSword":
+                targetPool = jackLongSword;
+                break;
+            case "MilitaryLongSword":
+                targetPool = militaryLongSword;
+                break;
+            case "RulerLongSword":
+                targetPool = rulerLongSword;
+                break;
+            case "CandleLongSword":
+                targetPool = candleLongSword;
+                break;
+            case "CutterLongSword":
+                targetPool = cutterLongSword;
+                break;
+            case "DarkSoulLongSword":
+                targetPool = darkSoulLongSword;
+                break;
+            case "RedLongSword":
+                targetPool = redLongSword;
+                break;
+            case "ThornLongSword":
+                targetPool = thornLongSword;
+                break;
+            case "BigBlackLongSword":
+                targetPool = bigBlackLongSword;
+                break;
+            case "BigKitchenLongSword":
+                targetPool = bigKitchenLongSword;
+                break;
+            case "DragonLongSword":
+                targetPool = dragonLongSword;
+                break;
+            case "FairyLongSword":
+                targetPool = fairyLongSword;
+                break;
+            case "CoolLongSword":
+                targetPool = coolLongSword;
+                break;
+            case "GunLongSword":
+                targetPool = gunLongSword;
+                break;
+            case "LazerLongSword":
+                targetPool = lazerLongSword;
+                break;
+            case "DevilLongSword":
+                targetPool = devilLongSword;
+                break;
+            case "IceLongSword":
+                targetPool = iceLongSword;
+                break;
+
 
             case "Stage1":
                 targetPool = stage1;

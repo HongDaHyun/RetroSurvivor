@@ -6,7 +6,7 @@ public class ShortSword : Weapon
 {
     public override void Start()
     {
-        type = "ShortSword";
+        type = EquipmentType.ShortSword;
         base.Start();
     }
 }

@@ -5,11 +5,22 @@ using UnityEngine;
 public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase database;
-    public ObjectManager objectManager;
-    public List<Item> itemDB = new List<Item>();
+    public CSVReader csvReader;
+    public List<Equipment> equipmentDB = new List<Equipment>();
 
     private void Awake()
     {
         database = this;
+    }
+
+    [ContextMenu("CSV리더에서 아이템 가져오기")]
+    public void CSVinput()
+    {
+        for (int i = 0; i < csvReader.weaponList.weapon.Length; i++)
+        {
+            equipmentDB[i].name = csvReader.weaponList.weapon[i].name;
+            equipmentDB[i].equipType = csvReader.weaponList.weapon[i].type;
+            equipmentDB[i].tierType = csvReader.weaponList.weapon[i].tier;
+        }
     }
 }

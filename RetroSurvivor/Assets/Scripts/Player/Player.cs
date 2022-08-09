@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         get => weapon;
         set => weapon = value;
     }
-    public List<Item> equipments = new List<Item>();
+    public List<Equipment> equipments = new List<Equipment>();
 
     private float aimSpeed;
     private float curSpeed;
