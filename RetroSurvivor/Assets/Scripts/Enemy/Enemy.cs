@@ -103,14 +103,8 @@ public class Enemy : MonoBehaviour
 
     private void Drop()
     {
-        //int rand = Random.Range(1, 101);
-        //if (rand <= 80)
-        //    return;
-
-        //rand = Random.Range(1, 101);
-        ////rand값에 따라 상자 희귀도 결정
-        GameObject fieldItem = objectManager.MakeObj("FieldItem");
-        fieldItem.transform.position = transform.position;
+        GameObject box = objectManager.MakeObj("Box");
+        box.transform.position = transform.position;
     }
 
     public void Move()

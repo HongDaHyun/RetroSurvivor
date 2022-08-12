@@ -9,6 +9,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
 
     public GameObject fieldItemPrefab;
+    public GameObject boxPrefab;
 
     public GameObject damageTextPrefab;
 
@@ -65,6 +66,7 @@ public class ObjectManager : MonoBehaviour
     GameObject[] blackMushroom = new GameObject[100];
 
     GameObject[] fieldItem = new GameObject[100];
+    GameObject[] box = new GameObject[20];
 
     GameObject[] damageText = new GameObject[30];
 
@@ -316,6 +318,11 @@ public class ObjectManager : MonoBehaviour
             fieldItem[i] = Instantiate(fieldItemPrefab);
             fieldItem[i].SetActive(false);
         }
+        for (int i = 0; i < box.Length; i++)
+        {
+            box[i] = Instantiate(boxPrefab);
+            box[i].SetActive(false);
+        }
 
         //DamageText
         for (int i = 0; i < damageText.Length; i++)
@@ -472,6 +479,9 @@ public class ObjectManager : MonoBehaviour
 
             case "FieldItem":
                 targetPool = fieldItem;
+                break;
+            case "Box":
+                targetPool = box;
                 break;
 
             case "DamageText":

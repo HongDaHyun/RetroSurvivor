@@ -9,7 +9,7 @@ public enum EquipmentType
 
 public enum TierType
 {
-    Raw, Common, Rare, Epic, Legend
+    Raw, Common, Rare, Epic, Legend, Curse, Money
 }
 
 [System.Serializable]
@@ -20,4 +20,13 @@ public class Equipment
     public string name;
     public Sprite sprite;
     public GameObject prefab;
+}
+
+[System.Serializable]
+public class BoxDB
+{
+    public TierType tierType;
+    public int weight;
+    public Sprite sprite;
+    public Sprite openSprite;
 }

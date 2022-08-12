@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject statUI;
     public GameObject hyperStatUI;
     public GameObject[] statBtn;
+    public GameObject LightUI;
 
     public Image hpSliderFillImg;
     public Slider hpSlider;
@@ -125,6 +126,39 @@ public class UIManager : MonoBehaviour
         {
             equipmentSlots[i].equipment = player.equipments[i];
             equipmentSlots[i].UpdateSlotUI();
+        }
+    }
+
+    public void Light()
+    {
+        if (LightUI.activeSelf)
+            return;
+        StartCoroutine(Lighting(2));
+    }
+
+    IEnumerator Lighting(int time)
+    {
+        LightUI.SetActive(true);
+        Image img = LightUI.GetComponent<Image>();
+        for (float i = 0; i <= time; i+=0.5f)
+        {
+            float f = i / (float)time;
+            Color c = img.color;
+            c.a = f;
+            img.color = c;
+            yield return new WaitForSeconds(0.05f);
+        }
+        if(img.color.a == 1)
+        {
+            for (float i = time; i >= 0; i-=0.5f)
+            {
+                float f = i / (float)time;
+                Color c = img.color;
+                c.a = f;
+                img.color = c;
+                yield return new WaitForSeconds(0.05f);
+            }
+            LightUI.SetActive(false);
         }
     }
 }

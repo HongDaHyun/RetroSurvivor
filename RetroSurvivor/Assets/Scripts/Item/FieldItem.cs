@@ -5,9 +5,9 @@ using UnityEngine;
 public class FieldItem : MonoBehaviour
 {
     public Equipment equipment;
-    public GameObject guideKey_F;
     bool isPickUp;
 
+    GameObject guideKey_F;
     SpriteRenderer spriteRenderer;
     ItemDatabase itemDatabase;
     Player player;
@@ -15,6 +15,7 @@ public class FieldItem : MonoBehaviour
 
     private void Awake()
     {
+        guideKey_F = transform.GetChild(0).gameObject;
         spriteRenderer = GetComponent<SpriteRenderer>();
         itemDatabase = GameObject.Find("ItemDatabase").GetComponent<ItemDatabase>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();

@@ -7,6 +7,7 @@ public class ItemDatabase : MonoBehaviour
     public static ItemDatabase database;
     public CSVReader csvReader;
     public List<Equipment> equipmentDB = new List<Equipment>();
+    public List<BoxDB> boxDB = new List<BoxDB>();
 
     private void Awake()
     {
