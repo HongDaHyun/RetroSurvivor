@@ -12,6 +12,11 @@ public enum TierType
     Raw, Common, Rare, Epic, Legend, Curse, Money
 }
 
+public enum TextType
+{
+    Chat, Dialogue, Option
+}
+
 [System.Serializable]
 public class Equipment
 {

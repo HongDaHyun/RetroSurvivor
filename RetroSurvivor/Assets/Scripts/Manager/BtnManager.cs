@@ -7,6 +7,7 @@ public class BtnManager : MonoBehaviour
     public UIManager uiManager;
     public mouseCursor mouseCursor;
     Player player;
+    PT pt;
 
     private void Awake()
     {
@@ -30,11 +31,13 @@ public class BtnManager : MonoBehaviour
                         if (uiManager.inventoryUI.activeSelf)
                         {
                             uiManager.inventoryUI.SetActive(false);
+                            uiManager.stopUI.SetActive(false);
                             mouseCursor.ChangeMod("Attack");
                         }
                         else
                         {
                             uiManager.inventoryUI.SetActive(true);
+                            uiManager.stopUI.SetActive(true);
                             mouseCursor.ChangeMod("Select");
                         }
                     }
@@ -43,11 +46,13 @@ public class BtnManager : MonoBehaviour
                         if (uiManager.statUI.activeSelf)
                         {
                             uiManager.statUI.SetActive(false);
+                            uiManager.stopUI.SetActive(false);
                             mouseCursor.ChangeMod("Attack");
                         }
                         else
                         {
                             uiManager.statUI.SetActive(true);
+                            uiManager.stopUI.SetActive(true);
                             mouseCursor.ChangeMod("Select");
                         }
                     }
@@ -110,5 +115,14 @@ public class BtnManager : MonoBehaviour
         player.SaveList.RemoveRange(player.SaveList.Count - 3, 3);
         uiManager.ResetStatBtn();
         uiManager.SetStatBtn();
+    }
+
+    public void PTUIExit()
+    {
+        pt = GameObject.Find("PT").GetComponent<PT>();
+        pt.isWorking = false;
+        pt.ownUI.SetActive(false);
+        uiManager.stopUI.SetActive(false);
+        Time.timeScale = 1;
     }
 }

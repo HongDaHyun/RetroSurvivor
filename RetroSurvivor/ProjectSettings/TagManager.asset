@@ -8,6 +8,7 @@ TagManager:
   - AfterImage
   - Border
   - FieldItem
+  - NPC
   layers:
   - Default
   - TransparentFX

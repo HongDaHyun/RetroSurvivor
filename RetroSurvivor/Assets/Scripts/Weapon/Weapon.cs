@@ -53,11 +53,6 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        spriteTransform.eulerAngles = defRotation;
-    }
-
     private void Aim()
     {
         Vector2 len = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

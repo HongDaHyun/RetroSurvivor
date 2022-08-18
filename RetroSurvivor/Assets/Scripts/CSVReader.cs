@@ -62,9 +62,36 @@ public class CSVReader : MonoBehaviour
         public Player[] player;
     }
 
+    [Serializable]
+    public class NPC
+    {
+        public string name;
+        public TextType type;
+        public string contents;
+        public Sprite sprite;
+    }
+    [Serializable]
+    public class NPCList
+    {
+        public NPC[] npc;
+    }
+
     public WeaponList weaponList = new WeaponList();
     public EnemyList enemyList = new EnemyList();
     public PlayerList playerList = new PlayerList();
+    public NPCList npcList = new NPCList();
+
+    public static CSVReader csvReader;
+    private void Awake()
+    {
+        if (null == csvReader)
+        {
+            csvReader = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this);
+    }
 
     [ContextMenu("무기 가져오기")]
     void WeaponReadCSV()
@@ -127,6 +154,22 @@ public class CSVReader : MonoBehaviour
             playerList.player[i].critDmg = int.Parse(data[12 * (i + 1) + 9]);
             playerList.player[i].luck = int.Parse(data[12 * (i + 1) + 10]);
             playerList.player[i].aim = int.Parse(data[12 * (i + 1) + 11]);
+        }
+    }
+
+    [ContextMenu("대화 가져오기")]
+    void NPCReadCSV()
+    {
+        string[] data = textAssets[3].text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
+        int tableSize = data.Length / 3 - 1;
+        npcList.npc = new NPC[tableSize];
+
+        for (int i = 0; i < tableSize; i++)
+        {
+            npcList.npc[i] = new NPC();
+            npcList.npc[i].name = data[3 * (i + 1)];
+            npcList.npc[i].type = (TextType)Enum.Parse(typeof(TextType), data[3 * (i + 1) + 1]);
+            npcList.npc[i].contents = data[3 * (i + 1) + 2];
         }
     }
 }

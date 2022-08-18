@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject stopUI;
     public GameObject inventoryUI;
     public GameObject statUI;
     public GameObject hyperStatUI;
     public GameObject[] statBtn;
-    public GameObject LightUI;
+    public GameObject lightUI;
+    public GameObject npcTxtUI;
+    public GameObject npcOptionUI;
+    public GameObject ptUI;
 
     public Image hpSliderFillImg;
+    public Image npcImg;
     public Slider hpSlider;
     public Slider expSlider;
     public Text hpText;
@@ -19,6 +24,9 @@ public class UIManager : MonoBehaviour
     public Text levelText;
     public Text[] modifiableStatText;
     public Text[] defStatText;
+    public Text npcName;
+    public Text npcDialogue;
+    public Text[] npcOption;
 
     public Slots[] equipmentSlots;
 
@@ -131,15 +139,15 @@ public class UIManager : MonoBehaviour
 
     public void Light()
     {
-        if (LightUI.activeSelf)
+        if (lightUI.activeSelf)
             return;
         StartCoroutine(Lighting(2));
     }
 
     IEnumerator Lighting(int time)
     {
-        LightUI.SetActive(true);
-        Image img = LightUI.GetComponent<Image>();
+        lightUI.SetActive(true);
+        Image img = lightUI.GetComponent<Image>();
         for (float i = 0; i <= time; i+=0.5f)
         {
             float f = i / (float)time;
@@ -158,7 +166,7 @@ public class UIManager : MonoBehaviour
                 img.color = c;
                 yield return new WaitForSeconds(0.05f);
             }
-            LightUI.SetActive(false);
+            lightUI.SetActive(false);
         }
     }
 }
