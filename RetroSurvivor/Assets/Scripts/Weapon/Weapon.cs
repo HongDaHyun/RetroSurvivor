@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     public int minDamage;
     public int maxDamage;
     public float attackSpeed;
+    public int id;
 
     Vector3 defRotation;
 
@@ -96,6 +97,7 @@ public class Weapon : MonoBehaviour
                 minDamage = csvReader.weaponList.weapon[i].minDmg;
                 maxDamage = csvReader.weaponList.weapon[i].maxDmg;
                 attackSpeed = csvReader.weaponList.weapon[i].AtkSpeed;
+                id = csvReader.weaponList.weapon[i].id;
             }
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6974837465711931056}
   m_Layer: 0
   m_Name: Stage 1 +Tree
-  m_TagString: Untagged
+  m_TagString: BlockObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

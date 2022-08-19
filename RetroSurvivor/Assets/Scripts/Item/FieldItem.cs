@@ -74,6 +74,7 @@ public class FieldItem : MonoBehaviour
         equipment.sprite = _equipment.sprite;
         equipment.equipType = _equipment.equipType;
         equipment.tierType = _equipment.tierType;
+        equipment.id = _equipment.id;
 
         spriteRenderer.sprite = _equipment.sprite;
     }

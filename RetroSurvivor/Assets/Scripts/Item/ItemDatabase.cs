@@ -22,6 +22,18 @@ public class ItemDatabase : MonoBehaviour
             equipmentDB[i].name = csvReader.weaponList.weapon[i].name;
             equipmentDB[i].equipType = csvReader.weaponList.weapon[i].type;
             equipmentDB[i].tierType = csvReader.weaponList.weapon[i].tier;
+            equipmentDB[i].id = csvReader.weaponList.weapon[i].id;
         }
+    }
+
+    public int WeaponCount(EquipmentType equipmentType)
+    {
+        int firstCount = 0;
+        for (int i = 0; i < equipmentDB.Count; i++)
+        {
+            if (equipmentType == equipmentDB[i].equipType)
+                firstCount++;
+        }
+        return firstCount;
     }
 }

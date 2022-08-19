@@ -7,7 +7,6 @@ public class BtnManager : MonoBehaviour
     public UIManager uiManager;
     public mouseCursor mouseCursor;
     Player player;
-    PT pt;
 
     private void Awake()
     {
@@ -119,9 +118,9 @@ public class BtnManager : MonoBehaviour
 
     public void PTUIExit()
     {
-        pt = GameObject.Find("PT").GetComponent<PT>();
-        pt.isWorking = false;
-        pt.ownUI.SetActive(false);
+        NPC npc = player.npcCollsion.GetComponent<NPC>();
+        npc.isWorking = false;
+        npc.ownUI.SetActive(false);
         uiManager.stopUI.SetActive(false);
         Time.timeScale = 1;
     }

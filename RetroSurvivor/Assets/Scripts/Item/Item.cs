@@ -23,6 +23,7 @@ public class Equipment
     public EquipmentType equipType;
     public TierType tierType;
     public string name;
+    public int id;
     public Sprite sprite;
     public GameObject prefab;
 }

@@ -69,6 +69,9 @@ public class NPC : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
             isCollision = true;
+        if (collision.CompareTag("BlockObj"))
+            transform.position = new Vector2(transform.position.x + 1, transform.position.y + 1);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -171,13 +174,5 @@ public class NPC : MonoBehaviour
             else
                 uiManager.npcOption[i].color = defTxtColor;
         }
-    }
-
-    private void OwnUIExit()
-    {
-        isWorking = false;
-        ownUI.SetActive(false);
-        uiManager.stopUI.SetActive(false);
-        Time.timeScale = 1;
     }
 }

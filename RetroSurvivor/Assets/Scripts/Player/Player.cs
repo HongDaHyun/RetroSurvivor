@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     GameObject weapon;
     CSVReader csvReader;
     UIManager uiManager;
-    ObjectManager objectManager;
 
     public SpriteRenderer Sprite
     {
@@ -44,6 +43,7 @@ public class Player : MonoBehaviour
         set => weapon = value;
     }
     public List<Equipment> equipments = new List<Equipment>();
+    public GameObject npcCollsion;
 
     private float aimSpeed;
     private float curSpeed;
@@ -109,12 +109,19 @@ public class Player : MonoBehaviour
         cam = Camera.main;
         csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        objectManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
     }
 
     public void FixedUpdate()
     {
         Move();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("NPC"))
+        {
+            npcCollsion = collision.gameObject;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
