@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using TMPro;
 
 public class NPC : MonoBehaviour
 {
-    CSVReader csvReader;
     GameObject chatBox;
     GameObject chatTxtObj;
     TextMeshPro chatTxt;
     protected UIManager uiManager;
 
     public string npcName;
-    List<string> chatList = new List<string>();
-    List<string> dialogueList = new List<string>();
-    List<string> optionList = new List<string>();
 
     int talkIndex, optionNum;
     bool isCollision, isTalking;
     public bool isWorking;
-    Sprite npcSprite;
     Color defTxtColor;
     public GameObject ownUI;
 
+    [Serializable]
+    public class NPCTalk
+    {
+        public List<string> chatList = new List<string>();
+        public List<string> dialogueList = new List<string>();
+        public List<string> optionList = new List<string>();
+        public Sprite sprite;
+    }
+
+    public NPCTalk npcTalk = new NPCTalk();
+
     public virtual void Awake()
     {
-        csvReader = GameObject.Find("CSVReader").GetComponent<CSVReader>();
         chatTxtObj = transform.GetChild(1).gameObject;
         chatTxt = chatTxtObj.GetComponent<TextMeshPro>();
         chatTxt.sortingOrder = 10;
@@ -36,7 +42,6 @@ public class NPC : MonoBehaviour
 
     private void Start()
     {
-        SetChat();
         StartCoroutine(OnChat(0));
     }
 
@@ -82,9 +87,9 @@ public class NPC : MonoBehaviour
 
     IEnumerator OnChat(int i)
     {
-        if (i >= chatList.Count)
+        if (i >= npcTalk.chatList.Count)
             i = 0;
-        chatTxt.text = chatList[i];
+        chatTxt.text = npcTalk.chatList[i];
 
         float x = chatTxt.preferredWidth;
         x = (x > 3) ? 3 : x + 0.3f;
@@ -95,30 +100,6 @@ public class NPC : MonoBehaviour
         chatTxtObj.SetActive(false);
         yield return new WaitForSeconds(3f);
         StartCoroutine(OnChat(++i));
-    }
-
-    private void SetChat()
-    {
-        for (int i = 0; i < csvReader.npcList.npc.Length; i++)
-        {
-            if (csvReader.npcList.npc[i].name == npcName)
-            {
-                switch(csvReader.npcList.npc[i].type)
-                {
-                    case TextType.Chat:
-                        chatList.Add(csvReader.npcList.npc[i].contents);
-                        break;
-                    case TextType.Dialogue:
-                        dialogueList.Add(csvReader.npcList.npc[i].contents);
-                        break;
-                    case TextType.Option:
-                        optionList.Add(csvReader.npcList.npc[i].contents);
-                        break;
-                }
-                if (csvReader.npcList.npc[i].sprite != null)
-                    npcSprite = csvReader.npcList.npc[i].sprite;
-            }
-        }
     }
 
     private void OnTalk()
@@ -136,7 +117,7 @@ public class NPC : MonoBehaviour
                 case 1:
                     isTalking = true;
                     uiManager.npcOptionUI.SetActive(false);
-                    if (talkIndex > dialogueList.Count - 2)
+                    if (talkIndex > npcTalk.dialogueList.Count - 2)
                         optionNum = 2;
                     break;
                 case 2:
@@ -155,12 +136,12 @@ public class NPC : MonoBehaviour
         uiManager.stopUI.SetActive(true);
         Time.timeScale = 0;
 
-        uiManager.npcDialogue.text = dialogueList[talkIndex];
+        uiManager.npcDialogue.text = npcTalk.dialogueList[talkIndex];
         uiManager.npcName.text = npcName;
-        uiManager.npcImg.sprite = npcSprite;
+        uiManager.npcImg.sprite = npcTalk.sprite;
 
         for (int i = 0; i < 3; i++)
-            uiManager.npcOption[i].text = optionList[i];
+            uiManager.npcOption[i].text = npcTalk.optionList[i];
 
         talkIndex++;
     }

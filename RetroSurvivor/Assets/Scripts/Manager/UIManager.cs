@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Text levelText;
     public Text[] modifiableStatText;
     public Text[] defStatText;
+    public Text timerText;
     public Text npcName;
     public Text npcDialogue;
     public Text[] npcOption;
@@ -40,6 +41,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         ResetStatBtn();
+        StartCoroutine(Timer());
     }
 
     private void Update()
@@ -122,6 +124,21 @@ public class UIManager : MonoBehaviour
         }
         statBtn[11].GetComponent<Button>().enabled = true;
         statBtn[11].GetComponent<Image>().color = green;
+    }
+
+    float time, sec, min;
+    IEnumerator Timer()
+    {
+        while (true)
+        {
+            time += Time.deltaTime;
+            sec = (int)(time % 60);
+            min = (int)(time / 60 % 60);
+
+            timerText.text = string.Format("{0:0}:{1:0}", min, sec);
+
+            yield return null;
+        }
     }
 
     public void RedrawEquipmentSlotUI()

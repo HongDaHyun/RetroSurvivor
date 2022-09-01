@@ -31,7 +31,15 @@ public class Box : MonoBehaviour
     {
         if(isOpen && !opened && Input.GetKeyDown(KeyCode.F))
         {
-            StartCoroutine(OpenBox());
+            switch(boxDB.tierType)
+            {
+                case TierType.Money:
+                    StartCoroutine(OpenBox("Money"));
+                    break;
+                default:
+                    StartCoroutine(OpenBox("FieldItem"));
+                    break;
+            }
         }
     }
 
@@ -73,10 +81,10 @@ public class Box : MonoBehaviour
         spriteRenderer.sprite = _boxDB.sprite;
     }
 
-    IEnumerator OpenBox()
+    IEnumerator OpenBox(string contents)
     {
         spriteRenderer.sprite = boxDB.openSprite;
-        GameObject fieldItem = objectManager.MakeObj("FieldItem");
+        GameObject fieldItem = objectManager.MakeObj(contents);
         fieldItem.transform.position = transform.position;
         opened = true;
         guideKey_F.SetActive(false);

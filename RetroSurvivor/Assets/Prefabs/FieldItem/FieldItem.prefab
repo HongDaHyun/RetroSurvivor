@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4779390376487554457}
   - component: {fileID: 4779390376487554456}
-  - component: {fileID: 4779390376487554463}
   - component: {fileID: 8896755639957815849}
+  - component: {fileID: 4359363351087462364}
   m_Layer: 0
   m_Name: FieldItem
   m_TagString: FieldItem
@@ -171,32 +171,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4779390376487554463
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4779390376487554461}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.47500002}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.1}
-    oldSize: {x: 0.4375, y: 1.1875}
-    newSize: {x: 0.4375, y: 1.1875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 3}
-  m_EdgeRadius: 0
 --- !u!114 &8896755639957815849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +187,32 @@ MonoBehaviour:
     equipType: 0
     tierType: 0
     name: 
+    id: 0
     sprite: {fileID: 0}
     prefab: {fileID: 0}
-  guideKey_F: {fileID: 1025888193197645928}
+--- !u!61 &4359363351087462364
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779390376487554461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.55, y: 0.1}
+    oldSize: {x: 0.8125, y: 1.9375}
+    newSize: {x: 0.9375, y: 3.3125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.5}
+  m_EdgeRadius: 0

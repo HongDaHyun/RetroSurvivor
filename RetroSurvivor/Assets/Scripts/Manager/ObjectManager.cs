@@ -10,11 +10,18 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject fieldItemPrefab;
     public GameObject boxPrefab;
+    public GameObject moneyPrefab;
 
     public GameObject damageTextPrefab;
 
+    [HideInInspector]
     public GameObject[] shortSwords;
+    [HideInInspector]
     public GameObject[] longSwords;
+
+    public GameObject[] npcPrefab;
+    [HideInInspector]
+    public GameObject[] npcs;
 
     GameObject[] stage1 = new GameObject[25];
 
@@ -29,6 +36,7 @@ public class ObjectManager : MonoBehaviour
 
     GameObject[] fieldItem = new GameObject[100];
     GameObject[] box = new GameObject[20];
+    GameObject[] money = new GameObject[100];
 
     GameObject[] damageText = new GameObject[30];
 
@@ -37,6 +45,7 @@ public class ObjectManager : MonoBehaviour
     private void Awake()
     {
         Generate();
+        GenerateNPC();
     }
 
     private void Generate()
@@ -118,12 +127,29 @@ public class ObjectManager : MonoBehaviour
             box[i] = Instantiate(boxPrefab);
             box[i].SetActive(false);
         }
+        for (int i = 0; i < money.Length; i++)
+        {
+            money[i] = Instantiate(moneyPrefab);
+            money[i].SetActive(false);
+        }
 
         //DamageText
         for (int i = 0; i < damageText.Length; i++)
         {
             damageText[i] = Instantiate(damageTextPrefab);
             damageText[i].SetActive(false);
+        }
+    }
+
+    private void GenerateNPC()
+    {
+        npcs = new GameObject[npcPrefab.Length];
+
+        for (int i = 0; i < npcPrefab.Length; i++)
+        {
+            GameObject entity = Instantiate(npcPrefab[i]);
+            entity.SetActive(false);
+            npcs[i] = entity;
         }
     }
 
@@ -166,6 +192,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "Box":
                 targetPool = box;
+                break;
+            case "Money":
+                targetPool = money;
                 break;
 
             case "DamageText":

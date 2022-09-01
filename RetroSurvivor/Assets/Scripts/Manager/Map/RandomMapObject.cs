@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class RandomMapObject : MonoBehaviour
 {
-    public GameObject[] spawnables;
+    public GameObject[] fieldGameObject, objGameObject;
     public Vector2 bottomLeft, topRight;
-    public int spawnablesCount;
-    GameObject[] g;
+    public int fieldCount, objCount;
+    GameObject[] field, obj;
     [SerializeField]List<Vector2> savePos;
 
     private void Awake()
     {
-        Generate();
+        GenerateField();
+        GenerateObj();
     }
 
     private void OnEnable()
@@ -25,45 +26,93 @@ public class RandomMapObject : MonoBehaviour
         ClearAll();
     }
 
-    private void Generate()
+    private void GenerateField()
     {
-        spawnablesCount += Random.Range(0, 6);
-        g = new GameObject[spawnablesCount];
+        fieldCount += Random.Range(0, 6);
+        field = new GameObject[fieldCount];
 
-        for (int i = 0; i < spawnablesCount; i++)
+        for (int i = 0; i < fieldCount; i++)
         {
-            int spawnablesArrayIndex = Random.Range(0, spawnables.Length);
+            int spawnablesArrayIndex = Random.Range(0, fieldGameObject.Length);
             Vector2 pos = new Vector2(x: Random.Range((int)bottomLeft.x, (int)topRight.x), y: Random.Range((int)bottomLeft.y, (int)topRight.y));
 
             if(savePos.Contains(pos))
-                pos = new Vector2(x: Random.Range((int)bottomLeft.x, (int)topRight.x), y: Random.Range((int)bottomLeft.y, (int)topRight.y));
+            {
+                i--;
+                continue;
+            }
 
             savePos.Add(pos);
-            g[i] = Instantiate(spawnables[spawnablesArrayIndex]);
-            g[i].transform.parent = transform;
-            g[i].transform.localPosition = pos;
+            field[i] = Instantiate(fieldGameObject[spawnablesArrayIndex]);
+            field[i].transform.parent = transform;
+            field[i].transform.localPosition = pos;
+        }
+    }
+
+    private void GenerateObj()
+    {
+        objCount += Random.Range(0, 6);
+        obj = new GameObject[objCount];
+
+        for (int i = 0; i < objCount; i++)
+        {
+            int spawnablesArrayIndex = Random.Range(0, objGameObject.Length);
+            Vector2 pos = new Vector2(x: Random.Range((int)bottomLeft.x, (int)topRight.x), y: Random.Range((int)bottomLeft.y, (int)topRight.y));
+
+            if (savePos.Contains(pos))
+                if (savePos.Contains(pos))
+                {
+                    i--;
+                    continue;
+                }
+
+            savePos.Add(pos);
+            obj[i] = Instantiate(objGameObject[spawnablesArrayIndex]);
+            obj[i].transform.parent = transform;
+            obj[i].transform.localPosition = pos;
         }
     }
 
     private void ReTransform()
     {
-        for(int i = 0; i < spawnablesCount; i++)
+        for (int i = 0; i < fieldCount; i++)
         {
             Vector2 pos = new Vector2(x: Random.Range((int)bottomLeft.x, (int)topRight.x), y: Random.Range((int)bottomLeft.y, (int)topRight.y));
 
             if (savePos.Contains(pos))
-                pos = new Vector2(x: Random.Range((int)bottomLeft.x, (int)topRight.x), y: Random.Range((int)bottomLeft.y, (int)topRight.y));
+                if (savePos.Contains(pos))
+                {
+                    i--;
+                    continue;
+                }
 
             savePos.Add(pos);
-            g[i].transform.localPosition = pos;
-            g[i].SetActive(true);
+            field[i].transform.localPosition = pos;
+            field[i].SetActive(true);
+        }
+        for (int i = 0; i < objCount; i++)
+        {
+            Vector2 pos = new Vector2(x: Random.Range((int)bottomLeft.x, (int)topRight.x), y: Random.Range((int)bottomLeft.y, (int)topRight.y));
+
+            if (savePos.Contains(pos))
+                if (savePos.Contains(pos))
+                {
+                    i--;
+                    continue;
+                }
+
+            savePos.Add(pos);
+            obj[i].transform.localPosition = pos;
+            obj[i].SetActive(true);
         }
     }
 
     private void ClearAll()
     {
         savePos.Clear();
-        for (int i = 0; i < spawnablesCount; i++)
-            g[i].SetActive(false);
+        for (int i = 0; i < fieldCount; i++)
+            field[i].SetActive(false);
+        for (int i = 0; i < objCount; i++)
+            obj[i].SetActive(false);
     }
 }

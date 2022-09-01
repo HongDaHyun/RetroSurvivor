@@ -8,13 +8,14 @@ public class ItemDatabase : MonoBehaviour
     public CSVReader csvReader;
     public List<Equipment> equipmentDB = new List<Equipment>();
     public List<BoxDB> boxDB = new List<BoxDB>();
+    public List<MoneyDB> moneyDB = new List<MoneyDB>();
 
     private void Awake()
     {
         database = this;
     }
 
-    [ContextMenu("CSV리더에서 아이템 가져오기")]
+    [ContextMenu("CSV리더에서 장비 가져오기")]
     public void CSVinput()
     {
         for (int i = 0; i < csvReader.weaponList.weapon.Length; i++)

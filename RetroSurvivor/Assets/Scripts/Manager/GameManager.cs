@@ -8,19 +8,18 @@ public class GameManager : MonoBehaviour
     public ObjectManager objectManager;
 
     public Player player;
-    public GameObject[] npcPrefab;
-    GameObject[] npcs;
+
+    public int money;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        GenerateNPC();
     }
 
     private void Start()
     {
         StartCoroutine(EnemySpawn("RedSlime", 4f, 5, 10));
-        StartCoroutine(NPCSpawn(20f, 5, 20));
+        StartCoroutine(NPCSpawn(20f, 3, 20));
     }
 
     IEnumerator EnemySpawn(string name, float time, int maxSpawn, int radius)
@@ -39,18 +38,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GenerateNPC()
-    {
-        npcs = new GameObject[npcPrefab.Length];
-
-        for(int i = 0; i < npcPrefab.Length; i++)
-        {
-            GameObject entity = Instantiate(npcPrefab[i]);
-            entity.SetActive(false);
-            npcs[i] = entity;
-        }
-    }
-
     IEnumerator NPCSpawn(float time, int maxSpawn, int radius)
     {
         while(true)
@@ -58,13 +45,13 @@ public class GameManager : MonoBehaviour
             int npcCount = (int)GameObject.FindGameObjectsWithTag("NPC").Length;
             if(npcCount < maxSpawn)
             {
-                int rand = Random.Range(0, npcs.Length);
-                if (npcs[rand].activeSelf)
+                int rand = Random.Range(0, objectManager.npcs.Length);
+                if (objectManager.npcs[rand].activeSelf)
                     yield return null;
                 else
                 {
-                    npcs[rand].SetActive(true);
-                    npcs[rand].transform.position = GetRandomPos(radius);
+                    objectManager.npcs[rand].SetActive(true);
+                    objectManager.npcs[rand].transform.position = GetRandomPos(radius);
                     yield return new WaitForSeconds(time);
                 }
             }
